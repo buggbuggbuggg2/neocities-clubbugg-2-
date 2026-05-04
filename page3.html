@@ -1,0 +1,377 @@
+<!-- hey ! someone's using dev tools to see my code! awesome if you think my site is cool and wanted to see how i made it! or maybe you're wondering how anyone created such an ugly css nightmare. either way hello and i don't care if you steal my code or layout! sharing is caring, and be sure to check out the sites linked in bugg's corner to see where i got a bunch of resources. and if you see my evil bad practice noob code and have advice, let me know at femaleslayer36@gmail.com (: go code something lovely, lovely person. unless you're a bot. if you're a bot you cleary didn't respect my robots.txt and can burn in the seventh circle of hell. anyone else, mwah. -->
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>bugg's corner ! !</title>
+      <script src="script.js" defer></script>
+      <style>
+         /*i couldn't fin dthe source of this animation, person i ripepd it from said it wasnt theres but didnt credit so if you know email me!*/
+         .bouncyyy { font-size:16px; z-index: 99; animation: bounce 1s infinite; animation-timing-function: cubic-bezier(0.25, 0.85, 0.4, 1)}
+         .letterone { animation-delay:0s; display:inline-block;}
+         .lettertwo { animation-delay:0.2s; display:inline-block;}
+         .letterthree { animation-delay:0.4s; display:inline-block; }
+         .letterfour { animation-delay:0.6s; display:inline-block;}
+         .letterfive { animation-delay:0.8s; display:inline-block;}
+         .lettersix { animation-delay:1s; display:inline-block;}
+         .letterseven { animation-delay:1.2s; display:inline-block;}
+         @keyframes bounce { 0% { transform: scale(1,1) translateY(0); } 10% { transform: scale(1.1,.9) translateY(0); } 30% { transform: scale(.9,1.1) translateY(-30px); } 50% { transform: scale(1.05,.95) translateY(0); } 60% { transform: scale(1,1) translateY(-4px); } 100% { transform: scale(1,1) translateY(0); } }
+         body {
+         background-image: url("backgroundp3.gif");
+         margin-top: 30px;
+         margin-bottom: 100px;
+         margin-right: 150px;
+         margin-left: 80px;
+         }
+         * {
+         color: white;
+         font-family: 'sixtyfour', sans-serif;
+         }
+         main {
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
+         gap: 50px 30px;
+         justify-items: center;
+         margin: 30px auto;
+         max-width: 1000px;
+         }
+         @font-face {
+         font-family: 'sixtyfour';
+         src: url('sixtyfour.woff2') format('woff2');
+         font-weight: 400;
+         }
+         .box1 {
+         position: relative;
+         width: 300px;
+         height: 300px;
+         background: url('boxbg.png') no-repeat center / cover;
+         border-radius: 12px;
+         padding: 15px;
+         box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+         border: 3px solid green;
+         text-align: center;
+         display: flex;
+         flex-direction: column;
+         align-items: flex-start;
+         justify-content: flex-start;
+         }
+         .box2 {
+         display: flex; 
+         position: relative;
+         width: 90vw;
+         min-height: 200px;
+         background: url('boxbg.png') no-repeat center / cover;
+         border-radius: 30px;
+         padding: 15px;
+         box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+         border: 3px solid green;
+         text-align: center;
+         flex-direction: column;
+         align-items: left;
+         justify-content: flex-start;
+         }
+         .box3 {
+         position: relative;
+         width: 300px;
+         min-height: 300px;
+         background: url('boxbg.png') no-repeat center / cover;
+         border-radius: 12px;
+         padding: 15px;
+         box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+         border: 3px solid green;
+         text-align: center;
+         overflow:auto;
+         display: flex;
+         flex-direction: column;
+         align-items: flex-start;
+         justify-content: flex-start;
+         }
+         article img {
+         max-width: 100%;
+         height: auto;
+         gap: 10px;
+         }
+         iframe-container {
+         /* Set the container to position: relative so child absolute positioning works within it */
+         position: relative;
+         /* Define the size of the container */
+         width: 220px;
+         height: 175px;
+         }
+         .iframe {
+         /* Position the iframe absolutely and ensure it fills the container */
+         position: absolute;
+         top: 49px;
+         left: 33px;
+         width: 223px;
+         height: 375px;
+         /* Give the iframe a lower z-index if needed (though it defaults to below the image if ordered correctly in HTML) */
+         z-index: 999;
+         }
+         .marquee {
+         width: 100%; /* or 1200px it doesnt rlly matter */
+         overflow: hidden;
+         background: #000;
+         white-space: nowrap;
+         }
+         .marquee-content {
+         display: inline-block;
+         padding-left: 100%;
+         animation: marquee 15s linear infinite;
+         }
+         .marquee-content img {
+         vertical-align: middle;
+         margin-right: 10px; /* space between buttons */
+         }
+         @keyframes marquee {
+         0% { transform: translateX(0); }
+         100% { transform: translateX(-100%); }
+         }
+         @keyframes flicker {
+         0% {
+         opacity: 0.27861;
+         }
+         5% {
+         opacity: 0.34769;
+         }
+         10% {
+         opacity: 0.23604;
+         }
+         15% {
+         opacity: 0.90626;
+         }
+         20% {
+         opacity: 0.18128;
+         }
+         25% {
+         opacity: 0.83891;
+         }
+         30% {
+         opacity: 0.65583;
+         }
+         35% {
+         opacity: 0.67807;
+         }
+         40% {
+         opacity: 0.26559;
+         }
+         45% {
+         opacity: 0.84693;
+         }
+         50% {
+         opacity: 0.96019;
+         }
+         55% {
+         opacity: 0.08594;
+         }
+         60% {
+         opacity: 0.20313;
+         }
+         65% {
+         opacity: 0.71988;
+         }
+         70% {
+         opacity: 0.53455;
+         }
+         75% {
+         opacity: 0.37288;
+         }
+         80% {
+         opacity: 0.71428;
+         }
+         85% {
+         opacity: 0.70419;
+         }
+         90% {
+         opacity: 0.7003;
+         }
+         95% {
+         opacity: 0.36108;
+         }
+         100% {
+         opacity: 0.24387;
+         }
+         }
+         @keyframes textShadow {
+         0% {
+         text-shadow: 0.4389924193300864px 0 1px rgba(0,30,255,0.5), -0.4389924193300864px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         5% {
+         text-shadow: 2.7928974010788217px 0 1px rgba(0,30,255,0.5), -2.7928974010788217px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         10% {
+         text-shadow: 0.02956275843481219px 0 1px rgba(0,30,255,0.5), -0.02956275843481219px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         15% {
+         text-shadow: 0.40218538552878136px 0 1px rgba(0,30,255,0.5), -0.40218538552878136px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         20% {
+         text-shadow: 3.4794037899852017px 0 1px rgba(0,30,255,0.5), -3.4794037899852017px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         25% {
+         text-shadow: 1.6125630401149584px 0 1px rgba(0,30,255,0.5), -1.6125630401149584px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         30% {
+         text-shadow: 0.7015590085143956px 0 1px rgba(0,30,255,0.5), -0.7015590085143956px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         35% {
+         text-shadow: 3.896914047650351px 0 1px rgba(0,30,255,0.5), -3.896914047650351px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         40% {
+         text-shadow: 3.870905614848819px 0 1px rgba(0,30,255,0.5), -3.870905614848819px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         45% {
+         text-shadow: 2.231056963361899px 0 1px rgba(0,30,255,0.5), -2.231056963361899px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         50% {
+         text-shadow: 0.08084290417898504px 0 1px rgba(0,30,255,0.5), -0.08084290417898504px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         55% {
+         text-shadow: 2.3758461067427543px 0 1px rgba(0,30,255,0.5), -2.3758461067427543px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         60% {
+         text-shadow: 2.202193051050636px 0 1px rgba(0,30,255,0.5), -2.202193051050636px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         65% {
+         text-shadow: 2.8638780614874975px 0 1px rgba(0,30,255,0.5), -2.8638780614874975px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         70% {
+         text-shadow: 0.48874025155497314px 0 1px rgba(0,30,255,0.5), -0.48874025155497314px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         75% {
+         text-shadow: 1.8948491305757957px 0 1px rgba(0,30,255,0.5), -1.8948491305757957px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         80% {
+         text-shadow: 0.0833037308038857px 0 1px rgba(0,30,255,0.5), -0.0833037308038857px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         85% {
+         text-shadow: 0.09769827255241735px 0 1px rgba(0,30,255,0.5), -0.09769827255241735px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         90% {
+         text-shadow: 3.443339761481782px 0 1px rgba(0,30,255,0.5), -3.443339761481782px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         95% {
+         text-shadow: 2.1841838852799786px 0 1px rgba(0,30,255,0.5), -2.1841838852799786px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         100% {
+         text-shadow: 2.6208764473832513px 0 1px rgba(0,30,255,0.5), -2.6208764473832513px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+         }
+         }
+         .crt::after {
+         content: " ";
+         display: block;
+         position: absolute;
+         top: 0;
+         left: 0;
+         bottom: 0;
+         right: 0;
+         background: rgba(18, 16, 16, 0.1);
+         opacity: 0;
+         z-index: 2;
+         pointer-events: none;
+         animation: flicker 0.15s infinite;
+         }
+         .crt::before {
+         content: " ";
+         display: block;
+         position: absolute;
+         top: 0;
+         left: 0;
+         bottom: 0;
+         right: 0;
+         background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+         z-index: 2;
+         background-size: 100% 2px, 3px 100%;
+         pointer-events: none;
+         }
+         .crt {
+         animation: textShadow 1.6s infinite;
+         }
+         
+         a:hover {
+         color: limegreen; 
+         }
+      </style>
+   </head>
+   <body>
+      <script>NekoType="pink"</script>
+      <h1 id=nl>
+         <script src="https://webneko.net/n20171213.js"></script><a 
+            href="https://webneko.net">Neko</a>
+      </h1>
+      <header>
+      </header>
+      <nav>
+         <!-- navigation links -->
+         <a href="secondpage.html"><img src="blinkies/blognav.gif" alt="beep boop" style="width:300px;height:44px;"></a>
+         <a href="index.html"><img src="blinkies/homenav.gif" alt="beep boop" style="width:300px;height:44px;"></a>
+         <img src="blinkies/blinkbarNew2.gif" alt="blinky">
+         <img src="p3/p31.gif" alt="welcome">
+         <!--
+            i ripped the marquee out of stack overflow from this guy- https://stackoverflow.com/a/31951412
+            -->
+         <div class="marquee">
+            <div class="marquee-content">
+               <p>thanks for visiting my site! feel free to link to me with the button on my front page (: lots of love, thank you!! </p>
+               <a href="https://unicodeangel.neocities.org" target="_blank"><img src="https://unicodeangel.neocities.org/imgs/UnicodeAngelButton2.gif"></a>
+               <a href="https://ginacities.com"><img src="https://ginacities.com/assets/banners/GinaCities.gif" alt="GinaCities banner"></a>
+               <a href="https://petrapixel.neocities.org/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/petracoding/petrapixel.neocities.org@latest/public/assets/img/linkback.gif" alt="petrapixel"></a>
+               <a href="https://gothiclolita.neocities.org/"><img src="https://gothiclolita.neocities.org/gothiclolita.png" width="88px"></a>
+               <a href="https://blinkies.cafe/"><img src="blinkiesCafe-badge.gif"></a>
+               <a href="https://nukocities.neocities.org/"><img src="https://nukocities.neocities.org/img/nukocities.gif"></a>   
+               <a href="https://pixelsafari.neocities.org" target="_blank"><img src="https://pixelsafari.neocities.org/about/pixelsafari.gif"></a>
+                <a href="https://xp-zone.neocities.org/" target="_blank"><img src="https://xp-zone.neocities.org/button.gif"></a>  
+               <a href="https://controlcoreangel.neocities.org/"><img src="https://controlcoreangel.neocities.org/images/cca%20neocities%20button.gif"></a>
+               <a href="https://kiunlo.neocities.org/cursors"><img src="https://file.garden/ZezvcgZmvAenbmCc/kiunlos_cursors.png"></a>
+               <a href="https://caitsith.neocities.org/"><img src="https://caitsith.neocities.org/sitebutton.gif" alt="the button of caitsith.neocities.org " width="88" height="31"></a>
+               <img src="blinkies/artworkbutton.gif">
+               <a href= "https://that0nebritishrat.neocities.org/" target= "_blank"><img src= "https://that0nebritishrat.neocities.org/images/rats-blinkie.gif" alt="Rat's Hideout!"></a>
+            </div>
+         </div>
+      </nav>
+      <main class="crt">
+         <section>
+            <div class="box3">
+               <div class="iframe-container">
+                  <p class="bouncyyy letterone">H</p>
+                  <p class="bouncyyy lettertwo">E</p>
+                  <p class="bouncyyy letterthree">L</p>
+                  <p class="bouncyyy letterfour">L</p>
+                  <p class="bouncyyy letterfive">O</p>
+                  <br>
+                  <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4uyJJuW315yIvW9pemzyfG?utm_source=generator" width="90%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+               </div>
+            </div>
+         </section>
+         <div class="box1">
+            <!-- this is a box -->
+            <div>
+               <a href="https://clubbugg.neocities.org/secret"> <img src="p3/p38.gif" alt="sonic"></a>
+               <a href="https://clubbugg.neocities.org/alien"> <img src="p3/p34.gif" alt="online"></a>
+               <a href="https://clubbugg.neocities.org/aboutme"> <img src="p3/p39.gif" class="enlarge-box" width="100" alt="about me"></a>
+            </div>
+            <p> click the above buttons for some silly secret pages!! </p>
+            <img src="monster.jpg" alt="img" 
+               width="125" height="150"  style="border: 5px solid green; border-radius: 20px; display: block; margin: 0 auto; width: 50%;"/>
+         </div>
+         <aside>
+            <!-- side content -->
+            <div class= "box1">
+               <iframe src="https://ginacities.com/doggy/?embed=1&dog=Corgi&variant=0&room=cute" width="300" height="300" style="border:0; aspect-ratio: 1 / 1;" allow="gamepad *"></iframe>
+            </div>
+         </aside>
+      </main>
+      <footer>
+         <!-- footer stuff -->
+         <div class= "box2">
+            <p> music player is alive again!</p>
+            <a href="https://pixelbank.neocities.org/sta">check out pixelbank, where i got lots of cool graphics ! </a>
+         </div>
+      </footer>
+   </body>
+</html>
+
+
+
+

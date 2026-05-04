@@ -1,0 +1,92 @@
+<!--this is my digital fortune cookie. i honestly dgaf if you steal the code and use it for your own site, because it's my first ever script and honestly comepletely SUCKS, but consider using the custom button on my homepage to link back to me! do let me know if you add a fortune cookie to your site though so i can maybe add a button section to link to other people's cookies! yay!-->
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="pixels/pix1.gif" rel="icon" type="image/x-icon" />
+      <title>fortune cookie</title>
+      <!-- Google Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+      <style>
+         body {
+         cursor: url('cursor.png'), auto;
+         font-family: 'Pixelify Sans', sans-serif;
+         background: url('fortunetile.gif') repeat, center/cover;
+         margin: 10px;
+         padding: 20px;
+         display: flex;
+         justify-content: center;
+         align-items: flex-start; /* DO NOT TOUCH EVER OR UR SITE WILL NUKEEEEEEEEEEEEEE*/
+         }
+         .main-box {
+         position: sticky;
+         top: 0;
+         z-index: 1000; /*on top of other content */
+         padding: 10px;
+         background: url('linen.jpeg');
+         color: #414244;
+         overflow: auto;
+         }
+         div {
+         width:800px;
+         height: 450px;
+         align-items: flex-start;
+         justify-content: center;
+         text-align: center;
+         }
+         .clicky-gif {
+         /*no filter, base state */
+         filter: drop-shadow(0 0 0 transparent);
+         transition: filter 0.3s ease-in-out;
+         }
+         .clicky-gif:hover {
+         /*glows! wowowowowow!!! */
+         filter: drop-shadow(0 0 20px palevioletred) drop-shadow(0 0 25px rgba(255, 255, 255, 0.6));
+         }
+         .sticker1 {
+         position: absolute;
+         top: 20px;  
+         left: 20px; 
+         z-index: 1000;
+         }
+         .sticker2 {
+         position: absolute;
+         top: 300px; 
+         left: 20px;
+         z-index: 1000; 
+         }
+         .sticker3 {
+         position: absolute;
+         top: 300px; 
+         right: 20px; 
+         z-index: 1000; 
+         }
+         .sticker4 {
+         position: absolute;
+         top: 20px; 
+         right: 20px; 
+         z-index: 1000; 
+         }
+      </style>
+   </head>
+   <body>
+      <img src="fortunestuff/danglefortune1.gif" class="sticker1" alt="dangle gif">
+      <img src="fortunestuff/danglefortune2.gif" class="sticker2" alt="dangle gif">
+      <img src="fortunestuff/danglefortune3.gif" class="sticker3" alt="dangle gif">
+      <img src="fortunestuff/danglefortune4.gif" class="sticker4" alt="dangle gif">
+      <div>
+         <p>fortune cookie!</p>
+         <div class="borderimg">
+            <div class="main-box">
+               <img src="website images/border1.gif" alt="blinky">
+               <img id="imageToggle" class="clicky-gif" src="closed-cookie.png" height="300" width="450" alt="cookie" style="cursor: pointer;">
+               <script src="script.js"></script>
+               <p> this is my JS fortune cookie! click it for a message, then click to reset it! because it is a true random, so might get the same messages a few times. i add new fortunes from time to time so be sure to check back every now and then!</p>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

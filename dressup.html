@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dress up bugg!</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Flavors&display=swap" rel="stylesheet">
+    <script src="/interact.min.js"></script>
+    <style>
+    .flavors-regular {
+  font-family: "Flavors", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+    
+    :root {
+        /* yay bugg colors!*/
+        --bugg-black: #210203;
+        --bugg-white: #F2F5EA;
+        --bugg-grey: #D6DBD2;
+        --insect-white: #F4ECD6;
+        --insect-poo: #524632;
+        --dressup1blue: #bdc9de;
+        --dressup2blue: #313947;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    /*layout*/
+    .content-wrapper {
+        background-image: url('dressup/dressupbg1.gif');
+        color: var(--bugg-black);
+        min-height: 100vh;
+        width: 100%;
+        padding: 20px;
+        transition: all 0.3s ease;
+    }
+    .wrapper {
+        max-width: 940px;
+        margin: 20px auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+    }
+    .wrapper > div {
+        border: 2px solid var(--bugg-black);
+        border-radius: 5px;
+        background-color: #cde8fb;
+        padding: 1em;
+        color: var(--bugg-black);
+        transition: all 0.3s ease;
+    }
+    /* what the toggle doin */
+    #theme-toggle { display: none; }
+    label {
+        cursor: pointer;
+        padding: 8px 15px;
+        background: var(--bugg-white);
+        border: 1px solid var(--bugg-black);
+        border-radius: 5px;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+    /* insect themes */
+    #theme-toggle:checked ~ .content-wrapper {
+        background-image: url('dressup/dressupbg2.gif');
+        color: var(--insect-poo);
+    }
+    #theme-toggle:checked ~ .content-wrapper .wrapper > div {
+        background: var(--insect-white);
+        border-color: var(--bugg-black);
+        color: var(--insect-poo);
+    }
+    #theme-toggle:checked ~ .content-wrapper label {
+        background: var(--insect-white);
+        color: var(--insect-poo);
+    }
+    /* grid grid grid, hit the griddy. oh yeah. */
+    .three1 {
+        position: relative;
+        grid-column: 1 / 5;
+        grid-row: 1 / 5;
+        background: var(--dressup2blue);
+        min-height: 600px;
+        max-height: auto;
+    }
+    .personholder {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        height: 100%;
+        padding-bottom: 30px;
+    }
+    .person {
+        height: 420px;
+        width: auto;
+        z-index: 1000;
+        pointer-events: none;
+    }
+    .draggable {
+        position: absolute;
+        touch-action: none;
+        user-select: none;
+        cursor: grab;
+        
+    }
+    .draggable:active { cursor: grabbing; }
+    .draggable img { display: block; pointer-events: none; }
+    .shirt-1 { left: 2%;  bottom: 20px; }
+    .shirt-2 { left: 27%; bottom: 20px; }
+    .pants-1 { left: 52%; bottom: 20px; }
+    .pants-2 { left: 72%; bottom: 20px; }
+    .shirt { height: 140px; width: auto; z-index:1100}
+    .pants { height: 160px; width: auto; }
+    
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    h1 {
+      font-family: "Flavors";
+      color: var(--bugg-black);
+      
+    }
+    </style>
+  </head>
+  <body>
+    <input type="checkbox" id="theme-toggle">
+
+    <div class="content-wrapper">
+        <label for="theme-toggle">theme change!</label>
+
+        <div class="wrapper">
+            <div class="three1">
+              <div class="header">
+                 <h1>Dress Up Bugg!</h1>
+              </div>
+               
+                <div class="draggable pants-1">
+                    <img src="dressup/pants1.png" class="pants">
+                </div>
+
+                <div class="draggable pants-2">
+                    <img src="dressup/pants2.png" class="pants">
+                </div>
+                
+                <div class="personholder">
+                    <img src="dressup/bugg.png" class="person">
+                </div>
+
+                <div class="draggable shirt-1">
+                    <img src="dressup/shirt1.png" class="shirt">
+                </div>
+
+                <div class="draggable shirt-2">
+                    <img src="dressup/shirt2.png" class="shirt">
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+    interact('.draggable').draggable({
+        listeners: {
+            start(event) {
+                event.target.style.zIndex = 2000;
+            },
+            move(event) {
+                const x = (parseFloat(event.target.dataset.x) || 0) + event.dx;
+                const y = (parseFloat(event.target.dataset.y) || 0) + event.dy;
+                event.target.style.transform = `translate(${x}px, ${y}px)`;
+                event.target.dataset.x = x;
+                event.target.dataset.y = y;
+            },
+            end(event) {
+                event.target.style.zIndex = 1050;
+            }
+        }
+    });
+    </script>
+  </body>
+</html>

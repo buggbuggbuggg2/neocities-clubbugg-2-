@@ -1,0 +1,484 @@
+<!-- hey ! someone's using dev tools to see my code! awesome if you think my site is cool and wanted to see how i made it! or maybe you're wondering how anyone created such an ugly css nightmare. either way hello and i don't care if you steal my code or layout! sharing is caring, and be sure to check out the sites linked in bugg's corner to see where i got a bunch of resources. and if you see my evil bad practice noob code and have advice, let me know at femaleslayer36@gmail.com (: go code something lovely, lovely person. unless you're a bot. if you're a bot you cleary didn't respect my robots.txt and can burn in the seventh circle of hell. anyone else, mwah. -->
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <!--favicon-->
+      <link href="pixels/pix1.gif" rel="icon" type="image/x-icon" />
+      <title>Club Bugg</title>
+      <!-- Google Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+      <style>
+         body {
+         cursor: url('feathercursor.png'), auto;
+         font-family: 'Pixelify Sans', sans-serif;
+         background: url('screen.png') no-repeat center/cover;
+         margin: 0;
+         padding: 0;
+         }
+         selector {
+         cursor: url('feathercursor.png'), auto;
+         }
+         h1, h2, h3 { text-align: center; }
+         /*stickers */
+         .pre-box-content {
+         background: url('crinkle.jpg') no-repeat center/cover;
+         padding: 40px 20px;
+         text-align: center;
+         color: black;
+         position: relative;
+         }
+         .pre-box-content .sticker {
+         position: absolute;
+         width: 100px;
+         }
+         .top-left { top: 10px; left: 10px; }
+         .top-right { top: 10px; right: 10px; }
+         .bottom-left { bottom: -10px; left: 10px; }
+         .bottom-right { bottom: 10px; right: 10px; }
+        
+         .box-container {
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
+         row-gap: 50px;   
+         column-gap: 30px;
+         justify-content: center;
+         margin: 30px auto;
+         max-width: 1000px;
+         }
+         
+         .lace-wrapper {
+         position: relative;
+         width: 300px;
+         height: 300px;
+         }
+         .lace-wrapper::before {
+         content: "";
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         width: 500px;  
+         height: 500px;
+         background: url('laceborder.png') no-repeat center/contain;
+         transform: translate(-50%, -50%);
+         z-index: 0;
+         }
+         .box {
+         position: relative;
+         width: 300px;
+         height: 300px;
+         background: url('paperback.jpeg') no-repeat center/cover;
+         border-radius: 12px;
+         padding: 15px;
+         overflow: auto;
+         text-align: center;
+         z-index: 1;
+         color: black;
+         }
+         .box img {
+         width: 100%;
+         border-radius: 8px;
+         }
+         .shadowbox {
+         width: 15em;
+         border: 4px dashed #8a2be2;
+         box-shadow: 0px 10px 20px rgba(70, 130, 180, 0.7);
+         padding: 12px;
+         background-image: linear-gradient(180deg, #C8A2C8, #ffffff);
+         margin: 30px auto;
+         }
+         .box ul {
+         width: 25px;
+         height: 50px;
+         list-style: none;
+         max-width: 200px;
+         padding: 0;
+         margin: 0;
+         }
+         .box li:first-child { font-weight: bold; margin-bottom: 8px; }
+         .box li { margin-bottom: 6px; }
+         /* scrollbars!!*/
+         ::-webkit-scrollbar {
+         width: 15px;
+         height: 15px;
+         
+         }
+         /* track color*/
+         ::-webkit-scrollbar-track {
+         background: #FFE9AB;
+         border-radius: 10px;
+         }
+         /*scrolly color*/
+         ::-webkit-scrollbar-thumb {
+         background: #FFF3CF;
+         border-radius: 10px;
+         border: 2px solid transparent;
+         }
+         ::-webkit-scrollbar-thumb:hover {
+         background: #FFFA9E;
+         background-image: url('snakeskinimg.JPG'); 
+         background-size: cover;
+         }
+         .topnav {
+         align-items:center;
+         background-color: lemonchiffon;
+         border-radius: 12px;
+         overflow: hidden;
+         }
+         .topnav a {
+         float: left;
+         color: #171212;
+         text-align: center;
+         padding: 14px 16px;
+         text-decoration: none;
+         font-size: 17px;
+         border-radius: 12px;
+         }
+         .topnav a:hover {
+         background-color: lightcyan;
+         color: black;
+         }
+         .topnav a.active {
+         background-color: #CCF5FF;
+         color: black;
+         }
+        
+         .topnav a:visited {
+           color: black;
+         }
+         enlarge-box {
+         /* box dimensions */
+         width: 175px;
+         height: 175px;
+         background-color: transparent;
+         margin: 100px auto; /* please dont touch*/
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         color: white;
+         font-size:2em;
+         font-weight: bold;
+         /* slow down 2 make visible*/
+         transition: transform 0.3s ease-in-out; 
+         }
+         .enlarge-box:hover {
+         /* get big on hover, filter too to make it glow */
+         transform: scale(1.2); /*20% larger */
+         filter: drop-shadow(0 0 10px white) drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
+         }
+         .box:hover {
+        filter: drop-shadow(0 0 20px rgba(245, 40, 145, 0.14));
+           box-shadow: 10px 6px 15px rgba(245, 40, 145, 0.14);
+         }
+         mark {
+         background-color: DarkSeaGreen;
+         color: black;
+         }
+         a {
+           color: plum;
+         }
+         
+         a:hover {
+           color: orchid;
+         }
+         
+         a:visited {
+           color: green;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="pre-box-content">
+         <img src="apple.png" class="sticker top-left">
+         <img src="redflower.png" class="sticker top-right">
+         <img src="domino.png" class="sticker bottom-left">
+         <img src="isopod.png" class="sticker bottom-right">
+         <img src="cdbugg.png" height="150px">
+         <div>
+            <a href="https://imgur.com/gallery/happy-cat-BY3hDLK">klick me!</a>
+         </div>
+         <img src="maxblinky.gif" alt="shoutout to my vro"  style="width:300px;height:44px;">
+         <div class="w3-container">
+            <img src="website images/supablink3.gif" class="enlarge-box" alt="beep boop" style="width:300px;height:44px;">
+         </div>
+         <div class="topnav">
+            
+            <a href="https://neocities.org/site/clubbugg#" class="enlarge-box">neocities acc</a>
+            <a href= "https://clubbugg.neocities.org/secondpage" class="enlarge-box">blog</a>
+            <!--<a href="https://clubbugg.neocities.org/page3" class="enlarge-box">bugg's corner</a>-->
+            <a href="https://clubbugg.neocities.org/fortunecookie" class="enlarge-box">fortune cookie</a>
+            <a href="https://clubbugg.neocities.org/tictactoe" class="enlarge-box">play tic tac toe</a>
+            <a href="https://clubbugg.neocities.org/aboutme" class="enlarge-box"> about me</a>
+            <a href="https://clubbugg.neocities.org/secret" class="enlarge-box">shrine</a>
+            <a href="https://clubbugg.neocities.org/write" class="enlarge-box">poems</a>
+            <a href="https://cash.app/$buggbuggbuggg" class="enlarge-box">give bugg a dollar</a>
+            <a href="https://www.imood.com/users/BuggS8263">my mood...</a>
+            <a href="https://buggs8263.atabook.org/" class="enlarge-box">guestbook</a>
+            <a href="https://clubbugg.neocities.org/dressup" class="enlarge-box">dress up</a>
+         </div>
+         <img src="blinkies/smileydivider.gif" alt="smiley ">
+      </div>
+      <!--top left-->
+      <div class="box-container">
+         <div class="lace-wrapper">
+            <div class="box">
+               <img src="website images/macmade.gif" alt="blah blah yap yap">
+               <h3>subscribe to my friend's yt channel</h3>
+              <p>one of my close friends posts skating videos n here. i help out w the art and occasionally some recording so it would mean a lot if you showed some support to the channel :D </p>
+              <a href="https://www.youtube.com/@Skaterboy_Owen">subscribe </a>
+              <br>
+              <a href="https://discord.gg/3SRCg6nRv">also join our discord server</a>
+            </div>
+         </div>
+         <!--top mid-->
+         <div class="lace-wrapper">
+            <div class="box">
+               <div class="content">
+              <img src="button.gif">
+              <textarea style="width: calc(100% - 8px);" readonly="">&lt;a href="https://clubbugg.neocities.org/"&gt;&lt;img src="https://clubbugg.neocities.org/button.gif"&gt;&lt;/a&gt;</textarea>
+              <h3>link to me! lmk if you linked to me and ill link you back unless you're evil...</h3>
+            </div>
+            </div>
+         </div>
+         <!--top right-->
+         <div class="lace-wrapper">
+            <div class="box">
+               <img src="blinkies/blinky8.gif" alt="ahhhh didnt load srry. mwah a kissy in exchange. love u.">
+               <h3>i gotta come up with better titles</h3>
+               <p>club bugg is my project for learning html/css, maintaining my mini blog, and socializing with my lovely friends. ive had no problems so far, but please be kind, especially in the blog page's chat ! everyone is welcome here (: </p>
+               <pre> 
+╱|、
+  (˚ˎ 。7  
+          |、˜〵          
+   じしˍ,)ノ
+ </pre>
+            </div>
+         </div>
+         <!--mid left-->
+         <div class="lace-wrapper">
+            <div class="box">
+               <img src="website images/buttontime1.jpg" alt="button graphic">
+               <img src="website images/buttontime2.png" alt="button graphic">
+               <img src="website images/buttontime3.jpg" alt="button graphic">
+            </div>
+         </div>
+         <!--mid mid-->
+         <div class="lace-wrapper">
+            <div class="box">
+               <img src="blinkies/blinky3.gif" alt="blah blah yap yap">
+               <img src="blinkies/dangle.gif" alt="sad cloud">
+               <img src="blinkies/blinky4.gif" alt="i hate ai">
+            </div>
+         </div>
+         <!--mid right-->
+         <div class="lace-wrapper">
+            <div class="box">
+               <img src="website images/supablink1.gif" alt="button graphic">
+               <p>club bugg is a work in progress project that im using to learn html! expect semi frequent updates.</p>
+               <h3>My current to do list:</h3>
+               <ol>
+                  <li>add graphics to alien page</li>
+                  <li>start shark collection page</li>
+                  <li>make a recipe page</li>
+                  <li>fix aquarium script</li>
+                  <li>upload clothing/character assets to dress up page</li>
+                  <li>kill and redo the poem library</li>
+                  <li>find a purpose for the theme switcher page</li>
+                  <li>redesign homepage</li>
+                  <li>add a contact page!</li>
+               </ol>
+               <img src="blinkies/replacebutton3.png" alt="yuri">
+            </div>
+         </div>
+         <!--bottom left-->
+         <div class="lace-wrapper">
+            <div class="box">
+               <pre>
+   update log: 
+   
+4/28/26<mark>1.2.0</mark> blog page 
+redesigned. crt filter scrapped. 
+it made the page too dark and started
+to hurt my head. still drawing the 
+assets for dress up.
+   
+   
+4/20/26-<mark>1.1.9</mark> dress up 
+mockup version complete, not posted.
+im in the process of illustrating 
+the assets. aquarium project still 
+nuked because the html canvas api 
+hates me. tic tac toe completed. 
+links will maybe hopefully fixed 
+by next week??? suffering through 
+the horrors of javascript. thank you
+for your attention to this matter. 
+   
+   
+3/27/26-<mark>1.1.8</mark> tic tac toe
+added! blog icons updated, old entries 
+archived. aquarium nuked for now. 
+poem page reformatted, links broken for
+now, will be fixed in the next update. 
+learned the hard way neocities hates 
+backend. therefore i cannot execute my 
+idea of weekly polls. views are up,
+will to live is down. thank you for
+your attention to this matter. 
+   
+3/3/26-<mark>1.0.8</mark> aquarium script in
+progress. poems are now collapsible.
+   
+3/2/26-<mark>1.0.7</mark>poem library has
+been linked. shrine as well. 
+   
+2/27/26-<mark>1.0.6</mark> crt brightness changed on
+blog page, blog entries archived.
+logo updated, reformatted 
+all the source code for
+my sanity. next update will
+include new fortunes, maybe 
+implement some javascript 
+in the near future. poems
+library still WIP. css errors
+are being fixed, but they often
+break my site, so expect 
+some ugliness from time to time.
+   
+2/22/26- <mark>1.0.5</mark> i forgot to post update
+log for a while, sorry. 
+blog page redesigned, 
+bugg's corner has minor
+graphics updates. current
+poem library in the works. 
+text size increased 
+on blog page for 
+accessibility.
+   
+2/10/26- <mark>1.0.4~</mark> decorated about
+me page, fixed links, 
+updated favicons, added
+book marquee, added 
+text content, added graphics, 
+changed link hover state,
+on the hunt for more
+custom cursors.
+   
+ 2/9/26- <mark>1.0.3~</mark> added
+and updated the favicon.
+tweaking being done
+to unlinked bio.
+
+2/7/26- <mark>1.0.2~</mark> reformatted
+the update log. replaced center 
+box on homepage with
+new graphics. 
+ 
+ 2/6/25- <mark>1.0.1~</mark> decorated fortune
+ cookie page with dangles, 
+ reduced box liner
+ around cookie as well. 
+ preformatted the ascii cat.
+ styled the mark tag, made an 
+ update log. 
+   </pre>
+   
+   
+            </div>
+         </div>
+         <!--bottom mid-->
+         <div class="lace-wrapper">
+            <div class="box">
+               <img src="blinkies/newblinkbar4.gif" alt="smiley "> 
+               <p>be sure to let me know if something is down/not working! this site was designed for chrome, ik, sorry, evil chromium. before contacting me though please try command+shift+r,as it tends to resolve most issues ! if not though PLEASE let me know so i can get to fixing it! and ik the homepage loads slow sorry im not fixing that ): </p>
+               <img src="blinkies/newblinkbar4.gif" alt="smiley "> 
+            </div>
+         </div>
+         <!--bottom right-->
+         <div class="lace-wrapper">
+            <div class="box">
+               <img src="blinkies/stopblink.jpg" alt="stamp">
+               <h1>disclaimer</h1>
+               <p>i am fully disclosing that this is a personal/noncommerical site and is not WCAG accessible!
+                 none of my pages are seizure safe. there is no autoplay music, but there is a lot of gifs. 
+               </p>
+               <img src="blinkies/transblink.gif" alt="blinky">
+            </div>
+         </div>
+         <!--end of boxes-->
+      </div>
+      <!-- cursor trail-->
+      <script>
+         var colour="plum";
+         var sparkles=100;
+         var x=ox=400, y=oy=300, swide=800, shigh=600;
+         var tiny=[], star=[], starv=[], starx=[], stary=[], tinyx=[], tinyy=[], tinyv=[];
+         
+         window.onload=function(){
+           if(document.getElementById){
+             for(var i=0;i<sparkles;i++){
+               var t=createDiv(3,3); t.style.visibility="hidden"; t.style.zIndex="999";
+               document.body.appendChild(tiny[i]=t); starv[i]=tinyv[i]=0;
+               var s=createDiv(5,5); s.style.backgroundColor="transparent"; s.style.visibility="hidden"; s.style.zIndex="999";
+               var r=createDiv(1,5), d=createDiv(5,1); s.appendChild(r); s.appendChild(d);
+               r.style.top="2px"; d.style.left="2px";
+               document.body.appendChild(star[i]=s);
+             }
+             set_width(); sparkle();
+           }
+         };
+         
+         function sparkle(){
+           if(Math.abs(x-ox)>1||Math.abs(y-oy)>1){
+             ox=x; oy=y;
+             for(var c=0;c<sparkles;c++){
+               if(!starv[c]){
+                 star[c].style.left=(starx[c]=x)+"px";
+                 star[c].style.top=(stary[c]=y)+"px";
+                 star[c].childNodes[0].style.backgroundColor=
+                 star[c].childNodes[1].style.backgroundColor=
+                 (colour=="random")?newColour():colour;
+                 star[c].style.visibility="visible";
+                 starv[c]=50;
+                 break;
+               }
+             }
+           }
+           for(var c=0;c<sparkles;c++){
+             if(starv[c])update_star(c);
+             if(tinyv[c])update_tiny(c);
+           }
+           setTimeout(sparkle,40);
+         }
+         
+         function update_star(i){
+           if(--starv[i]){
+             stary[i]+=1+Math.random()*3;
+             star[i].style.top=stary[i]+"px";
+           } else {
+             tinyv[i]=50;
+             tiny[i].style.top=stary[i]+"px";
+             tiny[i].style.left=starx[i]+"px";
+             tiny[i].style.visibility="visible";
+             star[i].style.visibility="hidden";
+           }
+         }
+         
+         function update_tiny(i){
+           if(--tinyv[i]){
+             tinyy[i]+=1+Math.random()*3;
+             tiny[i].style.top=tinyy[i]+"px";
+           } else tiny[i].style.visibility="hidden";
+         }
+         
+         document.onmousemove=function(e){ x=e.pageX; y=e.pageY; };
+         function set_width(){ swide=window.innerWidth; shigh=window.innerHeight; }
+         function createDiv(h,w){ var d=document.createElement("div"); d.style.position="absolute"; d.style.height=h+"px"; d.style.width=w+"px"; return d;}
+         function newColour(){ return "rgb(255,"+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+")"; }
+      </script>
+      </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="pixels/favi.gif" rel="icon" type="image/x-icon" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap" rel="stylesheet">
+      <title>design 101 web project!</title>
+      <!--style-->
+      <style>
+      
+         body {
+         background-image: url('design101/webbg.jpg');
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;   
+         min-height: 100vh; 
+         margin: 0;
+         overflow: hidden;
+         cursor: url('xpcursor.png') 0 0, auto;
+         }
+         
+
+
+         @font-face {
+         font-family: 'bluescreen'; 
+         src: url('bluescreen.ttf') format('truetype'); 
+         }
+         
+         @font-face {
+          font-family: 'Bitcount';
+          src: url('Bitcount.ttf') format('truetype');
+          font-weight: bold;
+         font-style: normal;
+          }
+         
+         h1, h2, h3, h4, ul, summary, details {
+         font-family: 'Bitcount', sans-serif;
+         }
+         
+         p {
+         font-family: 'Pixelify Sans', sans-serif;
+         }
+         .popup1 {
+         position: absolute; 
+         top: 5vh;           
+         left: 8vw;         
+         width: 35vw;  
+         min-width: 300px; 
+         z-index: 1001;
+         }
+         .popup2 {
+         position: absolute;
+         top: 7vh;           
+         left: 55vw; 
+         width: 30vw;
+         height: auto;
+         z-index: 1001;
+         }
+         .popup3 {
+         position: absolute; 
+         bottom: 19vh;           
+         left: 17vw;         
+         width: 35vw;  
+         min-width: 300px; 
+         z-index: 1001;
+         }
+         .popup4 {
+         position: absolute;
+         bottom: 37vh;           
+         left: 70vw; 
+         width: 30vw;
+         height: auto;
+         z-index: 1001;
+         }
+         .sticker1 {
+         position: absolute;
+         height: 15vh; 
+         width: auto;
+         top: 2%;  
+         left: 2%; 
+         z-index: 1000;
+         }
+         .sticker2 {
+         position: absolute;
+         height: 15vh;
+         width: auto;
+         bottom: 2%; 
+         left: 2%;
+         z-index: 1000; 
+         }
+         .sticker3 {
+         position: absolute;
+         height: 15vh;
+         width: auto;
+         bottom: 2%; 
+         right: 2%; 
+         z-index: 1000; 
+         }
+         /*cd*/
+         .sticker4 {
+         position: absolute;
+         height: 20vh;
+         width: auto;
+         transform: rotate(60deg);
+         top: 2%; 
+         right: 2%; 
+         z-index: 1000; 
+         }
+         summary {
+         font-family: 'bluescreen', sans-serif;
+         font-size: 1.5rem;
+         }
+         p {
+         font-family: 'bluescreen', sans-serif;
+         font-size: 1.4rem;
+         }
+         p:hover {
+         text-shadow:
+         1px 1px 2px lightblue,
+         0 0 1em aliceblue,
+         0 0 0.2em blue;
+         }
+         ul {
+         font-family: 'bluescreen', sans-serif;
+         font-size: 1.4rem;
+         }
+         ul li:hover {
+         text-shadow:
+         1px 1px 2px lightblue,
+         0 0 1em aliceblue,
+         0 0 0.2em blue;
+         text-decoration: floralwhite dotted underline;
+         }
+         .img-holder {
+         display: flex;
+         align-items: center;
+         justify-content: center
+         }
+         .icon {
+         height: 5vh;
+         width: auto;
+         padding: 1vh;
+         }
+         /*tooltips*/
+         .tooltip {
+         position: relative;
+         display: inline-block;
+         cursor: url('xpcursor.png') 0 0, auto;
+         }
+         /* Tooltip text */
+         .tooltiptext {
+         visibility: hidden;
+         width: 100px;
+         background-color: #0C2F7A;
+         font-family: 'bluescreen', sans-serif;
+         font-size: 0.8rem;
+         color: #ffffff;
+         text-align: center;
+         padding: 5px 0;
+         border-radius: 6px;
+         position: absolute;
+         z-index: 1; 
+         }
+         .tooltip:hover .tooltiptext {
+         visibility: visible;
+         }
+         .enlarge-box:hover {
+         /* get big on hover, filter too to make it glow */
+         transform: scale(1.2); /*20% larger */
+         filter: drop-shadow(0 0 10px lightblue) drop-shadow(0 0 20px rgba(0, 0, 255, 0.6));
+         }
+         /*star*/
+         .ascii1 {
+         position: absolute;
+         bottom: 10vh;           
+         left: 33vw;  
+         color: midnightblue;
+         font-size: 0.8rem;
+         z-index: 1003;
+         }
+         /*kitty*/
+         .ascii2 {
+         position: absolute;
+         bottom: 9vh;           
+         left: 77vw; 
+         color: midnightblue;
+         font-size: 0.9rem;
+         z-index: 1003;
+         }
+         /*twinkle*/
+         .ascii3 {
+         position: absolute;
+         top: 3.5vh;           
+         left: 70vw; 
+         color: midnightblue;
+         font-size: 0.6rem;
+         z-index: 1003;
+         }
+         /*this changes the summary marker!*/
+         summary {
+         list-style: none;
+         cursor: pointer;
+         padding-left: 24px;
+         position: relative;
+         }
+         summary::before {
+         content: "";
+         position: absolute;
+         left: 0;
+         top: 0.2em;
+         width: 16px;
+         height: 16px;
+         background-image: url("design101/summary.gif");
+         background-size: contain;
+         background-repeat: no-repeat;
+         transition: transform 0.2s ease;
+         }
+         summary:hover {
+         text-shadow:
+         1px 1px 2px lightblue,
+         0 0 1em aliceblue,
+         0 0 0.2em blue;
+         }
+         details[open] summary::before {
+         transform: rotate(270deg);
+         }
+         details[open] summary {
+         background-image: url('website images/bullet2.png'); 
+         }
+         /*default marker is hidden */
+         summary::-webkit-details-marker {
+         display: none;
+         }
+         /*stars! gosh the page is looking super cutie! mwah!!*/
+         .star1 {
+         position: absolute;
+         bottom: 9vh;           
+         left: 50vw; 
+         height: 20vh;
+         width: auto;
+         z-index: 1003;
+         }
+         .star2 {
+         position: absolute;
+         bottom: 26vh;           
+         left: 54vw;
+         height: 22vh;
+         width: auto;
+         z-index: 1003;
+         }
+         ::selection {
+         color: white;
+         background-color: dimgrey;
+         }
+         .logo {
+         position: absolute;
+         top: 25vh;           
+         right: 42vw; 
+         height: 250px;
+         width: auto;
+         }
+         .kitty {
+         position: absolute;
+         top:20vh;
+         right:10vw;
+         height:auto;
+         width:auto;
+         color: midnightblue;
+         font-size: 0.8rem;
+         z-index: 1003;
+         }
+         .kitty2 {
+         position: absolute;
+         top:35vh;
+         left:50vw;
+         height:auto;
+         width:auto;
+         color: midnightblue;
+         font-size: 0.8rem;
+         z-index: 1003;
+         }
+         .kitty3 {
+         position: absolute;
+         top:27vh;
+         left:25vw;
+         height:auto;
+         width:auto;
+         color: midnightblue;
+         font-size: 0.8rem;
+         z-index: 1003;
+         }
+         .tip {
+         font-family: 'bluescreen', sans-serif;
+         position: absolute;
+         top:35vh;
+         right:35vw;
+         height:auto;
+         width:8vw;
+         color: midnightblue;
+         font-size: 0.8rem;
+         }
+         .clicky-cat:hover {
+         background-image: linear-gradient(90deg,rgba(42, 89, 155, 1) 0%, rgba(0, 162, 255, 1) 50%, rgba(83, 198, 237, 1) 100%);
+         -webkit-background-clip: text;
+         background-clip: text;
+         color: transparent;
+         text-shadow: 0px 0px 8px rgba(0, 76, 255, 0.5), 0px 0px 15px rgba(10, 124, 245, 0.3), -8px 3px 15px rgba(148, 214, 255, 0.53);
+         }
+         
+         .spin-image:hover {
+  animation: spin 1s linear infinite;
+  filter: drop-shadow(0 0 10px white) drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+      </style>
+      <!--end of css, beginning of content-->
+   </head>
+   <!--first popup-->
+   <body>
+      <div class="popup1">
+         <details>
+            <summary>
+                &#9756; Click to read your message. . ݁₊ ✶. ݁ ˖ˎˊ˗
+            </summary>
+            <p>
+               hi! im bugg ! this page was made with html, css, and javascript, all hand coded by me! i've been learning html and css for about four, maybe five months now. im still not very good at javascript ): maintaining my personal site has become one of my favorite hobbies. whether or not i decide to pursue web development professionally, i enjoy messing with it in my free time. and i have lots of free time.
+            </p>
+            <br>
+            <br>
+            <br>
+         </details>
+      </div>
+      <!--second popup-->
+      <div class="popup2">
+         <h1>things i love:</h1>
+         <ul>
+            <li>vocaloid</li>
+            <li> my friends</li>
+            <li> sharks</li>
+            <li> sonic the hedgehog</li>
+            <li> my website</li>
+            <li> listening to music </li>
+            <li> foraging and documenting plants i find</li>
+         </ul>
+      </div>
+      <!--third popup-->
+      <div class="popup3">
+         <h2>favorites:</h2>
+         <ul>
+            <li>
+               food: burgers or toast
+            </li>
+            <li>
+               color: green
+            </li>
+            <li>
+               show: house md
+            </li>
+            <li>
+               movie: napoleon dynamite
+            </li>
+            <li>
+               drink: fruit punch 
+            </li>
+            <li>
+               book: the death of ivan illych 
+            </li>
+         </ul>
+      </div>
+      <div class="popup4">
+         <h2>explore</h2>
+         <h3>
+            click these icons to redirect!
+         </h3>
+         <br>
+         <div class="tooltip">
+            <span class="tooltiptext">about me</span>
+            <a href="https://clubbugg.neocities.org/aboutme"><img src="design101/e.png" class="icon enlarge-box" alt="icon"></a> 
+         </div>
+         <div class="tooltip">
+            <span class="tooltiptext">fortune cookie</span>
+            <a href="https://clubbugg.neocities.org/newfort"><img src="design101/e1.png" class="icon enlarge-box" alt="icon"></a>
+         </div>
+         <div class="tooltip">
+            <span class="tooltiptext">tic tac toe</span>
+            <a href="https://clubbugg.neocities.org/tictactoe"><img src="design101/e2.png" class="icon enlarge-box" alt="icon"></a>
+         </div>
+      </div>
+      <img src="design101/star1.png" class="star1" alt="star graphics">
+      <img src="design101/star2.png" class="star2" alt="star graphics">
+      <div class="ascii1">
+         <pre>
+  ⠀⢸⣦⡀⠀⠀⠀⠀⢀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢸⣏⠻⣶⣤⡶⢾⡿⠁⠀⢠⣄⡀⢀⣴⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⣀⣼⠷⠀⠀⠁⢀⣿⠃⠀⠀⢀⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠴⣾⣯⣅⣀⠀⠀⠀⠈⢻⣦⡀⠒⠻⠿⣿⡿⠿⠓⠂⠀⠀⢀⡇⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠉⢻⡇⣤⣾⣿⣷⣿⣿⣤⠀⠀⣿⠁⠀⠀⠀⢀⣴⣿⣿⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠸⣿⡿⠏⠀⢀⠀⠀⠿⣶⣤⣤⣤⣄⣀⣴⣿⡿⢻⣿⡆⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠟⠁⠀⢀⣼⠀⠀⠀⠹⣿⣟⠿⠿⠿⡿⠋⠀⠘⣿⣇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢳⣶⣶⣿⣿⣇⣀⠀⠀⠙⣿⣆⠀⠀⠀⠀⠀⠀⠛⠿⣿⣦⣤⣀⠀⠀
+⠀⠀⠀⠀⠀⠀⣹⣿⣿⣿⣿⠿⠋⠁⠀⣹⣿⠳⠀⠀⠀⠀⠀⠀⢀⣠⣽⣿⡿⠟⠃
+⠀⠀⠀⠀⠀⢰⠿⠛⠻⢿⡇⠀⠀⠀⣰⣿⠏⠀⠀⢀⠀⠀⠀⣾⣿⠟⠋⠁⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⠀⠀⣰⣿⣿⣾⣿⠿⢿⣷⣀⢀⣿⡇⠁⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⠉⠁⠀⠀⠀⠀⠙⢿⣿⣿⠇⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀
+</pre>
+      </div>
+      <div class="ascii2 clicky-cat">
+         <pre>
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⣴⠒⡄⢫⠉⢹⠀⠀⣰⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⡄⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⢰⡉⠳⡘⠦⠛⠘⠒⠃⠀⢰⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠈⠚⠁⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⣿⣿⣿⠁⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣤⣄⣀⡀⣠⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⢸⠉⠉⢰⠂
+⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⠟⠛⠙⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⡇⠀⡰⠃⠀
+⠀⠀⠀⠀⠀⠀⠀⢰⣿⣿⠃⠀⠀⢰⡆⢻⣿⣿⣿⣿⣿⡿⠛⠛⠻⣿⣿⣿⣿⠀⠀⠀⠀⢰⠁⡰⠁⠀⠀
+⠀⠀⠀⠀⣶⣦⣤⠘⣿⣿⣆⠀⠀⢿⠇⣼⣿⣿⣿⣿⠛⢸⡇⠀⠀⠙⣿⣿⣿⣇⠀⠀⠀⠈⠒⠁⠀⠀⠀
+⠀⠀⠀⠀⢀⣀⣁⠀⠻⣿⣿⣷⣦⣤⣶⣿⣿⣿⣿⣇⡀⣾⠃⠀⠀⢠⣿⣿⣿⡇⠀⡔⠒⠲⡄⠀⠀⠀⠀
+⠀⠀⠀⠘⠛⠋⠉⠀⠀⠈⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣤⣤⣴⣾⣿⣿⠟⠀⠀⠱⠤⣀⠇⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⢐⣗⠀⠀⠀⠀⠀⠀⠀
+⠀⣷⣤⡶⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢐⢗⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣴⣿⣿⣷⣤⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+  </pre>
+      </div>
+      <div class="ascii3">
+         <pre>
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⠀⠀⢸⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣼⣿⣿⣿⣧⡀⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠰⠶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡶⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣿⣿⣿⡿⠋⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⡿⠀⢰⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠇⠀⣾⣿⢹⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠈⣿⢀⣼⣿⠃⠀⢻⣿⣄⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣀⣠⣿⣿⡿⠁⠀⠀⠀⠻⣿⣶⣤⡀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠠⣴⣶⣾⣿⣿⣿⣛⠁⠀⠀⠀⠀⠀⠀⠀⢙⣻⣿⣿⣷⣶⣦⡤
+⠀⠀⠀⠀⠀⠀⠀⠈⠉⣿⡟⠿⣿⣷⣦⠀⠀⠀⠀⣀⣶⣿⡿⠟⠋⠉⠉⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⣧⠀⠀⠙⣿⣷⡄⠀⣰⣿⡟⠁⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⡄⠀⠀⠘⣿⣷⢰⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣠⣿⣿⣿⣧⠀⠀⠀⢹⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢀⣠⣼⣿⣿⣿⣿⣿⣷⣤⡀⠘⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠤⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡧⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠉⠙⠻⢿⣿⣿⣿⣿⣿⣿⠿⠛⠉⢹⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠈⢻⣿⣿⣿⡿⠃⠀⠀⠀⢸⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⠃⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⠀⠀⠀⠀⠀⠈⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+  </pre>
+      </div>
+      <div class="kitty clicky-cat">
+         <pre>
+    　
+　　　　 ／|__|\
+　　　　|  .   .|
+　 　　／`ミ__xノ
+　 　 /　　 　 |
+　　 /　 ヽ　　ﾉ
+ 　 │　　 | | |
+／￣|　　 | | |
+| (￣ヽ_ヽ)_)__)
+＼二つ
+  </pre>
+      </div>
+      <div class="kitty2 clicky-cat">
+         <pre>
+       ♡  ╱|、
+         (˚ˎ 。7  
+          |、˜〵          
+          じしˍ,)ノ
+    </pre>
+      </div>
+      <div class="kitty3 clicky-cat">
+         <pre>
+        /\_/\
+       (˶ᵔ ᵕ ᵔ˶)
+        / )🌷(\~.♡
+        
+    </pre>
+      </div>
+      <div class="tip">
+         try clicking the ascii cats throughout the page, there's a fun suprise!
+         <br>
+         &#x3C;----
+      </div>
+      <div class="logo">
+         <img src="design101/chrome.png" class="logo" alt="logo">
+      </div>
+      <img src="design101/dice.png" class="sticker1" alt="sticker graphic">
+      <img src="design101/escape.png" class="sticker2" alt="sticker graphic">
+      <a href="https://clubbugg.neocities.org"><img src="design101/escape.png" class="sticker2 enlarge-box" alt="sticker graphic"></a>
+      <img src="design101/pin.png" class="sticker3" alt="sticker graphic">
+      <img src="design101/spincd.png" class="sticker4 spin-image" alt="sticker graphic">
+      <script>
+         const messages = ["meow!", "meeeeeeoooooowwww!", "mrow...", "hi hi hello!", "yo im a cat"];
+         
+         
+         const kitties = document.querySelectorAll(".clicky-cat");
+         
+         kitties.forEach(kitty => {
+           kitty.addEventListener("click", () => {
+             const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+             alert(randomMsg);
+           });
+         });
+      </script>
+      <script>
+         window.alert("This page is meant to be viewed on a large monitor in Chrome/a Chromium based browser in fullscreen to allow for proper positioning of the elements on the page. This page is not responsive, and will not display correctly on macbook/mobile! If you absolutely must use macbook, please use fullscreen and change your zoom to 75%. Disclaimer: This page uses animated elements. It does not contain flashing lights, but it is not WCAG accessible.");
+      </script>
+   </body>
+</html>

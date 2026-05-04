@@ -1,0 +1,374 @@
+<!--hi i used a tut for this, but did the colors n stuff myself and changed the o's to actual o's. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width initial-scale=1.0">
+ <title>tic tac toe !!</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<style>
+ .silkscreen-regular {
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.silkscreen-bold {
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+      .topnav {
+        align-items: center;
+        justify-content: center;
+         background-color: transparent;
+         border-radius: 12px;
+         overflow: hidden;
+         height: 20vh;
+         width: auto;
+         font-family: "Silkscreen";
+         }
+         .topnav a {
+         float: left;
+         color: #171212;
+         text-align: center;
+         padding: 14px;
+         text-decoration: none;
+         font-size: 17px;
+         border-radius: 12px;
+         }
+         .topnav a:hover {
+         background-color: plum;
+         text-decoration: floralwhite dotted underline;
+         color: black;
+         }
+         .topnav a.active {
+         background-color: #CCF5FF;
+         color: black;
+         }
+        
+         .topnav a:visited {
+           color: black;
+         }
+         .enlarge-box {
+         /* box dimensions */
+         width: auto;
+         height: auto;
+         background-color: transparent;
+         margin: 100px auto; /* please dont touch*/
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         color: white;
+         font-weight: bold;
+         /* slow down 2 make visible*/
+         transition: transform 0.3s ease-in-out; 
+         }
+         .enlarge-box:hover {
+         /* get big on hover, filter too to make it glow */
+         transform: scale(1.2); /*20% larger */
+         filter: drop-shadow(0 0 10px white) drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
+         }
+
+
+    :root {
+        --cell-size: 100px;
+        --l: 10px;
+        /* yay bugg colors!*/
+        --bugg-green: #BBC7A4;
+        --bugg-ourple: #89608E;
+        --bugg-black: #210203;
+        --bugg-white: #F2F5EA;
+        --bugg-grey: #D6DBD2;
+    }
+
+    body { 
+        margin: 0; 
+        background: url('design101/tictactoebg.gif'); 
+    }
+
+    .board {
+        width: 100vw;
+        height: 100vh;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        justify-items: center;
+        align-items: center;
+        grid-template-columns: repeat(3, auto); 
+    }
+
+    .cell {
+        width: var(--cell-size);
+        height: var(--cell-size);
+        border: 2px solid var(--bugg-black); /* Darker borders */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .cell:nth-child(1), .cell:nth-child(2), .cell:nth-child(3) { border-top: none; }
+    .cell:nth-child(1), .cell:nth-child(4), .cell:nth-child(7) { border-left: none; }
+    .cell:nth-child(3), .cell:nth-child(6), .cell:nth-child(9) { border-right: none; }
+    .cell:nth-child(7), .cell:nth-child(8), .cell:nth-child(9) { border-bottom: none; }
+
+    .cell.x, .cell.circle { cursor: not-allowed; }
+
+    /* Hover "X" - Light Green */
+    .board.x .cell:not(.circle):not(.x):hover {
+        background: 
+            linear-gradient(to top right, transparent calc(50% - var(--l) / 2), var(--bugg-green) calc(50% - var(--l) / 2), var(--bugg-green) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2)),
+            linear-gradient(to bottom right, transparent calc(50% - var(--l) / 2), var(--bugg-green) calc(50% - var(--l) / 2), var(--bugg-green) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2));
+        background-size: 70% 70%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    /* Placed "X" - Purple */
+    .cell.x {
+        background: 
+            linear-gradient(to top right, transparent calc(50% - var(--l) / 2), var(--bugg-ourple) calc(50% - var(--l) / 2), var(--bugg-ourple) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2)),
+            linear-gradient(to bottom right, transparent calc(50% - var(--l) / 2), var(--bugg-ourple) calc(50% - var(--l) / 2), var(--bugg-ourple) calc(50% + var(--l) / 2), transparent calc(50% + var(--l) / 2));
+        background-size: 70% 70%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    /* Hover "O" - Light Green */
+    .board.circle .cell:not(.circle):not(.x):hover { 
+        background: radial-gradient(circle, transparent 40%, var(--bugg-green) 45%, var(--bugg-green) 60%, transparent 65%); 
+    }
+
+    /* Placed "O" - Purple */
+    .cell.circle { 
+        background: radial-gradient(circle, transparent 40%, var(--bugg-ourple) 45%, var(--bugg-ourple) 60%, transparent 65%); 
+    }
+
+    .winning-message {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: rgba(33, 2, 3, 0.9); /* Transparent bugg-black */
+        justify-content: center;
+        align-items: center;
+        color: var(--bugg-white);
+        font-size: 5rem;
+        font-family: 'Silkscreen', Courier, monospace;
+        flex-direction: column;
+    }
+
+    .winning-message button {
+        border-radius: 10px;
+        font-size: 2rem;
+        background-color: var(--bugg-green);
+        color: var(--bugg-black);
+        border: 2px solid var(--bugg-black);
+        padding: .25em .5em;
+        cursor: pointer;
+        font-family: "Silkscreen";
+        margin-top: 20px;
+    }
+
+    .winning-message button:hover {
+        background-color: var(--bugg-ourple);
+        color: var(--bugg-white);
+    }
+
+    .winning-message.show { display: flex; }
+    
+    h1 {
+      font-family: 'Silkscreen';
+    }
+    
+    .header-div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* scrollbars!!*/
+         ::-webkit-scrollbar {
+         width: 15px;
+         height: 15px;
+         
+         }
+         /* track color*/
+         ::-webkit-scrollbar-track {
+         background: #FFE9AB;
+         border-radius: 10px;
+         }
+         /*scrolly color*/
+         ::-webkit-scrollbar-thumb {
+         background: #FFF3CF;
+         border-radius: 10px;
+         border: 2px solid transparent;
+         }
+         ::-webkit-scrollbar-thumb:hover {
+         background: #FFFA9E;
+         background-image: url('snakeskinimg.jpg'); 
+         background-size: cover;
+         }
+    
+    .border {
+      display: flex;
+      justify-self: center;
+      height: auto;
+      width:auto;
+      
+  }
+    
+     
+  .sticker1 {
+      position: absolute;
+      height: 45vh;
+      width:auto;
+      top: 40vh;
+      left: 20vh;
+      
+  }
+  
+    .sticker2 {
+      position: absolute;
+      height: 45vh;
+      width:auto;
+      top: 40vh;
+      right: 20vh;
+      
+  }
+</style>
+
+ 
+ 
+</head>
+<body>
+ <div class="topnav">
+            
+           
+            <a href="https://clubbugg.neocities.org/newfort" class="enlarge-box">fortune cookie</a>
+            <a href="https://clubbugg.neocities.org/tictactoe" class="enlarge-box">play tic tac toe</a>
+            <a href="https://clubbugg.neocities.org/aboutme" class="enlarge-box"> about me</a>
+            
+         </div>
+         
+  <div class="header-div">
+
+    <h1>bugg's tic tac toe!</h1>
+  </div>
+     <img src="tictactoe/ticbord.gif" class="border">
+
+ <div class="board" id="board">
+		<div class="cell" data-cell></div>
+		<div class="cell" data-cell></div>
+		<div class="cell" data-cell></div>
+		<div class="cell" data-cell></div>
+		<div class="cell" data-cell></div>
+		<div class="cell" data-cell></div>
+		<div class="cell" data-cell></div>
+		<div class="cell" data-cell></div>
+		<div class="cell" data-cell></div>
+	</div>
+	<img src="tictactoe/ticgraphic1.gif" class="sticker1">
+<img src="tictactoe/ticgraphic2.gif" class="sticker2">
+	 <img src="tictactoe/ticbord2.gif" class="border">
+	<div class="winning-message" id="winningMessage">
+		<div id="winningMessageText"></div>
+		<button id="restartButton">nice</button>
+	</div>
+	
+	
+
+	
+	<script>
+    const PLAYER_X_CLASS = 'x'
+    const PLAYER_O_CLASS = 'circle'
+    const WINNING_COMBINATIONS = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8],
+        [0, 3, 6], [1, 4, 7], [2, 5, 8],
+        [0, 4, 8], [2, 4, 6]
+    ]
+    const cellElements = document.querySelectorAll('[data-cell]')
+    const boardElement = document.getElementById('board')
+    const winningMessageElement = document.getElementById('winningMessage')
+    const restartButton = document.getElementById('restartButton')
+    const winningMessageTextElement = document.getElementById('winningMessageText')
+    let isPlayer_O_Turn = false
+
+    startGame()
+
+    restartButton.addEventListener('click', startGame)
+
+    function startGame() {
+        isPlayer_O_Turn = false
+        cellElements.forEach(cell => {
+            cell.classList.remove(PLAYER_X_CLASS)
+            cell.classList.remove(PLAYER_O_CLASS)
+            cell.removeEventListener('click', handleCellClick)
+            cell.addEventListener('click', handleCellClick, { once: true })
+        })
+        setBoardHoverClass()
+        winningMessageElement.classList.remove('show')
+    }
+
+    function handleCellClick(e) {
+        const cell = e.target
+        const currentClass = isPlayer_O_Turn ? PLAYER_O_CLASS : PLAYER_X_CLASS
+        placeMark(cell, currentClass)
+        if (checkWin(currentClass)) {
+            endGame(false)
+        } else if (isDraw()) {
+            endGame(true)
+        } else {
+            swapTurns()
+            setBoardHoverClass()
+        }
+    }
+
+    function endGame(draw) {
+        if (draw) {
+            winningMessageTextElement.innerText = "It's a draw!"
+        } else {
+            winningMessageTextElement.innerText = ` ${isPlayer_O_Turn ? "O" : "X"} wins!`
+        }
+        winningMessageElement.classList.add('show')
+    }
+
+    function isDraw() {
+        return [...cellElements].every(cell => {
+            return cell.classList.contains(PLAYER_X_CLASS) || cell.classList.contains(PLAYER_O_CLASS)
+        })
+    }
+
+    function placeMark(cell, currentClass) {
+        cell.classList.add(currentClass)
+    }
+
+    function swapTurns() {
+        isPlayer_O_Turn = !isPlayer_O_Turn
+    }
+
+    function setBoardHoverClass() {
+        boardElement.classList.remove(PLAYER_X_CLASS)
+        boardElement.classList.remove(PLAYER_O_CLASS)
+        if (isPlayer_O_Turn) {
+            boardElement.classList.add(PLAYER_O_CLASS)
+        } else {
+            boardElement.classList.add(PLAYER_X_CLASS)
+        }
+    }
+
+    function checkWin(currentClass) {
+        return WINNING_COMBINATIONS.some(combination => {
+            return combination.every(index => {
+                return cellElements[index].classList.contains(currentClass)
+            })
+        })
+    }
+</script>
+	
+</body>
+
+</html>

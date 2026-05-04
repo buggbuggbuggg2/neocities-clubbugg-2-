@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>about me!</title>
+      <meta content="all abt bugg!" name="description" />
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link href="pixels/pix1.gif" rel="icon" type="image/x-icon" />
+      <script>
+         // Template generated with petrapixel's layout generator.
+         // (Please do not remove this credit.)
+         console.log("%cTemplate generated with petrapixel's layout generator: https://petrapixel.neocities.org/coding/layout-generator", "font-size: 14pt; color: #922a45; background: #ffd3ef");
+      </script>
+      <style>
+         /* -------------------------------------------------------- */
+         /* VARIABLES */
+         /* -------------------------------------------------------- */
+         /* Variables are used like this: var(--text-color) */
+         :root {
+         /* Background Colors: */
+         --background-color: #c5ffd4;
+         --content-background-color: #fffbdb;
+         --sidebar-background-color: #dbffd3;
+         /* Text Colors: */
+         --text-color: #fff;
+         --sidebar-text-color: #fff;
+         --link-color: red;
+         --link-color-hover: rebeccapurple;
+         /* Text: */
+         --font: Courier New, monospace;
+         --heading-font: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'Osaka', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', 'ＭＳ ゴシック' , 'MS Gothic', 'Noto Sans CJK JP', 'TakaoPGothic', sans-serif;
+         --font-size: 19px;
+         /* Other Settings: */
+         --margin: 10px;
+         --padding: 20px;
+         --border: 2px solid #c5ffd8;
+         --round-borders: 32px;
+         --sidebar-width: 232px;
+         }
+         /* -------------------------------------------------------- */
+         /* BASICS */
+         /* -------------------------------------------------------- */
+         * {
+         box-sizing: border-box;
+         }
+         body {
+         display: flex;
+         align-items: flex-start;
+         justify-content: center;
+         min-height: 100vh;
+         font-size: var(--font-size);
+         margin: 0;
+         padding: var(--margin);
+         color: var(--text-color);
+         font-family: var(--font);
+         line-height: 1.2;
+         background-image: url("aboutmegraphics/abttile.jpg");
+         }
+         ::selection {
+         /* (Text highlighted by the user) */
+         background: rgba(0, 0, 0, 0.4);
+         }
+         mark {
+         /*higlight colors*/
+         text-shadow: 1px 1px 4px var(--link-color);
+         background-color: inherit;
+         color: var(--text-color);
+         }
+         /* Links: */
+         a {
+         text-decoration: underline;
+         }
+         a,
+         a:visited {
+         color: var(--link-color);
+         }
+         a:hover,
+         a:focus {
+         color: var(--link-color-hover);
+         text-decoration: none;
+         }
+         /* -------------------------------------------------------- */
+         /* LAYOUT */
+         /* -------------------------------------------------------- */
+         .layout {
+         width: 1000px;
+         display: grid;
+         grid-gap: var(--margin);
+         grid-template: "header header" auto "leftSidebar main" auto "footer footer" auto / var(--sidebar-width) auto;
+         /* Confused by the grid? Check out my tutorial: https://petrapixel.neocities.org/coding/positioning-tutorial#grid */
+         }
+         main {
+         grid-area: main;
+         overflow-y: auto;
+         padding: var(--padding);
+         background: var(--content-background-color);
+         border: var(--border);
+         border-radius: var(--round-borders);
+         cursor: url("aboutmegraphics/sym597.png"), auto;
+         }
+         /* -------------------------------------------------------- */
+         /* HEADER */
+         /* -------------------------------------------------------- */
+         header {
+         grid-area: header;
+         font-size: 1.2em;
+         border: var(--border);
+         border-radius: var(--round-borders);
+         background: var(--content-background-color);
+         background: url("aboutmegraphics/abttile2.jpg");
+         }
+         .header-content {
+         padding: var(--padding);
+         }
+         .header-title {
+         font-family: var(--heading-font);
+         font-size: 1.5em;
+         font-weight: bold;
+         }
+         .header-image img {
+         width: 100%;
+         height: auto;
+         }
+         /* -------------------------------------------------------- */
+         /* SIDEBARS */
+         /* -------------------------------------------------------- */
+         aside {
+         grid-area: aside;
+         border: var(--border);
+         border-radius: var(--round-borders);
+         overflow: hidden;
+         background: var(--sidebar-background-color);
+         background: url("aboutmegraphics/abttile2.jpg");
+         padding: var(--padding);
+         color: var(--sidebar-text-color);
+         }
+         .left-sidebar {
+         grid-area: leftSidebar;
+         }
+         .right-sidebar {
+         grid-area: rightSidebar;
+         }
+         .sidebar-title {
+         font-weight: bold;
+         font-size: 1.2em;
+         font-family: var(--heading-font);
+         }
+         .sidebar-section:not(:last-child) {
+         margin-bottom: 3em;
+         }
+         .sidebar-section ul,
+         .sidebar-section ol {
+         padding-left: 1.5em;
+         }
+         .sidebar-section > *:not(p):not(ul):not(ol):not(blockquote) {
+         margin-top: 10px;
+         }
+         /* Sidebar Blockquote: */
+         .sidebar-section blockquote {
+         background: rgba(0, 0, 0, 0.1);
+         padding: 15px;
+         margin: 1em 0;
+         border-radius: 10px;
+         overflow: hidden;
+         }
+         .sidebar-section blockquote > *:first-child {
+         margin-top: 0;
+         }
+         .sidebar-section blockquote > *:last-child {
+         margin-bottom: 0;
+         }
+         /* Site Button: */
+         .site-button {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         }
+         .site-button textarea {
+         font-family: monospace;
+         font-size: 0.7em;
+         }
+         /* -------------------------------------------------------- */
+         /* FOOTER */
+         /* -------------------------------------------------------- */
+         footer {
+         grid-area: footer;
+         border: var(--border);
+         border-radius: var(--round-borders);
+         overflow: hidden;
+         font-size: 0.75em;
+         padding: 15px;
+         background: var(--content-background-color);
+         background: url("aboutmegraphics/abttile2.jpg");
+         display: flex;
+         justify-content: center;
+         }
+         footer a,
+         footer a:visited {
+         color: var(--link-color);
+         }
+         footer a:hover,
+         footer a:focus {
+         color: var(--link-color-hover);
+         }
+         /* -------------------------------------------------------- */
+         /* NAVIGATION */
+         /* -------------------------------------------------------- */
+         nav {
+         margin-bottom: 3em;
+         }
+         nav .sidebar-title {
+         margin-bottom: 0.5em;
+         }
+         nav ul {
+         margin: 0 -5px;
+         padding: 0;
+         list-style: none;
+         user-select: none;
+         }
+         nav ul li {
+         margin-bottom: 0;
+         }
+         nav > ul li > a,
+         nav > ul li > strong {
+         display: inline-block;
+         }
+         nav > ul li > a,
+         nav > ul li > details summary,
+         nav > ul li > strong {
+         padding: 5px 10px;
+         }
+         nav > ul li > a.active,
+         nav > ul li > details.active summary {
+         font-weight: bold;
+         }
+         nav ul summary {
+         cursor: url("aboutmegraphics/sym597.png");
+         }
+         nav ul ul li > a {
+         padding-left: 30px;
+         }
+         /* NAVIGATION IN HEADER */
+         header nav {
+         margin-bottom: 0;
+         }
+         header nav ul {
+         display: flex;
+         flex-wrap: wrap;
+         margin: 0;
+         }
+         header nav ul li {
+         position: relative;
+         }
+         header nav ul li:first-child > a {
+         padding-left: 0;
+         }
+         header nav ul li:last-child > a {
+         padding-right: 0;
+         }
+         /* Subnavigation (Drop-Down): */
+         header nav ul ul {
+         background: var(--content-background-color);
+         display: none;
+         position: absolute;
+         top: 100%;
+         left: 10px;
+         padding: 0.5em;
+         z-index: 1;
+         border: var(--border);
+         min-width: 100%;
+         box-shadow: 0px 1px 5px rgba(0,0,0,0.2);
+         }
+         header nav ul li:hover ul,
+         header nav ul li:focus-within ul {
+         display: block;
+         }
+         header nav ul li strong {
+         color: var(--link-color);
+         text-decoration: underline;
+         font-weight: normal;
+         }
+         header nav ul ul li a {
+         display: block;
+         padding-left: 0;
+         padding-right: 0;
+         }
+         /* -------------------------------------------------------- */
+         /* CONTENT */
+         /* -------------------------------------------------------- */
+         main {
+         line-height: 1.5;
+         background: url("aboutmegraphics/abttile2.jpg");
+         }
+         main a,
+         main a:visited {
+         color: var(--link-color);
+         }
+         main a:hover,
+         main a:focus {
+         color: var(--link-color-hover);
+         text-decoration-style: wavy;
+         }
+         main p,
+         main .image,
+         main .full-width-image,
+         main .two-columns {
+         margin: 0.75em 0;
+         }
+         main ol,
+         main ul {
+         margin: 0.5em 0;
+         padding-left: 1.5em;
+         }
+         main ol li,
+         main ul li {
+         margin-bottom: 0.2em;
+         line-height: 1.3;
+         }
+         main ol {
+         padding-left: 2em;
+         }
+         main blockquote {
+         background: rgba(129, 10, 10, 0.4);
+         padding: 15px;
+         margin: 1em 0;
+         border-radius: 10px;
+         }
+         main pre {
+         margin: 1em 0 1.5em;
+         }
+         main code {
+         text-transform: none;
+         }
+         main center {
+         margin: 1em 0;
+         padding: 0 1em;
+         }
+         main hr {
+         border: 0;
+         border-top: var(--border);
+         margin: 1.5em 0;
+         }
+         /* HEADINGS: */
+         main h1,
+         main h2,
+         main h3,
+         main h4,
+         main h5,
+         main h6 {
+         font-family: var(--heading-font);
+         margin-bottom: 0;
+         line-height: 1.5;
+         }
+         main h1:first-child,
+         main h2:first-child,
+         main h3:first-child,
+         main h4:first-child,
+         main h5:first-child,
+         main h6:first-child {
+         margin-top: 0;
+         }
+         main h1 {
+         font-size: 1.5em;
+         }
+         main h2 {
+         font-size: 1.4em;
+         }
+         main h3 {
+         font-size: 1.3em;
+         }
+         main h4 {
+         font-size: 1.2em;
+         }
+         main h5 {
+         font-size: 1.1em;
+         }
+         main h6 {
+         font-size: 1em;
+         }
+         /* COLUMNS: */
+         .two-columns {
+         display: flex;
+         }
+         .two-columns > * {
+         flex: 1 1 0;
+         margin: 0;
+         }
+         .two-columns > *:first-child {
+         padding-right: 0.75em;
+         }
+         .two-columns > *:last-child {
+         padding-left: 0.75em;
+         }
+         /* -------------------------------------------------------- */
+         /* CONTENT IMAGES */
+         /* -------------------------------------------------------- */
+         .image {
+         display: block;
+         width: auto;
+         height: auto;
+         max-width: 100%;
+         }
+         .full-width-image {
+         display: block;
+         width: 100%;
+         height: auto;
+         }
+         .images {
+         display: flex;
+         width: calc(100% + 5px + 5px);
+         margin-left: -5px;
+         margin-right: -5px;
+         }
+         .images img {
+         width: 100%;
+         height: auto;
+         padding: 5px;
+         margin: 0;
+         overflow: hidden;
+         }
+         /* -------------------------------------------------------- */
+         /* ACCESSIBILITY */
+         /* -------------------------------------------------------- */
+         /* please do not remove this. */
+         #skip-to-content-link {
+         position: fixed;
+         top: 0;
+         left: 0;
+         display: inline-block;
+         padding: 0.375rem 0.75rem;
+         line-height: 1;
+         font-size: 1.25rem;
+         background-color: var(--content-background-color);
+         color: var(--text-color);
+         transform: translateY(-3rem);
+         transition: transform 0.1s ease-in;
+         z-index: 99999999999;
+         }
+         #skip-to-content-link:focus,
+         #skip-to-content-link:focus-within {
+         transform: translateY(0);
+         }
+         /* -------------------------------------------------------- */
+         /* MOBILE RESPONSIVE */
+         /* -------------------------------------------------------- */
+         /* CSS Code for devices < 800px */
+         @media (max-width: 800px) {
+         body {
+         font-size: 14px;
+         }
+         .layout {
+         width: 100%;
+         grid-template: "header" auto  "leftSidebar" auto "main" auto "footer" auto / 1fr;
+         /* Confused by the grid? Check out my tutorial: https://petrapixel.neocities.org/coding/positioning-tutorial#grid */
+         }
+         .right-sidebar { 
+         display: none;
+         }
+         aside {
+         border-bottom: 1px solid;
+         padding: 9px;
+         font-size: 0.9em;
+         }
+         nav {
+         padding: 0;
+         }
+         nav > ul {
+         padding-top: 0.5em;
+         }
+         nav > ul li > a,
+         nav > ul li > details summary,
+         nav > ul li > strong {
+         padding: 0.5em;
+         }
+         main {
+         max-height: none;
+         padding: 15px;
+         }
+         .images {
+         flex-wrap: wrap;
+         }
+         .images img {
+         width: 100%;
+         }
+         #skip-to-content-link {
+         font-size: 1rem;
+         }
+         }
+         .marquee {
+         width: 100%; /* or 1200px it doesnt rlly matter */
+         overflow: hidden;
+         background: transparent;
+         white-space: nowrap;
+         }
+         .marquee-content {
+         display: inline-block;
+         padding-left: 100%;
+         animation: marquee 15s linear infinite;
+         }
+         .marquee-content img {
+         vertical-align: middle;
+         margin-right: 20px; /* space between buttons */
+         }
+         @keyframes marquee {
+         0% { transform: translateX(0); }
+         100% { transform: translateX(-100%); }
+         }
+         /** This stuff is necessary !! **/
+         .explode > p {
+         position: absolute;
+         cursor: inherit;
+         }
+         .explode {
+         transform: translate(-10px,-20px);
+         position: absolute;
+         pointer-events: none;
+         }
+         .bugg {
+           margin-left: -40px;
+           width: 12vw;
+           height:auto;
+         }
+         
+        .unicode {
+          font-size: 32px;
+        }
+        
+        .img-holder {
+          justify-content: left;
+          padding: 10px;
+        }
+        .toast {
+          height: 75px;
+          width: auto;
+        }
+        
+        .ascii {
+          font-size: 12px;
+          justify-content: left;
+        }
+        
+        .exclaim {
+          font-size: 55px;
+          display: inline;
+        }
+        .buddies {
+          justify-content: left;
+        }
+      </style>
+   </head>
+   <body>
+      <!-- The next line is a skip-to-content link for keyboard users. Do not remove it! -->
+      <a href="#content" id="skip-to-content-link">Skip to content</a>
+      <div class="layout">
+      <!-- =============================================== -->
+      <!-- HEADER -->
+      <!-- =============================================== -->
+      <header>
+         <div class="header-content">
+            <div class="header-title">abt bugg:</div>
+            <!-- NAVIGATION -->
+            <nav>
+               <ul>
+                  <li><a href="https://clubbugg.neocities.org/design101">Go back</a></li>
+                  <!--<li><a href="secondpage.html">blog</a></li>-->
+                  <!--<li><a href="page3.html">bugg's corner</a></li>-->
+                  <li><a href="https://clubbugg.neocities.org/newfort">fortune cookie</a></li>
+                  <li><a href="https://clubbugg.neocities.org/tictactoe">tic tac toe</a></li>
+                  <!--<li><a href="blogarchive.html">archive</a></li>-->
+                  <!--<li><a href="alien.html">aliens</a></li>-->
+                  <!--<li><a href="secret.html">shrine</a></li>-->
+               </ul>
+            </nav>
+         </div>
+      </header>
+      <!-- =============================================== -->
+      <!-- LEFT SIDEBAR -->
+      <!-- =============================================== -->
+      <aside class="left-sidebar">
+         <h2> hello </h2>
+         <p>“There are decades where nothing happens; and there are weeks where decades happen.” <br>
+            ― Vladimir Ilyich Lenin
+         </p>
+         
+         <img src="design101/bugg.png" class="bugg">
+         
+         <div class="sidebar-section">
+           <p class="unicode">&#8593;&#8593;&#8593;&#8593;&#8593;&#8593;&#8593;&#8593;&#8593;</p>
+           <p> above is my self insert oc. i draw myself as an alien because people are lame!</p>
+         </div>
+         <div class="sidebar-section">
+            <div class="sidebar-title">bugg is...</div>
+            <p> - a terrible dev </p>
+            <p> - but i'm working on it!</p>
+            <p> - i love practicing css.</p>
+         </div>
+         <div class="sidebar-section">
+            <div class="sidebar-title"><!--put a title here if you ever want one--></div>
+            <blockquote>
+               <p>i've been learning html and css since the beginning of december, and it's now one of my favorite hobbies! I'm also very happy to get to use it for an assignment. it's definitely challenged me and forced me to get out of my comfort zone design wise.</p>
+            </blockquote>
+         </div>
+         <div class="sidebar-section">
+            <div>
+               <img class="buddies" src="aboutmegraphics/abtdangle.gif" style="width: auto"; height: "90px;" alt="dangle" >
+               <img class="buddies" src="aboutmegraphics/abtdangle2.gif" style="width: auto"; height: "90px;" alt="dangle" >
+            </div>
+            <mark>mwah!</mark>
+            <img class="full-width-image" src="aboutmegraphics/abtstamp1.gif">
+            <img class="full-width-image" src="aboutmegraphics/abtblink2.gif">
+            <img class="full-width-image" src="aboutmegraphics/abtblink3.gif">
+            <img class="full-width-image" src="aboutmegraphics/abtstamp2.gif">
+            <img class="full-width-image" src="aboutmegraphics/abtblink4.gif">
+            <img src="aboutmegraphics/blackcoffee.gif" alt="made by lost letters">
+         </div>
+         <div class="sidebar-section">
+      </aside>
+      <main id="content"> <!-- Do NOT remove the ID here -->
+      <!-- =============================================== -->
+      <!-- MAIN CONTENT -->
+      <!-- =============================================== -->
+      <section>
+      <h1>abt me!</h1>
+      <img src="aboutmegraphics/caterbord.png" alt= "cat-erpillar">
+      <p>this website was made by bugg!</p>
+      <p>
+      </p>
+      <p>i'm deceptively terrible at coding. i run a personal website though, called club bugg. this also happens to be the domain i'm using to host this site!</p>
+      <blockquote>however, i very much enjoy it! i've been learning css and html for almost 4 months now, and it's been lots of fun. it could also be a potential career option for me. i would either do that or biology. web design is better paying, but biology is something i'm passionate about.  </blockquote>
+      <h2>things about me</h2>
+      <ul>
+      <li>i like my site</li>
+      <li>i like diy</li>
+      <li>i like hanging out with my friends </li>
+      <li>sometimes i like to cook</li>
+      </ul>
+      <br>
+      <h2>things i don't like</h2>
+      <ol>
+      <li>i dont like running</li>
+      <li>or swimming</li>
+      <li>i could make a whole other list about foods i dislike</li>
+      <li>i hate rude and unempathetic people</li>
+      <li>and ignorance</li>
+      <li> and other things i might add later!</li>
+      </ol>
+      <blockquote> hint: try clicking random spots on the body of this page.</blockquote>
+      <h3>recently read:</h3>
+      <div class="marquee">
+      <div class="marquee-content">
+      <img src="bookimg/book1.jpg">
+      <img src="bookimg/book2.jpg">
+      <img src="bookimg/book3.jpg">
+      <img src="bookimg/book4.jpg">
+      <img src="bookimg/book5.jpg">
+      <img src="bookimg/book6.jpg">
+      <img src="bookimg/book7.jpg">
+      </div>
+      </div>
+      <h2>
+      now reading:
+      </h2>
+      <p> The Idiot- Fyodor Dostoevsky </p>
+      <img src="bookimg/theidiot.jpg" height="150px">
+      <h3> my hobbies include:</h3>
+      <ul>
+      <li>
+      tree climbing
+      </li>
+      reading books
+      <li>
+      working on my site
+      </li>
+      <li>making patches and decoration for my backpack</li>
+      <li>
+      cooking and baking
+      </li>
+      <li>
+      talking to my irl and online friends
+      </li>
+      <li>
+      petting my dog 
+      </li>
+      <li>
+      drawing (just a little)
+      </li>
+      <li>
+      beadwork and jewelery making
+      </li>
+      <li>
+        playing trumpet
+      </li>
+      </ul>
+      <strong>meta:</strong>
+      <p>all the images i used on this site are free use! no copyright issues at club bugg!</p>
+      <img src="aboutmegraphics/abtbord.gif" alt="divider">
+      </section>
+      
+      <section>
+        <div class="img-holder">
+          <img src="design101/t.png" class="toast">
+          <img src="design101/h.png" class="toast">
+          <img src="design101/a.png" class="toast">
+          <img src="design101/t.png" class="toast">
+          <img src="design101/s.png" class="toast">
+        </div>
+        <div class="img-holder">
+          <img src="design101/a.png" class="toast">
+          <img src="design101/l.png" class="toast">
+          <img src="design101/l.png" class="toast">
+        <p class="exclaim">!</p>
+        </div>
+        
+        <pre class="ascii">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢄⣦⡀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⡟⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⣿⡦⠄⠀⠀⠀⡀⢸⠀⠀⠀⠀⠀⠠⠔⣴⡦
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⡆⠀⠀⣀⣀⣸⣿⣿⣁⣀⣀⠀⠀⠈⠈⠁
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠹⢻⠿⠅⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⡀⣆⠀⠀⠀⠀⠀⠀⢠⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢦⣀⠀⠀⣿⣿⡀⠀⣀⡴⠀⠀⠈⠝⡿⠀⠀⠀⢀⣀⣰⣼⣶⣂⣀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣿⣶⣿⣿⣶⣿⡿⠁⠀⠀⠀⠀⠁⠀⠀⠀⠀⠈⠹⢻⠿⠍⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣠⣤⣤⣤⣴⣶⣿⣿⣿⣿⣿⣿⣶⣶⣤⣤⣤⣤⣄⣀⠀⠀⠀⠀⠀⢘⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⢙⣿⣿⣿⣿⣿⣿⡋⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⢀⠀⠀⠀⢠⣿⠿⠛⣿⣿⠟⠿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠀⠾⠳⠀⠀⠀⠈⠀⠀⠀⢻⡿⠀⠀⠀⠙⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⡄⠀⠀⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣄⣾⣀⠀⠀⠀⠀⠒⠺⡿⡒⠂⠘⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠐⠒⠒⣺⣿⣗⡚⠒⠂⠀⠀⠀⠃⠀⠀⠀⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠿⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        </pre>
+      </section>
+      </main>
+      <!-- =============================================== -->
+      <!-- footer (:  -->
+      <!-- =============================================== -->
+      <footer>
+      <div>thanks 4 reading ! template from <a href="https://petrapixel.neocities.org/coding/layout-generator.html">petrapixel's layout generator</a>.</div>
+      </footer>
+      <!-- Closing .layout: -->
+      </div>
+      <!-- Add any additional Javascript code (<script></script>) here. -->
+      <script>
+         // include this line when the page loads
+         document.querySelector("body").addEventListener("click", explodeOnClick);
+         
+         /**
+         * Creates a container at the point of the page where the user clicked.  Populates that container with little "+" signs, sets an interval timer which regularly calculates the point on a curve give the time passed (x), updates the position of each '+' sign to be at the calculated position (given the time that's passed). 
+         * e {Event} - object representing the 'click' of the page
+         **/
+         function explodeOnClick(e) {
+         let toPopulate = document.createElement("div");
+         toPopulate.classList.add("explode");
+         
+         toPopulate.style.top = e.clientY + "px";
+         toPopulate.style.left = e.clientX + "px";
+         
+         document.querySelector("body").appendChild(toPopulate);
+         
+         setTimeout(() => toPopulate.remove(), 5000);
+         
+         // populate 1 star for testing
+         for (let i = 0; i < 10; i++) {
+           setTimeout(() => {
+             let newStar = document.createElement("p");
+             let j = 0;
+             let xDirection = Math.random() < 0.5 ? -1 : 1; // left or right
+             let xDistance = Math.random() * 100; // Random distance between 0 to 100px for where to fall
+             newStar.textContent = "+";
+             toPopulate.appendChild(newStar);
+         
+             let timerId = setInterval(() => {
+               // Calculate new y position based on the parabolic equation
+               let yTrans = -(-(1 / 40) * (j - 20) ** 2 + 10) + "px";
+               let xTrans = xDirection * (xDistance * (j / 100)) + "px";
+               newStar.style.transform = `translateX(${xTrans}) translateY(${yTrans})`;
+         
+               j += 1;
+             }, 25);
+         
+             setTimeout(() => {
+               clearInterval(timerId);
+               newStar.remove();
+             }, 5000);
+           }, Math.floor(i / 3) * 50);
+         }
+         }
+      </script>
+   </body>
+</html>

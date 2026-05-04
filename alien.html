@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Kablammo&family=Turret+Road:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+      <link href="pixels/pix1.gif" rel="icon" type="image/x-icon" />
+      <style>
+         *, *::before, *::after {
+         box-sizing: border-box;
+         }
+         body {
+         font-size: 16px;
+         background-image: url('https://bettysgraphics.neocities.org/images/backgrounds/074.GIF'); 
+         color: #168331;
+         margin: 0;
+         width: 100%;
+         }
+         .turret-road-regular {
+         font-family: "Turret Road", sans-serif;
+         font-weight: 400;
+         }
+         a {
+         color: #00ff11;
+         text-decoration: none;
+         }
+         .content-wrap {
+         width: 100%;
+         max-width: 900px;
+         margin: 0 auto;
+         padding: 1em 0;
+         box-sizing: border-box;
+         }
+         header {
+         font-family: "Kablammo", system-ui;
+         background: url('backgroundp3.gif');
+         padding: 1em;
+         text-align: center;
+         color: #FFF;
+         }
+         nav {
+         font-family: "Turret Road", system-ui;
+         background: #629e61;
+         text-align: center;
+         padding: 0.5em;
+         }
+         nav a {
+         font-family: "Turret Road", system-ui;
+         color: #073b11;
+         text-decoration: none;
+         margin: 0 0.5em;
+         }
+         footer {
+         font-family: "Turret Road", system-ui;
+         background: transparent;
+         padding: 1em;
+         text-align: center;
+         }
+         .layout {
+         font-family: "Turret Road", system-ui;
+         background: url('backgroundp3.gif');
+         display: flex;
+         gap: 1em;
+         box-sizing: border-box;
+         justify-content: center;  /* <-- center the columns horizontally */
+         max-width: 100%;          /* ensure it fits inside .content-wrap */
+         }
+         aside, main {
+         padding: 16px;
+         border: 2px solid #ccc;
+         min-height: 300px;
+         box-sizing: border-box;
+         }
+         .left  { flex: 0 0 25%; background: #629e61; }
+         .main  { flex: 0 0 70%; background: #629e61; }
+         .right { flex: 0 0 30%; background: #629e61; }
+         @media (max-width: 768px) {
+         .layout {
+         flex-direction: column;
+         }
+         .left, .main, .right {
+         flex: 1 1 100%;
+         }
+         }
+         .large-text {
+         font-size: 24px; /* You can use px, em, rem, or other units */
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <div class="large-text">
+            GLEEP GLORP!
+         </div>
+      </header>
+      <!--remember to make the links work -->
+      <nav><a href="https://clubbugg.neocities.org/">homepage</a> | <a href="https://clubbugg.neocities.org/secondpage">blog</a> | <a href="https://clubbugg.neocities.org/page3">bugg's corner</a> | <a href="https://clubbugg.neocities.org/fortunecookie">fortune cookie</a> | <a href="https://clubbugg.neocities.org/secret">shrine</a> | <a href="https://cash.app/$buggbuggbuggg">pay me</a> | <a href="https://clubbugg.neocities.org/blogarchive">archive</a></nav>
+      <div class="content-wrap">
+         <div class="layout">
+            <aside class="left">
+               <p>Left Sidebar</p>
+               <img src="alienpics/stickguy.gif">
+               <img src="alienpics/gleep2.gif">
+               <img src="alienpics/square.gif">
+            </aside>
+            <main class="main">
+               <img src="alienpics/alientext.gif">
+               <h1>
+                  I LIKE WEIRD LITTLE ALIENS 
+               </h1>
+               <p>
+                  gleep glorp (: just an alien dump. gonna draw some graphics for this page laters!!
+               </p>
+               <img src="alienpics/goob.gif">
+            </main>
+            <aside class="right">
+               <img src="alienpics/fat.gif">
+               <img src="alienpics/gleep1.gif">
+               <img src="alienpics/extra.gif">
+            </aside>
+         </div>
+      </div>
+      <footer>thx 4 reading ! </footer>
+   </body>
+</html>
