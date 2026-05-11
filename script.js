@@ -52,6 +52,9 @@ const messages = [
     "you owe bugg 6 trillion dollars sorry ",
     "go tell owen he's queer",
     "hi",
+    "mlem mlem mlem (this is the sound of me licking you)",
+    "beep beep beep bop boop boop",
+    "hi you owe bugg a TRILLION DOLLARS NOW",
     "i ran out of ideas so you get this lame message."
     
     
