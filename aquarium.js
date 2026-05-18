@@ -1,3 +1,5 @@
+//mlem mlem mlem (thats me licking u.) idc if you steal my code. tell me if it was helpful tho! idc about credits. mlem mlem mlem.
+
 const canvas = document.getElementById('aquariumCanvas');
 const ctx = canvas.getContext('2d'); //finds canvas tag, stores it in a variable called canvas
 canvas.width = window.innerWidth;
