@@ -57,3 +57,10 @@ function analyzePhylogeny(userInput) {
 
 // loady load load
 loadAnimalDatabase();
+
+document.getElementById('yourSearchButton').addEventListener('click', () => {
+    const inputVal = document.getElementById('yourInputText').value;
+    const result = analyzePhylogeny(inputVal);
+     console.log("Calculation Result:", result);
+     document.getElementById('yourOutputElement').innerText = result.message;
+});
