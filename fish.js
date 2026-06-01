@@ -9,9 +9,9 @@ async function loadAnimalDatabase() {
         
         // target the inner "animals" object from structure
         animalDatabase = rawData.animals;
-        console.log("Phylogenetic database loaded successfully!", animalDatabase);
+        console.log("database works! everyone say good job bugg...", animalDatabase);
     } catch (error) {
-        console.error("Error loading JSON file. Check for missing commas or quotes!", error);
+        console.error("ouhh shii database broken...", error);
     }
 }
 
@@ -23,7 +23,7 @@ function analyzePhylogeny(userInput) {
 
     // is it in the database?
     if (!currentAnimal) {
-        return { error: true, message: `"${userInput}" was not found in the database.` };
+        return { error: true, message: `"${userInput}" we dont have this animal yet srry` };
     }
 
     //hardcoded no fish
