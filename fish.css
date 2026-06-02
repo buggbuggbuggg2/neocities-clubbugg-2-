@@ -1,0 +1,28 @@
+
+
+body {
+    background: url();
+
+}
+
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    gap: 4px;
+}
+    
+.div2 {
+    grid-column: span 8 / span 8;
+    grid-row: span 6 / span 6;
+    grid-column-start: 3;
+    grid-row-start: 3;
+}
+
+.div3 {
+    grid-column: span 8 / span 8;
+    grid-column-start: 3;
+    grid-row-start: 2;
+}
+        
