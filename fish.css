@@ -13,14 +13,14 @@ body {
     gap: 4px;
 }
     
-.div2 {
+.top {
     grid-column: span 8 / span 8;
     grid-row: span 6 / span 6;
     grid-column-start: 3;
     grid-row-start: 3;
 }
 
-.div3 {
+.big {
     grid-column: span 8 / span 8;
     grid-column-start: 3;
     grid-row-start: 2;
