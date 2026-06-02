@@ -104,8 +104,9 @@
     "tapir": { "parent": "rhino" },
     "carnivora": { "parent": "laurasiatheria" },
     "caniformia": { "parent": "carnivora" },
-    "dog/wolf": { "parent": "caniformia" },
-    "bear": { "parent": "dog/wolf" },
+    "wolf": { "parent": "caniformia" },
+    "dog": { "parent": "wolf" },
+    "bear": { "parent": "carnivora" },
     "red panda": { "parent": "bear" },
     "weasel": { "parent": "red panda" },
     "otter": { "parent": "weasel" },
@@ -120,6 +121,10 @@
     "hyena": { "parent": "tiger" },
     "mongoose": { "parent": "hyena" },
 
-    "squid": { "parent": "non-fish" }
+    "squid": { "parent": "non-fish" },
+    "jellyfish": { "parent": "non-fish" },
+    "bacteria": { "parent": "non-fish" },
+    "sponge": { "parent": "non-fish" }
+
   }
 }
