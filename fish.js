@@ -1,21 +1,22 @@
 //and god said let there be database.
 let animalDatabase = {};
+let databaseReady = false; //patience young script 
 
-// whatever async does idgaf
+// if its not async, it wont count nodes right since the fetch wont work in time 
 async function loadAnimalDatabase() {
     try {
         const response = await fetch('animals.json');
         const rawData = await response.json();
         
-        // target the inner "animals" object from structure
+        // grabs animals from the json so it can be used 
         animalDatabase = rawData.animals;
+        databaseReady = true;
         console.log("database works! everyone say good job bugg...", animalDatabase);
     } catch (error) {
         console.error("ouhh shii database broken...", error);
     }
 }
 
-// me when calc
 function analyzePhylogeny(userInput) {
     // force lowercase
     const animalKey = userInput.toLowerCase().trim();
@@ -59,6 +60,11 @@ function analyzePhylogeny(userInput) {
 loadAnimalDatabase();
 
 document.getElementById('yourSearchButton').addEventListener('click', () => {
+    if (!databaseReady) {
+        document.getElementById('yourOutputElement').innerText = "Database is still loading, try again in a second...";
+        return;
+    }
+    
     const inputVal = document.getElementById('yourInputText').value;
     const result = analyzePhylogeny(inputVal);
      console.log("Calculation Result:", result);
