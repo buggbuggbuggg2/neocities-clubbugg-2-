@@ -2,6 +2,10 @@
 
 body {
     background: url('fishybits/fishbg.gif');
+    padding-left:10%;
+    padding-right:10%;
+    padding-top:5%;
+    
 }
 
 .press-start-2p-regular {
@@ -60,3 +64,18 @@ hr {
     margin-top: 1%;
     background-color: darkblue;
 }
+
+input {
+    width: 30%;
+    background: lightcyan;
+    border-width: 0px;
+    font-family: "DotGothic16";
+    }
+
+    .bubbles {
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        justify-items: center;
+        padding-left: 2%;
+    }
