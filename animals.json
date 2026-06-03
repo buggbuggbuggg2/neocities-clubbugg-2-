@@ -2,7 +2,7 @@
   "animals": {
     "euteleostomi": { "parent": null },
 
-    "bichir": { "parent": "euteleostomi" },
+    "bichir": { "parent": "euteleostomi", "message": "oh yeah this is def a fish. a very ancient fish too." },
     "gar": { "parent": "bichir" },
     "teleostei": { "parent": "gar" },
     "barracuda": { "parent": "teleostei" },

@@ -27,12 +27,15 @@ function analyzePhylogeny(userInput) {
         return { error: true, message: `"${userInput}" we dont have this animal yet srry` };
     }
 
+    const customMessage = currentAnimal.message;
+
     //hardcoded no fish
     if (currentAnimal.parent === "non-fish") {
+        const defaultMessage = `oh god finally. a ${userInput} is not a fish.`;
         return {
             isFish: false,
             nodeCount: "N/A",
-            message: `oh god finally. a ${userInput} is not a fish.`
+            message: `${defaultMessage}${customMessage ? ' ' + customMessage : ''}`
         };
     }
 
@@ -49,10 +52,11 @@ function analyzePhylogeny(userInput) {
     }
 
     // yes fish
+    const fishMessage = `yes, the ${userInput} is indeed a fish. it is ${nodeCount} node(s) away from euteleostomi.`;
     return {
         isFish: true,
         nodeCount: nodeCount, //gives nmber of nodes
-        message: `yes, the ${userInput} is indeed a fish. it is ${nodeCount} node(s) away from euteleostomi.`
+        message: `${fishMessage}${customMessage ? ' ' + customMessage : ''}`
     };
 }
 
