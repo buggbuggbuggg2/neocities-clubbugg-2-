@@ -1,8 +1,19 @@
 
 
 body {
-    background: url();
+    background: url('fishybits/fishbg.gif');
+}
 
+.press-start-2p-regular {
+    font-family: "Press Start", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.dotgothic16-regular {
+    font-family: "DotGothic", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 
@@ -11,6 +22,7 @@ body {
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(9, 1fr);
     gap: 4px;
+    margin: 2%;
 }
     
 .top {
@@ -18,11 +30,30 @@ body {
     grid-row: span 6 / span 6;
     grid-column-start: 3;
     grid-row-start: 3;
+    font-family: "Press Start", monospace, system-ui;
+    text-align: center;
+    
 }
 
 .big {
     grid-column: span 8 / span 8;
     grid-column-start: 3;
     grid-row-start: 2;
+    background: rgba(173, 216, 230, 0.427);
+    background-image: url('fishybits/fishbox.png');
+    background-repeat: repeat;
+    background-position: center;
+    padding: 2%;
+    border-radius: 2%;
+    font-family: "DotGothic", Arial, system-ui;
 }
-        
+
+h1 {
+    font-family:"Press Start", system-ui;
+}
+
+hr {
+    width: 75%;
+    margin-top: 1%;
+    background-color: darkblue;
+}
