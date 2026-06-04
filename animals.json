@@ -128,7 +128,7 @@
     "squid": { "parent": "non-fish", "message": "its a mollusc. " },
     "jellyfish": { "parent": "non-fish", "message": "jellyfish aren't even bilaterians! they have radial symmetry and no nervous systems." },
     "bacteria": { "parent": "non-fish", "message": "bacteria aren't even animals, let alone fish."},
-    "sponge": { "parent": "non-fish", "message": "what do these guys even do???????" }
-
+    "sponge": { "parent": "non-fish", "message": "what do these guys even do???????" },
+    "tim": { "parent": "tuna", "message": "this chud is a fishhhhhhhhhh"}
   }
 }
