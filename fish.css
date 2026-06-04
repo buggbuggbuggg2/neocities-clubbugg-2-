@@ -5,6 +5,7 @@ body {
     padding-left:10%;
     padding-right:10%;
     padding-top:5%;
+    cursor: url('fishybits/cursor.ico'), auto;
     
 }
 
@@ -66,10 +67,13 @@ hr {
 }
 
 input {
-    width: 30%;
-    background: lightcyan;
-    border-width: 0px;
+    margin: 2%;
+    width: 10%;
+    background: rgb(192, 237, 237);
+    border-width: 1px;
+    border-color: aliceblue;
     font-family: "DotGothic16";
+    border-radius: 10px;
     }
 
     .bubbles {
@@ -78,4 +82,12 @@ input {
         justify-content: center;
         justify-items: center;
         padding-left: 2%;
+    }
+
+    button {
+
+        background: rgb(204, 231, 254);
+        border:rgb(130, 167, 227);
+        font-family: "Press Start 2P"
+        
     }
