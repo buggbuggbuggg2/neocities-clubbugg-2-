@@ -181,9 +181,24 @@
          a:visited {
          color: green;
          }
+
+         .notice {
+            height: auto;
+            width: auto;
+            background-color: #FFF3CF;
+            position: absolute;
+            
+            z-index: 1002;
+            border:#8a2be2;
+         }
+
       </style>
    </head>
    <body>
+      <div class="notice">
+         <h1>IMPORTANT NOTICE</h1>
+         <p>my school is blocking neocities! im probs gonna have to contact our IT department and make my case, OR im gonna have to move my hosting. im rlly upset but theres probs nothing i can do ): it was fun, guys.</p>
+      </div>
       <div class="pre-box-content">
          <img src="apple.png" class="sticker top-left">
          <img src="redflower.png" class="sticker top-right">
@@ -491,8 +506,8 @@ new graphics.
          
          function update_tiny(i){
            if(--tinyv[i]){
-             tinyy[i]+=1+Math.random()*3;
-             tiny[i].style.top=tinyy[i]+"px";
+               tinyy[i]+=1+Math.random()*3;
+               tiny[i].style.top=tinyy[i]+"px";
            } else tiny[i].style.visibility="hidden";
          }
          
