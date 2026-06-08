@@ -109,6 +109,7 @@
     "bear": { "parent": "carnivora" },
     "red panda": { "parent": "bear" },
     "weasel": { "parent": "red panda" },
+    "ferret": { "parent": "weasel", "message": "added this one in because my girlfriend thinks they're cute. not as cute as her tho!"},
     "otter": { "parent": "weasel" },
     "raccoon": { "parent": "otter" },
     "pinniped": { "parent": "raccoon", "message": "if ur typing the fancy names ur a nerd bro, thats my job." },
