@@ -45,7 +45,7 @@
     "turkey": { "parent": "chicken", "message": "evolved to taste much better than previous fish!" },
     "flamingo": { "parent": "turkey" },
     "pelican": { "parent": "flamingo" },
-    "penguin": { "parent": "pelican" },
+    "penguin": { "parent": "pelican", "message": "chilly willy fish!"},
     "vulture": { "parent": "penguin" },
     "owl": { "parent": "vulture" },
     "crane": { "parent": "owl" },
@@ -54,7 +54,7 @@
     "mammalia": { "parent": "amniota" },
     "platypus": { "parent": "mammalia" },
     "marsupialia": { "parent": "platypus" },
-    "wallaby": { "parent": "marsupialia" },
+    "wallaby": { "parent": "marsupialia", "message": "are these even real? istg australians just be making animals up for fun..." },
     "placentalia": { "parent": "wallaby" },
     "afrotheria": { "parent": "placentalia" },
     "elephant": { "parent": "afrotheria" },
@@ -132,6 +132,9 @@
     "tim": { "parent": "human", "message": "this chud is a fishhhhhhhhhh" },
     "coral": {"parent": "non-fish", "message": "animal? yes. fish? no. closer related to jellyfish than fish." },
     "bugg": {"parent":"human", "message": "if you mean bugg as in the creator of this tool, yes im fish. if you meant insects, check ur spelling!" },
-    "bug": {"parent": "non-fish", "message": "if you mean the creepy crawlies, then no not a fish! if you mean the creator of the website, add a g to your spelling!"}
+    "bug": {"parent": "non-fish", "message": "if you mean the creepy crawlies, then no not a fish! if you mean the creator of the website, add a g to your spelling!"},
+    "alien": {"parent": "non-fish", "message": "i mean like probably not...? then again.... yeah we aren't super sure..."},
+    "shrimp": {"parent": "non-fish", "message": "you're telling me a shrimp fried this rice???"},
+    "miku": {"parent": "non-fish", "message": "trick question! miku isn't a human, so she isn't a fish!"}
   }
 }

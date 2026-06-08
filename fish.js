@@ -65,7 +65,7 @@ loadAnimalDatabase();
 //me when the button 
 document.getElementById('yourSearchButton').addEventListener('click', () => {
     if (!databaseReady) {
-        document.getElementById('yourOutputElement').innerText = "Database is still loading, try again in a second...";
+        document.getElementById('yourOutputElement').innerText = "rare error message! my database didnt load yet! srry.......";
         return;
     }
     
