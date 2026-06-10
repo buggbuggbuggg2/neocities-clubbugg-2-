@@ -15,7 +15,7 @@
     "bass": { "parent": "perch", "message": "i feel like you might have known this one." },
     "tuna": { "parent": "bass", "message": "i feel like you might have known this one." },
 
-    "coelacanth": { "parent": "euteleostomi" },
+    "coelacanth": { "parent": "euteleostomi", "message": "this is a glitch, it is a lobe finned fish. more closely related to you than other fish!" },
     "lungfish": { "parent": "coelacanth" },
 
     "tetrapoda": { "parent": "lungfish" },
