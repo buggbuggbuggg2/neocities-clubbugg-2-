@@ -1,0 +1,68 @@
+<!DOCTYPE html> <!--this is ur html doc! im not going to make you a css file, you'll learn to do that eventually, so for now you'll write all your css inside of style tags.-->
+<html lang="en">
+  <head>
+    <!--inside of head goes all this stuff. dont worry about this, you'll learn it later. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angela's Starter Site</title>
+    <style>
+        /*this is style, where you put all your css rules! i'm putting some really basic stuff in here for you to get you started!*/
+
+/*this is the parent container for your grid boxes. i wouldn't reccomend messing with this by yourself, but if you want to change the layout, ask me and i'll send you some links to do it properly. */
+body {
+    background: lemonchiffon; /* this is how you change backgrounds. you can also make these images, which you can look up how to do if you prefer that. */
+}
+
+.parent {
+display: grid;
+grid-template-columns: repeat(8, 1fr);
+grid-template-rows: repeat(8, 1fr);
+grid-column-gap: 4px;
+grid-row-gap: 4px;
+}
+
+/*css is formatted like these classes you see below. for native elements you don't need the dot before the title, but this is one i made from scratch, so therefor it has to be ".header" css rules are contained in curly braces, with a semicolon afterr each rule. theres a ton of resources out there about all the possible properties you can apply to elements!*/
+
+.header { 
+    grid-area: 1 / 2 / 2 / 8;
+    background: aliceblue; 
+}
+
+.sidebar { 
+    grid-area: 2 / 2 / 9 / 4; 
+    background:lightpink;
+    /*properties i reccomend researching: margin, padding, flexbox, font-family, justify, align, place-self, border, border radius, overflow, absolute positioning, relative positioning, sticky, etc etc! i would avoid css animations and pseudoclasses until you've mastered these.*/
+}
+
+.main-content { 
+    grid-area: 2 / 4 / 9 / 8; 
+    background:rgb(238, 255, 213); /*this is rgb code. you can alter it to change color and opacity. you can look up rgb convertors to pick your colors and have it made into rgb, or you can use vs codes native color picker. */
+}
+
+    </style>
+  </head>
+<!-- V V this is where all your content starts V V-->
+  <body>
+    <div class="parent"> <!--to apply your css classes to your elements, you have to add 'class="classname"' to your element. here you see it on divs, but you can add it to most elements. almost all elements are stylable, so look up their properties to customise them to your liking.-->
+
+        <div class="header"> 
+            <h1>Header</h1>
+        </div>
+
+        <div class="sidebar"> 
+            <p>Sidebar</p>
+            <a href="https://clubbugg.neocities.org/">Put link text in between a tags.</a>
+        </div>
+
+        <div class="main-content"> 
+            <p>main box</p> <!--this is a p element. put all your text in here, or use header tags. the header tags are <h1>, <h2>, and so on all the way to <h6>. don't forget to close your tags!-->
+                <img src="https://clubbugg.neocities.org/domino.png" alt="image of a domino"> <!--this is the way to add images. you can hotlink to an image on the web or just use the filename of an image stored locally on your device. it's best practice to add alt text just incase your image doesnt load and for screen readers. if you're having trouble with the image syntax, look it up. also note that image is a self closing tag, and you should not put </img> after it!-->
+        </div>
+
+    </div>
+
+
+<!-- if you want to add a script, add it here at the bottom of body inside of <script> and </script> -->
+    </body>
+</html>
