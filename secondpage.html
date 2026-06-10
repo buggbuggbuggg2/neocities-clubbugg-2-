@@ -1,663 +1,632 @@
 <!-- mlem mlem mlem (thats me licking u.) idc if you steal my code. tell me if it was helpful tho! idc about credits. mlem mlem mlem.-->
 <!DOCTYPE html>
 <html lang="en">
-  <!--put the crt class on the doc if u want the flicker-->
-   <head>
-      <link href="pixels/pix1.gif" rel="icon" type="image/x-icon"/>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap" rel="stylesheet">
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>bugg's blog</title>
-      <style>
-         @keyframes flicker {
-         0% {
-         opacity: 0.27861;
-         }
-         5% {
-         opacity: 0.34769;
-         }
-         10% {
-         opacity: 0.23604;
-         }
-         15% {
-         opacity: 0.90626;
-         }
-         20% {
-         opacity: 0.18128;
-         }
-         25% {
-         opacity: 0.83891;
-         }
-         30% {
-         opacity: 0.65583;
-         }
-         35% {
-         opacity: 0.67807;
-         }
-         40% {
-         opacity: 0.26559;
-         }
-         45% {
-         opacity: 0.84693;
-         }
-         50% {
-         opacity: 0.96019;
-         }
-         55% {
-         opacity: 0.08594;
-         }
-         60% {
-         opacity: 0.20313;
-         }
-         65% {
-         opacity: 0.71988;
-         }
-         70% {
-         opacity: 0.53455;
-         }
-         75% {
-         opacity: 0.37288;
-         }
-         80% {
-         opacity: 0.71428;
-         }
-         85% {
-         opacity: 0.70419;
-         }
-         90% {
-         opacity: 0.7003;
-         }
-         95% {
-         opacity: 0.36108;
-         }
-         100% {
-         opacity: 0.24387;
-         }
-         }
-         
-         
-         .crt::after {
-         content: " ";
-         display: block;
-         position: fixed;
-         top: 0;
-         left: 0;
-         bottom: 0;
-         right: 0;
-         background: rgba(242, 242, 242, 0.031);
-         opacity: 0;
-         z-index: 2;
-         pointer-events: none;
-         animation: flicker 0.15s infinite;
-         }
-         .crt::before {
-         content: " ";
-         display: block;
-         position: fixed;
-         top: 0;
-         left: 0;
-         bottom: 0;
-         right: 0;
-         background: linear-gradient(rgba(18, 16, 16, 0) 15%, rgba(0, 0, 0, 0.5) 15%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-         z-index: 2;
-         background-size: 100% 2px, 3px 100%;
-         pointer-events: none;
-         }
-         .fuzzy-bubbles-regular {
-         font-family: "Fuzzy Bubbles", sans-serif;
-          font-weight: 400;
-        font-style: normal;
+    <!--put the crt class on the doc if u want the flicker-->
+    <head>
+        <link href="pixels/pix1.gif" rel="icon" type="image/x-icon"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>bugg's blog</title>
+        <style>
+            @keyframes flicker {
+            0% {
+            opacity: 0.27861;
+            }
+            5% {
+            opacity: 0.34769;
+            }
+            10% {
+            opacity: 0.23604;
+            }
+            15% {
+            opacity: 0.90626;
+            }
+            20% {
+            opacity: 0.18128;
+            }
+            25% {
+            opacity: 0.83891;
+            }
+            30% {
+            opacity: 0.65583;
+            }
+            35% {
+            opacity: 0.67807;
+            }
+            40% {
+            opacity: 0.26559;
+            }
+            45% {
+            opacity: 0.84693;
+            }
+            50% {
+            opacity: 0.96019;
+            }
+            55% {
+            opacity: 0.08594;
+            }
+            60% {
+            opacity: 0.20313;
+            }
+            65% {
+            opacity: 0.71988;
+            }
+            70% {
+            opacity: 0.53455;
+            }
+            75% {
+            opacity: 0.37288;
+            }
+            80% {
+            opacity: 0.71428;
+            }
+            85% {
+            opacity: 0.70419;
+            }
+            90% {
+            opacity: 0.7003;
+            }
+            95% {
+            opacity: 0.36108;
+            }
+            100% {
+            opacity: 0.24387;
+            }
+            }
+            .crt::after {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(242, 242, 242, 0.031);
+            opacity: 0;
+            z-index: 2;
+            pointer-events: none;
+            animation: flicker 0.15s infinite;
+            }
+            .crt::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 15%, rgba(0, 0, 0, 0.5) 15%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            z-index: 2;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+            }
+            .fuzzy-bubbles-regular {
+            font-family: "Fuzzy Bubbles", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            }
+            /* i wrote all internal css. i dont care if its bad practice. */
+            @font-face {
+            font-family: 'hand';
+            src: url('hand.ttf') format('truetype');
+            }
+            main {
+            margin-top: 20px;
+            overflow: auto;
+            }
+            html, body {
+            margin: 10px;
+            padding: 5px;
+            font-family: 'hand', monospace;
+            overflow: auto;
+            font-size: 20px;
+            }
+            body {
+            cursor: url("cutecursor.gif"), auto;
+            background-color: #fed4ff;
+            background-image: url("blinkies/pinkbg1.gif");
+            background-repeat: repeat;
+            display: flex;
+            justify-content: center;
+            font-size: 20px;
+            align-items: flex-start; /* DO NOT TOUCH EVER OR UR SITE WILL NUKEEEEEEEEEEEEEE*/
+            }
+            .layout-container { /*uhh this holds all my stuff. im lost on what i did to create this so i probs wont touch it ever again sorry*/
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            grid-template-areas: 
+            "header header"
+            "sidebar main";
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+            overflow: auto;
+            }
+            .sidebar-box, .main-box {
+            position: sticky;
+            top: 0;
+            z-index: 1000; 
+            background-image:url("blinkies/pinkbg3.jpg");
+            border-radius: 20px;
+            padding: 20px;
+            color: #1d1d1f;
+            overflow-x: hidden;
+            }
+            .header-box{
+            position: sticky;
+            top: 0;
+            z-index: 1000; 
+            background-image:url("blinkies/pinkbg3.jpg");
+            border-radius: 20px;
+            padding: 30px;
+            color: #1d1d1f;
+            }
+            .teeny-container { 
+            display: flex;          
+            flex-wrap: wrap;        
+            gap: 5px;               
+            z-index: 1000;
+            width: 100%;            
+            max-width: 200px;      
+            justify-content: flex-start; 
+            margin-bottom: 10px;   
+            }
+            /* grid sizing and placement */
+            .header-box { grid-area: header; text-align: center; font-size: 18px; }
+            .sidebar-box { grid-area: sidebar; min-height: 200px; }
+            .main-box { grid-area: main; min-height: 300px;font-size: 1.0rem; }
+            /* text centering n content roolz  */
+            .box-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: left;
+            height: auto;
+            }
+            div.b {
+            height: 500px;
+            border: 1px solid black;
+            }
+            details > summary::marker {
+            list-style-image: url('mailcon.png');
+            }
+            summary {
+            list-style: none;
+            cursor: pointer;
+            padding-left: 24px;
+            position: relative;
+            font-family: 'hand', monospace;
+            }
+            summary::-webkit-details-marker {
+            display: none;
+            }
+            summary::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.2em;
+            width: 16px;
+            height: 16px;
+            background-image: url('mailcon.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            transition: transform 0.2s ease;
+            }
+            details[open] summary::before {
+            transform: rotate(270deg);
+            }
+            main, main *, summary, summary *, .sidebar-box, .sidebar-box * {
+            cursor: url("cutecursor.gif"), auto;
+            }
+            /* scrollbar track (background) */
+            ::-webkit-scrollbar {
+            width: 20px;             /* thickness of vertical scrollbar */
+            height: 10px;            /* thickness of horizontal scrollbar */
+            }
+            /* scrolly bg*/
+            ::-webkit-scrollbar-track {
+            background: #B499BA;     /* dusty lilac */
+            border-radius: 8px; /*outline*/
+            }
+            /* the draggy*/
+            ::-webkit-scrollbar-thumb {
+            background: #fbcfff;        /* orchid color */
+            border-radius: 10px;
+            border: 3px solid #fac0ff; /* darker orchid */
+            }
+            /*hover effect */
+            ::-webkit-scrollbar-thumb:hover {
+            background: #f483d8;
+            }
+            .sidediv {
+            width:300px;
+            margin: flex-end;
+            }
+            .enlarge-box {
+            /* box dimensions */
+            width: 200px;
+            height: 200px;
+            background-color: rgb(245, 160, 228);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            /* slow down 2 make visible*/
+            transition: transform 0.3s ease-in-out; 
+            }
+            .enlarge-box:hover {
+            /* get big on hover, filter too to make it glow */
+            transform: scale(1.2); 
+            filter: drop-shadow(0 0 10px rgb(254, 236, 254)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
+            }
+            a:link {
+            color: black; 
+            }
+            /* visited link */
+            a:visited {
+            color: rebeccapurple; 
+            }
+            /* mouse over link */
+            a:hover {
+            color: mediumvioletred; 
+            }
+            /* selected link */
+            a:active {
+            color: darkmagenta; 
+            }
+            .no-bg-link, .no-bg-link:visited {
+            background: transparent !important;
+            }
+            ::selection {
+            color: white;
+            background-color: hotpink;
+            }
+            .text-bg {
+            background: rgba(255, 135, 197, 0.9);
+            height: auto;
+            width: auto;
+            padding: 2%;
+            border-radius: 13px;
+            }
+            summary mark {
+            color: rgba(249, 115, 184, 0.35);
+            }
+            iframe {
+            border: 1px transparent;
+            }
+        </style>
+        <!-- this is where my css ends and the cool stuff all starts !! yay !-->
+    </head>
+    <main>
+        <body>
+            <!--invisible container that holds everything-->
+            <div class="layout-container">
+                <!--header. this is also where my visible content starts -->
+                <header class="header-box">
+                    <div class="text-bg">
+                        <img src="blinkies/newblink6.gif" alt="computer">
+                        <h1>bugg's blog !</h1>
+                        <img src="blinkies/newblink4.gif" alt="kirby">
+                    </div>
+                </header>
+                <!--sidebar with blinkies (sorry for so much inline styling, im lazy) -->
+                <aside class="sidebar-box">
+                    <div class="box-content">
+                        <div class="text-bg">
+                            <img src="website images/hehim.png" alt="woke">
+                            <p style="font-family: 'hand', regular, monospace;"> this is my stupid blog where i write stupid stuff! ! </p>
+                            <div class= "teeny-container">
+                                <img src="blinkies/nuko1.gif" alt="blinky" style="width:32px;height:32px;">
+                                <img src="blinkies/pixel1.gif" alt="blinky" style="width:32px;height:32px;">
+                                <img src="blinkies/nuko2.gif" alt="blinky" style="width:32px;height:32px;">
+                                <img src="blinkies/pixel2.gif" alt="blinky" style="width:32px;height:32px;">
+                            </div>
+                        </div>
+                        <!--links-->
+                        <a href= "https://clubbugg.neocities.org/blogarchive">old blog entries archive</a>
+                        <!-- homepage link -->
+                        <div class="text-bg">
+                            <a href="index.html">
+                            <img src="blinkies/homepageP2.gif" class="enlarge-box no-bg-link" alt="beep boop" style="width:150px;height:20px;">
+                            </a>
+                            <!-- buggs corner link -->
+                            <a href="https://clubbugg.neocities.org/page3"> 
+                            <img src="blinkies/buggscornerP2.gif" class="enlarge-box no-bg-link" alt="blinky" style="width:150px;height:20px;">
+                            </a>
+                            <!-- fortune cookie link -->
+                            <a href="https://clubbugg.neocities.org/fortunecookie">
+                            <img src="blinkies/fortunecookieblink.gif" class="enlarge-box no-bg-link" alt="fortune cookie button" style="width:160px;height:20px;">
+                            </a>
+                        </div>
+                        <!--images-->
+                        <div class="text-bg">
+                            <img src="blinkies/hanginghearts2.gif" alt="blinky">
+                            <img src="blinkies/pinkdangle1.gif" alt="blinky" height="300" width="120">
+                            <img src="blinkies/pinkdangle2.gif" alt="blinky" height="300" width="120">
+                            <iframe width="180" height="180" style="border:none" src="https://dimden.dev/moon?custom=1" name="dimdenmoonwidget"></iframe>
+                            <a class="weatherwidget-io" href="https://forecast7.com/en/40d27n76d63/17033/?unit=us" data-label_1="HERSHEY" data-label_2="WEATHER" data-font="Courier New" data-icons="Climacons Animated" data-mode="Current" data-theme="kitty" data-accent="rgba(254, 51, 244, 0.55)" data-textcolor="#000000" data-highcolor="#fff46f" data-lowcolor="#75acd8" data-raincolor="#3594f0" >buggs weather!</a>
+                            <script>
+                                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                            </script>
+                        </div>
+                        <!--secret link-->
+                        <div class="text-bg">
+                            <a href="https://clubbugg.neocities.org/secret"><img src="website images/silverthehedgehog.gif" class="no-bg-link enlarge-box" width="1px" alt="blinky"> </a>
+                        </div>
+                    </div>
+                </aside>
+                <!--blog itself-->
+                <main class="main-box">
+                    <div class="box-content">
+                        <div class="side`div">
+                            <img src="blinkies/pink5.gif" alt="blinky">
+                            <img src="blinkies/pink5.gif" alt="blinky">
+                            <img src="blinkies/pink5.gif" alt="blinky">
+                            <img src="blinkies/newblink1.gif" alt="blinky" width="150" height="20">
+                            <img src="blinkies/blog.gif" alt="blog" width="150" height="20"> 
+                            <div class="text-bg">
+                                <!--holds all the content in a semi transparent pink. important!!! -->
+                                <h3> not seeing something? check the blog entry archive linked in the sidebar!</h3>
+                                <img src="blinkies/bnuuy1.png" alt="bunny">
+                                <details>
+                                    <summary>
+                                        6/2/26 10:55 AM
+                                        <img src="pixels/ico22.gif" alt="icon">
+                                    </summary>
+                                    <img src="blinkies/moonstars.gif" alt="border">
+                                    hello little babbies! im feeling much better lately. while i was gone, i was working on a project! the logic is MOSTLY done, with some minor node counting issues, but if u wanna check out my fish classification joke, out /fish on the homepage's address. its nowhere near done, it has zero styling, but its a sneak peak for my more dedicated lurkers. summer updates might get sparse again, but i promise i wont neglect you guys all summer and if i have time i ,might make an art gallery to post here to feed u guys more content. sorry its boring rn, ive been focused on sorting out a gift for my gf's birthday, riley if you're reading this DONT TELL HER and also finals are frying me and im only writing when i can, which isnt often! but know i love and cherish you all dearly. and happy pride my beloveds. mwahhhhhhh ! <br> also i got a massive bag of peanut mnms and im munching. so jolly. i love being a greasy american chud.
+                                    <img src="blinkies/moonstars.gif" alt="border">
+                                </details>
+                                <details>
+                                    <summary>
+                                        6/4/26 12:20 PM
+                                        <img src="pixels/ico23.gif" alt="icon">
+                                    </summary>
+                                    <img src="blinkies/blinkbar2.gif">
+                                    its been a mostly good day! ive gotten mostly all my schoolwork done for the year so im a tad bit bored, but ive got the fish project and other html and css stuff to work on, as well as the ever expanding task of the animal database. what a pain but at least it keeps me busy, right?<br>on another note, the year's almost over. im dreading my friends graduating. i think itll only get worse every year. im gonna go tree climbing with my friend this weekend which is fun, but we're running out of time. im hanging out with some friends and my gf at the pool today which is nice, but they'll be working on hw while we're there and i dont like swimming so idk what i'll do. i ought to start packing for the summer. i'm putting it of as long as i can but im running out of time. i feel like that's kind of a motif in my life rn, im always running out of time for something, and as soon as one deadline  hits, another starts rushing toward me. i love my friends and i love my gf and i'm going to hate missing them all. not the best experience ): it'll pass and i'll see most of them again next year, i suppose. i feel like all the friends i wanna see the most are the ones leaving forever, though. this mini blog entry has gotten much too long, so i'll shut up. 
+                                    <img src="blinkies/blinkbar2.gif">
+                                </details>
+                                <details>
+                                    <summary>
+                                        6/8/26 2:35 PM
+                                        <img src="pixels/ico24.gif">
+                                    </summary>
+                                    <img src="blinkies/blinkbar3.gif">
+                                    <h4>i survived the neocities outage of 6/5/25!!!!</h4>
+                                    <h6> i thought my school had banned neocities and i cried so hard....</h6>
+                                    hi hi hi little babbies! it is a good day! i was able to give my gf her birthday present (: and!! and!! and!! i got 99/100 on a final i didnt study for at all! i havent studied for a single final but ive been getting 90s on all of them so clearly im gods favorite (angela if you're reading this im joking; im not being insensitive.) so im pretty happy! i also bought some snacks this weekend that i got to eat today while working on my fish project. i couldnt wish for a better day!!! chudmaxxing, coding, and eating the yummy snacks and drinking the yummy drinks. i am so jolly!! my weekend wasnt bad at all either. i worked thursday and saturday, so i should make maybe 70 bucks after tax? and im not a big spender so that should be enough for fun money for vacation. yay! and also!!! major update!! i bought my first binder! its being shipped today so itll likely be here by the end of the week. i will provide a review including brand name and price, alongside my reccomendation and thoughts. IM SO HYPE IM GONNA BE SO BOY!!!!!!!!!!!! WAOOOOWWWWW!
+                                    <br>
+                                    <img src="blinkies/blinkbar3.gif">
+                                </details>
+                                <details>
+                                    <summary>
+                                        6/10/26 10:13 AM
+                                        <img src="pixels/ico24.gif">
+                                    </summary>
+                                    <img src="blinkies/blinkbar4.gif">
+                                    hello! i feel compelled to write about my favorite pokemon. my all time favorite has got to be hariyama. i can't really explain why. it was my partner in scarlet and i just grew attached to it over the 100+ hours i spent playing the game. mine is named big bonk and i love him sm. im absolutely heartbroken i cant transfer him to legends ZA. my next favorite is gothitelle. ive been hunting her shiny FOREVERRRRRRRRR and i still havent found it. it only spawns in one spot in scarlet so ive been hatching hundreds of eggs and have yet to get it. i might just have to give up on her but the navy is so cute T-T. next is gardevoir and gallade. i have a shiny alpha gallade and hes a cutie. and gardevoir's mega is simple but nice, it makes her look like she's in a flowy gown. then this is a basic answer, but lucario. my little tank. he's never failed me ^-^! i keep a charizard on my za team too just cuz. i also like sharpedo but recently retired him from my team along with croconaw so i could have xerneas and yveltal on my team. heartbreaking. pokemon rant out + i love you hariyama. 
+                                    <img src="blinkies/blinkbar4.gif">
+                                </details>
+                                <details>
+                                    <summary>
+                                        6/10/26 1:40 PM
+                                        <img src="pixels/ico25.gif">
+                                    </summary>
+                                    <img src="blinkies/blinkbar5.gif">
+                                    im running on maximum irritation. my hair is my face, nobody ever tells me anything, github fucking SUCKS and i dont wanna go on those fuckass class trips. and fuck github. i hate github. and vs code. shittiest ui's known to MAN, even though they're some of the most widely used sites for devs and programmers but whatever you'll figure it out! a girl i know wated help making a site and i made her a layout and tried to get her vs code and github linked with an action to allow her to push to neocities, but im giving up and telling her to use neocities editor bc the stupid yml bullshit never works. i hate how little resources there are on how to fix these problems. because you're just supposed to just be born and know everything ever abt cs and if you don't i guess ur just fucking retarded!! i can't stand the anti beginner elistist snobby FUCKERS this community worships like genius gods. i hate github and i hate vs code and unrelated, but i hate linus torvalds too. senior devs eat my ass. 
+                                    <img src="blinkies/blinkbar5.gif">
+                                </details>
+                                <div class="text-bg">
+                                    <h3>V social panel ! V</h3>
+                                    <!--this is the chatbox dont touch this-->
+                                    <!--<div class="crt"> commented this out bc i might add it back later but idk im lazyyyyyy-->
+                                    <iframe src="https://www3.cbox.ws/box/?boxid=3550927&boxtag=b0H9ZL" width="90%" height="350" allowtransparency="yes" allow="autoplay" frameborder="1" marginheight="0" marginwidth="0" scrolling="auto"></iframe>	 
+                                    <img src="blinkies/pink1.gif" alt="blinky">
+                                    <!--this is my guestbook-->
+                                    <br>
+                                    <iframe src="https://buggs8263.atabook.org/" name="my_iframe" height="350px" width="90%" title="guestbook"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                </main>
+                </div>
+    </main>
+    </div>
+    <script>
+        // <![CDATA[
+        var colours=new Array("#a6f", "#60f", "#60f", "#a6f", "#ccc"); // colours for top, right, bottom and left borders and background of bubbles
+        var bubbles=100; // maximum number of bubbles on screen. original was 60, i prefer 100 but wouldnt go higher
+        var over_or_under="over"; // set to "over" for bubbles to always be on top, or "under" to allow them to float behind other objects
+        /****************************
+        * JavaScript Bubble Cursor  *
+        * DON'T EDIT BELOW THIS BOX *
+        ****************************/
+        var x=ox=400;
+        var y=oy=300;
+        var swide=800;
+        var shigh=600;
+        var sleft=sdown=0;
+        var bubb=new Array();
+        var bubbx=new Array();
+        var bubby=new Array();
+        var bubbs=new Array();
+        var sploosh=false;
+        
+        function addLoadEvent(funky) {
+          var oldonload=window.onload;
+          if (typeof(oldonload)!='function') window.onload=funky;
+          else window.onload=function() {
+            if (oldonload) oldonload();
+            funky();
           }
-
-         /* i wrote all internal css. i dont care if its bad practice. */
-         @font-face {
-         font-family: 'hand';
-         src: url('hand.ttf') format('truetype');
-         }
+        }
         
-         main {
-         margin-top: 20px;
-         overflow: auto;
-         }
-         html, body {
-         margin: 10px;
-         padding: 5px;
-         font-family: 'hand', monospace;
-         overflow: auto;
-         font-size: 20px;
-         }
-         body {
-         cursor: url("cutecursor.gif"), auto;
-         background-color: #fed4ff;
-         background-image: url("blinkies/pinkbg1.gif");
-         background-repeat: repeat;
-         display: flex;
-         justify-content: center;
-         font-size: 20px;
-         align-items: flex-start; /* DO NOT TOUCH EVER OR UR SITE WILL NUKEEEEEEEEEEEEEE*/
-         }
-         .layout-container { /*uhh this holds all my stuff. im lost on what i did to create this so i probs wont touch it ever again sorry*/
-         display: grid;
-         grid-template-columns: 200px 1fr;
-         grid-template-areas: 
-         "header header"
-         "sidebar main";
-         gap: 20px;
-         width: 90%;
-         max-width: 1200px;
-         overflow: auto;
-         }
-         .sidebar-box, .main-box {
-         position: sticky;
-         top: 0;
-         z-index: 1000; 
-         background-image:url("blinkies/pinkbg3.jpg");
-         border-radius: 20px;
-         padding: 20px;
-         color: #1d1d1f;
-         overflow-x: hidden;
-         }
-         .header-box{
-         position: sticky;
-         top: 0;
-         z-index: 1000; 
-         background-image:url("blinkies/pinkbg3.jpg");
-         border-radius: 20px;
-         padding: 30px;
-         color: #1d1d1f;
-         }
-         .teeny-container { 
-         display: flex;          
-         flex-wrap: wrap;        
-         gap: 5px;               
-         z-index: 1000;
-         width: 100%;            
-         max-width: 200px;      
-         justify-content: flex-start; 
-         margin-bottom: 10px;   
-         }
-         /* grid sizing and placement */
-         .header-box { grid-area: header; text-align: center; font-size: 18px; }
-         .sidebar-box { grid-area: sidebar; min-height: 200px; }
-         .main-box { grid-area: main; min-height: 300px;font-size: 1.0rem; }
-         /* text centering n content roolz  */
-         .box-content {
-         display: flex;
-         flex-direction: column;
-         align-items: flex-start;
-         justify-content: left;
-         height: auto;
-         }
-         div.b {
-         height: 500px;
-         border: 1px solid black;
-         }
-         details > summary::marker {
-         list-style-image: url('mailcon.png');
-         }
-         summary {
-         list-style: none;
-         cursor: pointer;
-         padding-left: 24px;
-         position: relative;
-         font-family: 'hand', monospace;
-         }
-         summary::-webkit-details-marker {
-         display: none;
-         }
-         summary::before {
-         content: "";
-         position: absolute;
-         left: 0;
-         top: 0.2em;
-         width: 16px;
-         height: 16px;
-         background-image: url('mailcon.png');
-         background-size: contain;
-         background-repeat: no-repeat;
-         transition: transform 0.2s ease;
-         }
-         details[open] summary::before {
-         transform: rotate(270deg);
-         }
-         main, main *, summary, summary *, .sidebar-box, .sidebar-box * {
-         cursor: url("cutecursor.gif"), auto;
-         }
-         /* scrollbar track (background) */
-         ::-webkit-scrollbar {
-         width: 20px;             /* thickness of vertical scrollbar */
-         height: 10px;            /* thickness of horizontal scrollbar */
-         }
-         /* scrolly bg*/
-         ::-webkit-scrollbar-track {
-         background: #B499BA;     /* dusty lilac */
-         border-radius: 8px; /*outline*/
-         }
-         /* the draggy*/
-         ::-webkit-scrollbar-thumb {
-         background: #fbcfff;        /* orchid color */
-         border-radius: 10px;
-         border: 3px solid #fac0ff; /* darker orchid */
-         }
-         /*hover effect */
-         ::-webkit-scrollbar-thumb:hover {
-         background: #f483d8;
-         }
-         .sidediv {
-         width:300px;
-         margin: flex-end;
-         }
-         .enlarge-box {
-         /* box dimensions */
-         width: 200px;
-         height: 200px;
-         background-color: rgb(245, 160, 228);
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         color: white;
-         font-weight: bold;
-         /* slow down 2 make visible*/
-         transition: transform 0.3s ease-in-out; 
-         }
-         .enlarge-box:hover {
-         /* get big on hover, filter too to make it glow */
-         transform: scale(1.2); 
-         filter: drop-shadow(0 0 10px rgb(254, 236, 254)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
-         }
-         a:link {
-         color: black; 
-         }
-         /* visited link */
-         a:visited {
-         color: rebeccapurple; 
-         }
-         /* mouse over link */
-         a:hover {
-         color: mediumvioletred; 
-         }
-         /* selected link */
-         a:active {
-         color: darkmagenta; 
-         }
-         .no-bg-link, .no-bg-link:visited {
-         background: transparent !important;
-         }
-         ::selection {
-         color: white;
-         background-color: hotpink;
-         }
-         
-         .text-bg {
-           background: rgba(255, 135, 197, 0.9);
-           height: auto;
-           width: auto;
-           padding: 2%;
-           border-radius: 13px;
-         }
-         
-          summary mark {
-           color: rgba(249, 115, 184, 0.35);
-         }
-
-         iframe {
-    border: 1px transparent;
-    
-}
-         
+        addLoadEvent(buble);
         
-      </style>
-      <!-- this is where my css ends and the cool stuff all starts !! yay !-->
-   </head>
-   <main>
-   <body>
-     
-      <!--invisible container that holds everything-->
-      <div class="layout-container">
-      <!--header. this is also where my visible content starts -->
-      
-      
-      <header class="header-box">
-        <div class="text-bg">
-          <img src="blinkies/newblink6.gif" alt="computer">
-         <h1>bugg's blog !</h1>
-         <img src="blinkies/newblink4.gif" alt="kirby">
-        </div>
-         
+        function buble() { if (document.getElementById) {
+          var i, rats, div;
+          for (i=0; i<bubbles; i++) {
+            rats=createDiv("3px", "3px");
+            rats.style.visibility="hidden";
+        	rats.style.zIndex=(over_or_under=="over")?"1001":"0";
         
-      </header>
-      <!--sidebar with blinkies (sorry for so much inline styling, im lazy) -->
-      <aside class="sidebar-box">
-         <div class="box-content">
-           <div class="text-bg">
-            <img src="website images/hehim.png" alt="woke">
-            <p style="font-family: 'hand', regular, monospace;"> this is my stupid blog where i write stupid stuff! ! </p>
-            <div class= "teeny-container">
-               <img src="blinkies/nuko1.gif" alt="blinky" style="width:32px;height:32px;">
-               <img src="blinkies/pixel1.gif" alt="blinky" style="width:32px;height:32px;">
-               <img src="blinkies/nuko2.gif" alt="blinky" style="width:32px;height:32px;">
-               <img src="blinkies/pixel2.gif" alt="blinky" style="width:32px;height:32px;">
-               </div>
-            </div>
-            <!--links-->
-            <a href= "https://clubbugg.neocities.org/blogarchive">old blog entries archive</a>
-            <!-- homepage link -->
-            <div class="text-bg">
-            <a href="index.html">
-            <img src="blinkies/homepageP2.gif" class="enlarge-box no-bg-link" alt="beep boop" style="width:150px;height:20px;">
-            </a>
-            <!-- buggs corner link -->
-            <a href="https://clubbugg.neocities.org/page3"> 
-            <img src="blinkies/buggscornerP2.gif" class="enlarge-box no-bg-link" alt="blinky" style="width:150px;height:20px;">
-            </a>
-            <!-- fortune cookie link -->
-            <a href="https://clubbugg.neocities.org/fortunecookie">
-            <img src="blinkies/fortunecookieblink.gif" class="enlarge-box no-bg-link" alt="fortune cookie button" style="width:160px;height:20px;">
-            </a>
-            </div>
-            <!--images-->
-            <div class="text-bg">
-            <img src="blinkies/hanginghearts2.gif" alt="blinky">
-            <img src="blinkies/pinkdangle1.gif" alt="blinky" height="300" width="120">
-            <img src="blinkies/pinkdangle2.gif" alt="blinky" height="300" width="120">
-            <iframe width="180" height="180" style="border:none" src="https://dimden.dev/moon?custom=1" name="dimdenmoonwidget"></iframe>
-
-            
-            <a class="weatherwidget-io" href="https://forecast7.com/en/40d27n76d63/17033/?unit=us" data-label_1="HERSHEY" data-label_2="WEATHER" data-font="Courier New" data-icons="Climacons Animated" data-mode="Current" data-theme="kitty" data-accent="rgba(254, 51, 244, 0.55)" data-textcolor="#000000" data-highcolor="#fff46f" data-lowcolor="#75acd8" data-raincolor="#3594f0" >buggs weather!</a>
-            <script>
-               !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-            </script>
-            </div>
-            <!--secret link-->
-            <div class="text-bg">
-            <a href="https://clubbugg.neocities.org/secret"><img src="website images/silverthehedgehog.gif" class="no-bg-link enlarge-box" width="1px" alt="blinky"> </a>
-            </div>
-         </div>
-      </aside>
-      
-      <!--blog itself-->
-      <main class="main-box">
-         <div class="box-content">
-            <div class="side`div">
-               <img src="blinkies/pink5.gif" alt="blinky">
-               <img src="blinkies/pink5.gif" alt="blinky">
-               <img src="blinkies/pink5.gif" alt="blinky">
-               <img src="blinkies/newblink1.gif" alt="blinky" width="150" height="20">
-               <img src="blinkies/blog.gif" alt="blog" width="150" height="20"> 
-               
-               <div class="text-bg"> <!--holds all the content in a semi transparent pink. important!!! -->
-               <h3> not seeing something? check the blog entry archive linked in the sidebar!</h3>
-               <img src="blinkies/bnuuy1.png" alt="bunny">
-
-
-              <details>
-                <summary>
-                  6/2/26 10:55 AM
-                  <img src="pixels/ico22.gif" alt="icon">
-                </summary>
-                <img src="blinkies/moonstars.gif" alt="border">
-                hello little babbies! im feeling much better lately. while i was gone, i was working on a project! the logic is MOSTLY done, with some minor node counting issues, but if u wanna check out my fish classification joke, out /fish on the homepage's address. its nowhere near done, it has zero styling, but its a sneak peak for my more dedicated lurkers. summer updates might get sparse again, but i promise i wont neglect you guys all summer and if i have time i ,might make an art gallery to post here to feed u guys more content. sorry its boring rn, ive been focused on sorting out a gift for my gf's birthday, riley if you're reading this DONT TELL HER and also finals are frying me and im only writing when i can, which isnt often! but know i love and cherish you all dearly. and happy pride my beloveds. mwahhhhhhh ! <br> also i got a massive bag of peanut mnms and im munching. so jolly. i love being a greasy american chud.
-                <img src="blinkies/moonstars.gif" alt="border">
-              </details>
-               
-              <details>
-                <summary>
-                  6/4/26 12:20 PM
-                  <img src="pixels/ico23.gif" alt="icon">
-                </summary>
-                <img src="blinkies/blinkbar2.gif">
-                its been a mostly good day! ive gotten mostly all my schoolwork done for the year so im a tad bit bored, but ive got the fish project and other html and css stuff to work on, as well as the ever expanding task of the animal database. what a pain but at least it keeps me busy, right?<br>on another note, the year's almost over. im dreading my friends graduating. i think itll only get worse every year. im gonna go tree climbing with my friend this weekend which is fun, but we're running out of time. im hanging out with some friends and my gf at the pool today which is nice, but they'll be working on hw while we're there and i dont like swimming so idk what i'll do. i ought to start packing for the summer. i'm putting it of as long as i can but im running out of time. i feel like that's kind of a motif in my life rn, im always running out of time for something, and as soon as one deadline  hits, another starts rushing toward me. i love my friends and i love my gf and i'm going to hate missing them all. not the best experience ): it'll pass and i'll see most of them again next year, i suppose. i feel like all the friends i wanna see the most are the ones leaving forever, though. this mini blog entry has gotten much too long, so i'll shut up. 
-                <img src="blinkies/blinkbar2.gif">
-              </details>
-
-
-              <details>
-                <summary>
-                  6/8/26 2:35 PM
-                  <img src="pixels/ico24.gif">
-                </summary>
-                <img src="blinkies/blinkbar3.gif">
-                <h4>i survived the neocities outage of 6/5/25!!!!</h4>
-                <h6> i thought my school had banned neocities and i cried so hard....</h6>
-                hi hi hi little babbies! it is a good day! i was able to give my gf her birthday present (: and!! and!! and!! i got 99/100 on a final i didnt study for at all! i havent studied for a single final but ive been getting 90s on all of them so clearly im gods favorite (angela if you're reading this im joking; im not being insensitive.) so im pretty happy! i also bought some snacks this weekend that i got to eat today while working on my fish project. i couldnt wish for a better day!!! chudmaxxing, coding, and eating the yummy snacks and drinking the yummy drinks. i am so jolly!! my weekend wasnt bad at all either. i worked thursday and saturday, so i should make maybe 70 bucks after tax? and im not a big spender so that should be enough for fun money for vacation. yay! and also!!! major update!! i bought my first binder! its being shipped today so itll likely be here by the end of the week. i will provide a review including brand name and price, alongside my reccomendation and thoughts. IM SO HYPE IM GONNA BE SO BOY!!!!!!!!!!!! WAOOOOWWWWW!
-                <br>
-                <img src="blinkies/blinkbar3.gif">
-              </details>
-
-<details>
-  <summary>
-    6/10/26 10:13 AM
-    <img src="pixels/ico24.gif">
-  </summary>
-  <img src="blinkies/blinkbar4.gif">
-  hello! i feel compelled to write about my favorite pokemon. my all time favorite has got to be hariyama. i can't really explain why. it was my partner in scarlet and i just grew attached to it over the 100+ hours i spent playing the game. mine is named big bonk and i love him sm. im absolutely heartbroken i cant transfer him to legends ZA. my next favorite is gothitelle. ive been hunting her shiny FOREVERRRRRRRRR and i still havent found it. it only spawns in one spot in scarlet so ive been hatching hundreds of eggs and have yet to get it. i might just have to give up on her but the navy is so cute T-T. next is gardevoir and gallade. i have a shiny alpha gallade and hes a cutie. and gardevoir's mega is simple but nice, it makes her look like she's in a flowy gown. then this is a basic answer, but lucario. my little tank. he's never failed me ^-^! i keep a charizard on my za team too just cuz. i also like sharpedo but recently retired him from my team along with croconaw so i could have xerneas and yveltal on my team. heartbreaking. pokemon rant out + i love you hariyama. 
-  <img src="blinkies/blinkbar4.gif">
-</details>
-
-<details>
-  <summary>
-    6/10/26 1:40 PM
-    <img src="pixels/ico25.gif">
-  </summary>
-  <img src="blinkies/blinkbar5.gif">
-  im running on maximum irritation. my hair is my face, nobody ever tells me anything, github fucking SUCKS and i dont wanna go on those fuckass class trips. and fuck github. i hate github. and vs code. shittiest ui's known to MAN, even though they're some of the most widely used sites for devs and programmers but whatever you'll figure it out! a girl i know wated help making a site and i made her a layout and tried to get her vs code and github linked with an action to allow her to push to neocities, but im giving up and telling her to use neocities editor bc the stupid yml bullshit never works. i hate how little resources there are on how to fix these problems. because you're just supposed to just be born and know everything ever abt cs and if you don't i guess ur just fucking retarded!! i can't stand the anti beginner elistist snobby FUCKERS this community worships like genius gods. i hate github and i hate vs code and unrelated, but i hate linus torvalds too. senior devs eat my ass. 
-  <img src="blinkies/blinkbar5.gif">
-</details>
-
-               <div class="text-bg">
-               <h3>V social panel ! V</h3>
-               <!--this is the chatbox dont touch this-->
-               <!--<div class="crt"> commented this out bc i might add it back later but idk im lazyyyyyy-->
-                  <iframe src="https://www3.cbox.ws/box/?boxid=3550927&boxtag=b0H9ZL" width="90%" height="350" allowtransparency="yes" allow="autoplay" frameborder="1" marginheight="0" marginwidth="0" scrolling="auto"></iframe>	 
-                  <img src="blinkies/pink1.gif" alt="blinky">
-                  <!--this is my guestbook-->
-                  <br>
-                   <iframe src="https://buggs8263.atabook.org/" name="my_iframe" height="350px" width="90%" title="guestbook"></iframe></div>
-                 
-               </div>
-               </div>
-              </main>
-            </div>
-            
-            </main>
-              </div>
-               
-               
-               <script>
-         // <![CDATA[
-         var colours=new Array("#a6f", "#60f", "#60f", "#a6f", "#ccc"); // colours for top, right, bottom and left borders and background of bubbles
-         var bubbles=100; // maximum number of bubbles on screen. original was 60, i prefer 100 but wouldnt go higher
-         var over_or_under="over"; // set to "over" for bubbles to always be on top, or "under" to allow them to float behind other objects
-         /****************************
-         * JavaScript Bubble Cursor  *
-         * DON'T EDIT BELOW THIS BOX *
-         ****************************/
-         var x=ox=400;
-         var y=oy=300;
-         var swide=800;
-         var shigh=600;
-         var sleft=sdown=0;
-         var bubb=new Array();
-         var bubbx=new Array();
-         var bubby=new Array();
-         var bubbs=new Array();
-         var sploosh=false;
-         
-         function addLoadEvent(funky) {
-           var oldonload=window.onload;
-           if (typeof(oldonload)!='function') window.onload=funky;
-           else window.onload=function() {
-             if (oldonload) oldonload();
-             funky();
-           }
-         }
-         
-         addLoadEvent(buble);
-         
-         function buble() { if (document.getElementById) {
-           var i, rats, div;
-           for (i=0; i<bubbles; i++) {
-             rats=createDiv("3px", "3px");
-             rats.style.visibility="hidden";
-         	rats.style.zIndex=(over_or_under=="over")?"1001":"0";
-         
-             div=createDiv("auto", "auto");
-             rats.appendChild(div);
-             div=div.style;
-             div.top="1px";
-             div.left="0px";
-             div.bottom="1px";
-             div.right="0px";
-             div.borderLeft="1px solid "+colours[3];
-             div.borderRight="1px solid "+colours[1];
-         
-             div=createDiv("auto", "auto");
-             rats.appendChild(div);
-             div=div.style;
-             div.top="0px";
-             div.left="1px";
-             div.right="1px";
-             div.bottom="0px"
-             div.borderTop="1px solid "+colours[0];
-             div.borderBottom="1px solid "+colours[2];
-         
-             div=createDiv("auto", "auto");
-             rats.appendChild(div);
-             div=div.style;
-             div.left="1px";
-             div.right="1px";
-             div.bottom="1px";
-             div.top="1px";
-             div.backgroundColor=colours[4];
-             if (navigator.appName=="Microsoft Internet Explorer") div.filter="alpha(opacity=50)";
-             else div.opacity=0.5;
-             document.body.appendChild(rats);
-             bubb[i]=rats.style;
-           }
-           set_scroll();
-           set_width();
-           bubble();
-         }}
-         
-         function bubble() {
-           var c;
-           if (Math.abs(x-ox)>1 || Math.abs(y-oy)>1) {
-             ox=x;
-             oy=y;
-             for (c=0; c<bubbles; c++) if (!bubby[c]) {
-               bubb[c].left=(bubbx[c]=x)+"px";
-               bubb[c].top=(bubby[c]=y-3)+"px";
-               bubb[c].width="3px";
-               bubb[c].height="3px"
-               bubb[c].visibility="visible";
-               bubbs[c]=3;
-               break;
-             }
-           }
-           for (c=0; c<bubbles; c++) if (bubby[c]) update_bubb(c);
-           setTimeout("bubble()", 40);
-         }
-         
-         document.onmousedown=splash;
-         document.onmouseup=function(){clearTimeout(sploosh);};
-         
-         function splash() {
-           ox=-1;
-           oy=-1;
-           sploosh=setTimeout('splash()', 100);
-         }
-         
-         function update_bubb(i) {
-           if (bubby[i]) {
-             bubby[i]-=bubbs[i]/2+i%2;
-             bubbx[i]+=(i%5-2)/5;
-             if (bubby[i]>sdown && bubbx[i]>sleft && bubbx[i]<sleft+swide+bubbs[i]) {
-         	  if (Math.random()<bubbs[i]/shigh*2 && bubbs[i]++<8) {
-         		bubb[i].width=bubbs[i]+"px";
-         		bubb[i].height=bubbs[i]+"px";
-         	  }
-               bubb[i].top=bubby[i]+"px";
-               bubb[i].left=bubbx[i]+"px";
-             }
-             else {
-               bubb[i].visibility="hidden";
-               bubby[i]=0;
-               return;
-             }
-           }
-         }
-         
-         document.onmousemove=mouse;
-         function mouse(e) {
-           if (e) {
-             y=e.pageY;
-             x=e.pageX;
-           }
-           else {
-             set_scroll();
-             y=event.y+sdown;
-             x=event.x+sleft;
-           }
-         }
-         window.onresize=set_width;
-         function set_width() {
-           var sw_min=999999;
-           var sh_min=999999;
-           if (document.documentElement && document.documentElement.clientWidth) {
-             if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
-             if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
-           }
-           if (typeof(self.innerWidth)=='number' && self.innerWidth) {
-             if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
-             if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
-           }
-           if (document.body.clientWidth) {
-             if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
-             if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
-           }
-           if (sw_min==999999 || sh_min==999999) {
-             sw_min=800;
-             sh_min=600;
-           }
-           swide=sw_min;
-           shigh=sh_min;
-         }
-         
-         window.onscroll=set_scroll;
-         function set_scroll() {
-           if (typeof(self.pageYOffset)=='number') {
-             sdown=self.pageYOffset;
-             sleft=self.pageXOffset;
-           }
-           else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
-             sdown=document.body.scrollTop;
-             sleft=document.body.scrollLeft;
-           }
-           else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
-             sleft=document.documentElement.scrollLeft;
-             sdown=document.documentElement.scrollTop;
-           }
-           else {
-             sdown=0;
-             sleft=0;
-           }
-         }
-         
-         function createDiv(height, width) {
-           var div=document.createElement("div");
-           div.style.position="absolute";
-           div.style.height=height;
-           div.style.width=width;
-           div.style.overflow="hidden";
-           div.style.backgroundColor="transparent";
-           return (div);
-         }
-         // ]]>
-      </script>
-        </main>
-   </body>
-     
-  
+            div=createDiv("auto", "auto");
+            rats.appendChild(div);
+            div=div.style;
+            div.top="1px";
+            div.left="0px";
+            div.bottom="1px";
+            div.right="0px";
+            div.borderLeft="1px solid "+colours[3];
+            div.borderRight="1px solid "+colours[1];
+        
+            div=createDiv("auto", "auto");
+            rats.appendChild(div);
+            div=div.style;
+            div.top="0px";
+            div.left="1px";
+            div.right="1px";
+            div.bottom="0px"
+            div.borderTop="1px solid "+colours[0];
+            div.borderBottom="1px solid "+colours[2];
+        
+            div=createDiv("auto", "auto");
+            rats.appendChild(div);
+            div=div.style;
+            div.left="1px";
+            div.right="1px";
+            div.bottom="1px";
+            div.top="1px";
+            div.backgroundColor=colours[4];
+            if (navigator.appName=="Microsoft Internet Explorer") div.filter="alpha(opacity=50)";
+            else div.opacity=0.5;
+            document.body.appendChild(rats);
+            bubb[i]=rats.style;
+          }
+          set_scroll();
+          set_width();
+          bubble();
+        }}
+        
+        function bubble() {
+          var c;
+          if (Math.abs(x-ox)>1 || Math.abs(y-oy)>1) {
+            ox=x;
+            oy=y;
+            for (c=0; c<bubbles; c++) if (!bubby[c]) {
+              bubb[c].left=(bubbx[c]=x)+"px";
+              bubb[c].top=(bubby[c]=y-3)+"px";
+              bubb[c].width="3px";
+              bubb[c].height="3px"
+              bubb[c].visibility="visible";
+              bubbs[c]=3;
+              break;
+            }
+          }
+          for (c=0; c<bubbles; c++) if (bubby[c]) update_bubb(c);
+          setTimeout("bubble()", 40);
+        }
+        
+        document.onmousedown=splash;
+        document.onmouseup=function(){clearTimeout(sploosh);};
+        
+        function splash() {
+          ox=-1;
+          oy=-1;
+          sploosh=setTimeout('splash()', 100);
+        }
+        
+        function update_bubb(i) {
+          if (bubby[i]) {
+            bubby[i]-=bubbs[i]/2+i%2;
+            bubbx[i]+=(i%5-2)/5;
+            if (bubby[i]>sdown && bubbx[i]>sleft && bubbx[i]<sleft+swide+bubbs[i]) {
+        	  if (Math.random()<bubbs[i]/shigh*2 && bubbs[i]++<8) {
+        		bubb[i].width=bubbs[i]+"px";
+        		bubb[i].height=bubbs[i]+"px";
+        	  }
+              bubb[i].top=bubby[i]+"px";
+              bubb[i].left=bubbx[i]+"px";
+            }
+            else {
+              bubb[i].visibility="hidden";
+              bubby[i]=0;
+              return;
+            }
+          }
+        }
+        
+        document.onmousemove=mouse;
+        function mouse(e) {
+          if (e) {
+            y=e.pageY;
+            x=e.pageX;
+          }
+          else {
+            set_scroll();
+            y=event.y+sdown;
+            x=event.x+sleft;
+          }
+        }
+        window.onresize=set_width;
+        function set_width() {
+          var sw_min=999999;
+          var sh_min=999999;
+          if (document.documentElement && document.documentElement.clientWidth) {
+            if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
+            if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
+          }
+          if (typeof(self.innerWidth)=='number' && self.innerWidth) {
+            if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
+            if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
+          }
+          if (document.body.clientWidth) {
+            if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
+            if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
+          }
+          if (sw_min==999999 || sh_min==999999) {
+            sw_min=800;
+            sh_min=600;
+          }
+          swide=sw_min;
+          shigh=sh_min;
+        }
+        
+        window.onscroll=set_scroll;
+        function set_scroll() {
+          if (typeof(self.pageYOffset)=='number') {
+            sdown=self.pageYOffset;
+            sleft=self.pageXOffset;
+          }
+          else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
+            sdown=document.body.scrollTop;
+            sleft=document.body.scrollLeft;
+          }
+          else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+            sleft=document.documentElement.scrollLeft;
+            sdown=document.documentElement.scrollTop;
+          }
+          else {
+            sdown=0;
+            sleft=0;
+          }
+        }
+        
+        function createDiv(height, width) {
+          var div=document.createElement("div");
+          div.style.position="absolute";
+          div.style.height=height;
+          div.style.width=width;
+          div.style.overflow="hidden";
+          div.style.backgroundColor="transparent";
+          return (div);
+        }
+        // ]]>
+    </script>
+    </main>
+    </body>
 </html>
