@@ -1,6 +1,14 @@
 {
   "animals": {
-    "euteleostomi": { "parent": null },
+    "euteleostomi": { "parent": null, "message": "NERD ALERT! blud typed in the scientific name for literal bony fish and wondered if it would show up as a bony fish im crine son T-T" },
+
+
+    "chondrichthyes": { "parent": "euteleostomi", "message": "cartilaginous fishes (sharks, rays)." },
+    "condrichthyes": { "parent": "chondrichthyes" },
+    "great white shark": { "parent": "chondrichthyes", "message": "big, iconic shark." },
+    "shark": { "parent": "chondrichthyes", "message": "bugg's fav animal!"},
+    "whale shark": { "parent": "chondrichthyes", "message": "its the biggest fishy in the ocean!" },
+
 
     "bichir": { "parent": "euteleostomi", "message": "oh yeah this is def a fish. a very ancient fish too." },
     "gar": { "parent": "bichir" },
@@ -9,7 +17,7 @@
     "moray eel": { "parent": "barracuda", "message": "not an eel, but it is a fish." },
     "clownfish": { "parent": "moray eel" },
     "angelfish": { "parent": "clownfish" },
-    "seahorse": { "parent": "angelfish" },
+    "seahorse": { "parent": "angelfish", "message": "as non-fishy as he looks, he is actually a fish!" },
     "pufferfish": { "parent": "seahorse" },
     "perch": { "parent": "pufferfish" },
     "bass": { "parent": "perch", "message": "i feel like you might have known this one." },
@@ -138,6 +146,11 @@
     "shrimp": {"parent": "non-fish", "message": "you're telling me a shrimp fried this rice???"},
     "miku": {"parent": "non-fish", "message": "trick question! miku isn't a human, so she isn't a fish!" },
     "rock": {"parent": "non-fish", "message": "are we so serious bro......" },
-    "me": {"parent": "human", "message": "yes you are a fishy" }
+    "me": {"parent": "human", "message": "yes you are a fishy" },
+    "non fish": {"parent": "non-fish", "message": "shut up" },
+    "not fish": {"parent": "non-fish", "message": "shut up" },
+    "no fish": {"parent": "non-fish", "message": "shut up" },
+    "not a fish": {"parent": "non-fish", "message": "shut up" },
+    "hi": { "parent": "non-fish", "message": "can you take this serious pls" }
   }
 }

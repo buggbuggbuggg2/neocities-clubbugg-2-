@@ -31,13 +31,23 @@ function analyzePhylogeny(userInput) {
 
     //hardcoded no fish
     if (currentAnimal.parent === "non-fish") {
-        const defaultMessage = `oh god finally. a ${userInput} is not a fish.`;
+        const defaultMessage = `nope! ${userInput} is not a fish.`;
         return {
             isFish: false,
             nodeCount: "N/A",
             message: `${defaultMessage}${customMessage ? ' ' + customMessage : ''}`
         };
     }
+
+        // special-case sharks: classified under chondrichthyes
+        const sharkMessage = `yes, ${userInput} is a fish, but i had to hardcode it into the tool because it has no bones. what a pain.`;
+        if (currentAnimal.parent === "chondrichthyes") {
+            return {
+                isFish: true,
+                nodeCount: "N/A",
+                message: `${sharkMessage}${customMessage ? ' ' + customMessage : ''}`
+            };
+        }
 
     let nodeCount = 0;
     let currentKey = animalKey;
