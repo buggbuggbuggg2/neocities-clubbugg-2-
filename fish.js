@@ -1,4 +1,4 @@
-//and god said let there be database.
+//and bugg said let there be database.
 let animalDatabase = {};
 let databaseReady = false; //patience young script 
 
@@ -56,7 +56,7 @@ function analyzePhylogeny(userInput) {
     while (currentAnimal.parent !== null) {
         nodeCount++;
         
-        // Move our reference up to the parent animal
+        // ref parent 
         currentKey = currentAnimal.parent;
         currentAnimal = animalDatabase[currentKey];
     }
@@ -82,5 +82,6 @@ document.getElementById('yourSearchButton').addEventListener('click', () => {
     const inputVal = document.getElementById('yourInputText').value;
     const result = analyzePhylogeny(inputVal);
     console.log("Calculation Result:", result);
-    document.getElementById('yourOutputElement').innerText = result.message;//prints message directly onto page 
+    document.getElementById('yourOutputElement').innerText = result.message;
+    //message shows on page below inout box
 });
