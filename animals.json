@@ -145,11 +145,12 @@
     "shrimp": {"parent": "non-fish", "message": "you're telling me a shrimp fried this rice???"},
     "miku": {"parent": "non-fish", "message": "trick question! miku isn't a human, so she isn't a fish!" },
     "rock": {"parent": "non-fish", "message": "are we so serious bro......" },
-    "me": {"parent": "human", "message": "yes you are a fishy" },
+    "me": {"parent": "human", "message": "yes you are  fishy" },
     "non fish": {"parent": "non-fish", "message": "shut up" },
     "not fish": {"parent": "non-fish", "message": "shut up" },
     "no fish": {"parent": "non-fish", "message": "shut up" },
     "not a fish": {"parent": "non-fish", "message": "shut up" },
-    "hi": { "parent": "non-fish", "message": "can you take this serious pls" }
+    "hi": { "parent": "non-fish", "message": "can you take this serious pls" },
+    "kristin": {"parent": "human", "message" : "yes kristin is a fish"}
   }
 }
