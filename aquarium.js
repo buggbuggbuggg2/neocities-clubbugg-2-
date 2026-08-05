@@ -82,3 +82,4 @@ function animate() {
     requestAnimationFrame(animate); 
 }
 animate();
+//im never finishing this fuck html canvas
