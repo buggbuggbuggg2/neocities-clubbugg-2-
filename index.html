@@ -229,6 +229,10 @@
             <a href="https://clubbugg.neocities.org/alien" class="enlarge-box">oc page</a>
             <a href="https://clubbugg.neocities.org/fish" class="enlarge-box">is it a fish?</a>
             <a href="ad_astra.txt">ad astra per aspera!</a>
+            <div id="music" style="display:none;">
+               <div id="currently-playing"></div>
+               <div id="listening-to"></div>
+            </div>
          </div>
          <img src="blinkies/smileydivider.gif" alt="smiley ">
       </div>
@@ -448,7 +452,7 @@ new graphics.
          
       </div>
       
-      <script>
+      <script src="https://jquery.com">
          var colour="plum";
          var sparkles=100;
          var x=ox=400, y=oy=300, swide=800, shigh=600;
@@ -515,6 +519,44 @@ new graphics.
          function set_width(){ swide=window.innerWidth; shigh=window.innerHeight; }
          function createDiv(h,w){ var d=document.createElement("div"); d.style.position="absolute"; d.style.height=h+"px"; d.style.width=w+"px"; return d;}
          function newColour(){ return "rgb(255,"+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+")"; }
+
+         $(document).ready(function () {
+               function displayMusic() {
+                  $("#music").show();
+               }
+
+               // Fetch the local JSON file created by your GitHub Actions workflow
+               fetch('/music-data.json')
+                  .then(response => response.json())
+                  .then(data => {
+
+                     // 1. Process Top Tracks
+                     if (data.topTracks && data.topTracks.length > 0) {
+                        var topHtml = '<h3 class="colorchanger">Top This Week</h3>';
+                        $.each(data.topTracks, function (i, item) {
+                           topHtml += '<div class="music-row">';
+                           topHtml += '<img id="' + item.id + '" src="' + (item.image || '') + '">';
+                           topHtml += '<div><a href="' + item.url + '" target="_blank">' + item.name + '</a> - ' + item.artist + '</div></div>';
+                        });
+                        $('#listening-to').append(topHtml);
+                        displayMusic();
+                     }
+
+                     // 2. Process Now Playing Track
+                     if (data.nowPlaying) {
+                        var item = data.nowPlaying;
+                        var nowHtml = '<h3 class="colorchanger">Now Playing</h3>';
+                        nowHtml += '<div class="music-row">';
+                        nowHtml += '<img id="' + item.id + '" src="' + (item.image || '') + '">';
+                        nowHtml += '<div><a href="' + item.url + '" target="_blank">' + item.name + '</a> - ' + item.artist + '</div></div>';
+
+                        $('#currently-playing').append(nowHtml);
+                        displayMusic();
+                     }
+                  })
+                  .catch(err => console.log("Could not load music metadata file:", err));
+            });
+
       </script>
 
 
