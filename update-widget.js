@@ -12,19 +12,17 @@ function urlencode(obj) {
 async function lastfmRequest(method, params) {
   params['api_key'] = API_KEY;
   params['format'] = "json";
-  const url = "https://ws.audioscrobbler.com/2.0/?method=" + method + "&" + urlencode(params) + "&format=json";
+  const url = "https://audioscrobbler.com" + method + "&" + urlencode(params) + "&format=json";
   
   const response = await fetch(url);
   if (!response.ok) throw new Error(`Network response was not ok. Status: ${response.status}`);
   return response.json();
 }
 
-// Safely loops through the image array to look for the medium/large image string
 function extractImage(imageArray) {
   if (!imageArray || !Array.isArray(imageArray) || imageArray.length === 0) return "";
-  
-  // Prefer index 1 (medium) or 2 (large) if they exist
-  const targetImage = imageArray[1] || imageArray[0];
+  // Pull the large size (index 2) if it exists, otherwise medium (index 1)
+  const targetImage = imageArray[2] || imageArray[1] || imageArray[0];
   return targetImage ? targetImage["#text"] : "";
 }
 
@@ -42,7 +40,7 @@ async function getImage(trackName, artistName) {
 
 async function main() {
   if (!API_KEY || !USERNAME) {
-    console.error("Missing environment variables!");
+    console.error("Missing environment variables parameters initialization logs!");
     process.exit(1);
   }
 
@@ -52,7 +50,7 @@ async function main() {
       nowPlaying: null
     };
 
-    // 1. Fetch Top Tracks
+    // 1. Fetch Weekly Top Tracks
     const topData = await lastfmRequest("user.gettoptracks", { user: USERNAME, limit: "3", period: "7day" });
     if (topData && topData.toptracks && topData.toptracks.track) {
       const tracks = [].concat(topData.toptracks.track);
@@ -71,34 +69,38 @@ async function main() {
       }
     }
 
-    // 2. Fetch Recent/Now Playing Track
+    // 2. Fetch Recent Tracks / Current Live Playback Stream Engine Target
     const recentData = await lastfmRequest("user.getrecenttracks", { user: USERNAME, limit: 1 });
     if (recentData && recentData.recenttracks && recentData.recenttracks.track) {
       const tracks = [].concat(recentData.recenttracks.track);
+      
+      // FIXED HERE: Explicitly grab index 0 out of the array wrapper safely
       const item = tracks[0]; 
       
       if (item && item["@attr"] && item["@attr"].nowplaying === "true") {
         let img = extractImage(item.image);
         if (!img) {
-          img = await getImage(item.name, item.artist["#text"]);
+          const artistName = item.artist ? (item.artist["#text"] || item.artist.name) : "";
+          img = await getImage(item.name, artistName);
         }
+        
         outputData.nowPlaying = {
           id: item.mbid || encodeURIComponent(item.name),
           name: item.name,
-          artist: item.artist["#text"],
+          artist: item.artist ? (item.artist["#text"] || item.artist.name) : "Unknown Artist",
           url: item.url,
           image: img
         };
       }
     }
 
-    // Write clean data directly into root directory
+    // Write file directly into root directory execution target location path
     fs.writeFileSync('music-data.json', JSON.stringify(outputData, null, 2));
-    console.log("successfully made music-data.json");
+    console.log("SUCCESS: Created music-data.json asset output file!");
 
   } catch (error) {
-    console.error("error generating music assets:", error);
-    // Writes safety layout framework file so browser code doesn't explode 404
+    console.error("CRITICAL CONSOLE RUNTIME ERROR LOG:", error);
+    // Write a dummy fallback profile structure schema so the layout displays empty slots safely
     fs.writeFileSync('music-data.json', JSON.stringify({ topTracks: [], nowPlaying: null }, null, 2));
   }
 }
