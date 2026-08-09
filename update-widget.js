@@ -23,11 +23,11 @@ async function getImage(trackName, artistName) {
   try {
     const data = await lastfmRequest("track.getInfo", { autocorrect: 1, track: trackName, artist: artistName });
     if (data && data.track && data.track.album && data.track.album.image) {
-      return data.track.album.image[1]["#text"] || "";
+      return data.track.album.image["#text"] || "";
     }
     return "";
   } catch(e) {
-    return ""; // Fallback if no album art found
+    return ""; 
   }
 }
 
@@ -46,7 +46,6 @@ async function main() {
     // 1. Fetch Top Tracks
     const topData = await lastfmRequest("user.gettoptracks", { user: USERNAME, limit: "3", period: "7day" });
     if (topData && topData.toptracks && topData.toptracks.track) {
-      // Force data into a flat array structure safely
       const tracks = [].concat(topData.toptracks.track);
       for (let item of tracks) {
         let img = (item.image && item.image[1]) ? item.image[1]["#text"] : "";
@@ -66,10 +65,12 @@ async function main() {
     // 2. Fetch Recent/Now Playing Track
     const recentData = await lastfmRequest("user.getrecenttracks", { user: USERNAME, limit: 1 });
     if (recentData && recentData.recenttracks && recentData.recenttracks.track) {
-      // Safely grab the first track even if Last.fm changes array structure
       const tracks = [].concat(recentData.recenttracks.track);
-      const item = tracks[0];
       
+      // FIX: Grab the FIRST object item out of the array layout tree safely!
+      const item = tracks[0]; 
+      
+      // FIX: Read the nowplaying property directly from that specific single track item object
       if (item && item["@attr"] && item["@attr"].nowplaying === "true") {
         let img = (item.image && item.image[1]) ? item.image[1]["#text"] : "";
         if (!img) {
@@ -91,7 +92,6 @@ async function main() {
 
   } catch (error) {
     console.error("error generating music assets:", error);
-    // Write an empty layout file fallback so your deployment step doesn't crash 404
     fs.writeFileSync('music-data.json', JSON.stringify({ topTracks: [], nowPlaying: null }, null, 2));
   }
 }
