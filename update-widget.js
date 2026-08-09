@@ -3,105 +3,256 @@ const fs = require('fs');
 const API_KEY = process.env.LASTFM_API_KEY;
 const USERNAME = process.env.LASTFM_USER;
 
-function urlencode(obj) {
-  var str = [];
-  for (var p in obj) str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-  return str.join("&");
-}
+async function lastfmRequest(method, params = {}) {
+  const query = new URLSearchParams({
+    method,
+    api_key: API_KEY,
+    format: 'json',
+    ...params
+  });
 
-async function lastfmRequest(method, params) {
-  params['api_key'] = API_KEY;
-  params['format'] = "json";
-  const url = "https://audioscrobbler.com" + method + "&" + urlencode(params) + "&format=json";
-  
+  const url = `https://ws.audioscrobbler.com/2.0/?${query.toString()}`;
+
+  console.log(
+    'Last.fm request:',
+    url.replace(API_KEY, '[REDACTED]')
+  );
+
   const response = await fetch(url);
-  if (!response.ok) throw new Error(`Network response was not ok. Status: ${response.status}`);
-  return response.json();
+
+  if (!response.ok) {
+    throw new Error(
+      `Last.fm HTTP error: ${response.status} ${response.statusText}`
+    );
+  }
+
+  const data = await response.json();
+
+  if (data.error) {
+    throw new Error(
+      `Last.fm API error ${data.error}: ${data.message}`
+    );
+  }
+
+  return data;
 }
 
 function extractImage(imageArray) {
-  if (!imageArray || !Array.isArray(imageArray) || imageArray.length === 0) return "";
-  // Pull the large size (index 2) if it exists, otherwise medium (index 1)
-  const targetImage = imageArray[2] || imageArray[1] || imageArray[0];
-  return targetImage ? targetImage["#text"] : "";
+  if (
+    !imageArray ||
+    !Array.isArray(imageArray) ||
+    imageArray.length === 0
+  ) {
+    return '';
+  }
+
+  const targetImage =
+    imageArray[2] ||
+    imageArray[1] ||
+    imageArray[0];
+
+  return targetImage ? targetImage['#text'] : '';
 }
 
 async function getImage(trackName, artistName) {
   try {
-    const data = await lastfmRequest("track.getInfo", { autocorrect: 1, track: trackName, artist: artistName });
-    if (data && data.track && data.track.album && data.track.album.image) {
+    const data = await lastfmRequest('track.getInfo', {
+      autocorrect: '1',
+      track: trackName,
+      artist: artistName
+    });
+
+    if (
+      data &&
+      data.track &&
+      data.track.album &&
+      data.track.album.image
+    ) {
       return extractImage(data.track.album.image);
     }
-    return "";
-  } catch(e) {
-    return "";
+
+    return '';
+  } catch (error) {
+    console.error(
+      `Could not get album image for ${artistName} - ${trackName}:`,
+      error.message
+    );
+
+    return '';
   }
 }
 
 async function main() {
   if (!API_KEY || !USERNAME) {
-    console.error("Missing environment variables parameters initialization logs!");
+    console.error(
+      'Missing LASTFM_API_KEY or LASTFM_USER environment variables!'
+    );
     process.exit(1);
   }
 
   try {
-    let outputData = {
+    const outputData = {
       topTracks: [],
       nowPlaying: null
     };
 
-    // 1. Fetch Weekly Top Tracks
-    const topData = await lastfmRequest("user.gettoptracks", { user: USERNAME, limit: "3", period: "7day" });
-    if (topData && topData.toptracks && topData.toptracks.track) {
+    // ============================================================
+    // 1. FETCH WEEKLY TOP TRACKS
+    // ============================================================
+
+    const topData = await lastfmRequest('user.gettoptracks', {
+      user: USERNAME,
+      limit: '3',
+      period: '7day'
+    });
+
+    if (
+      topData &&
+      topData.toptracks &&
+      topData.toptracks.track
+    ) {
       const tracks = [].concat(topData.toptracks.track);
-      for (let item of tracks) {
+
+      for (const item of tracks) {
         let img = extractImage(item.image);
+
         if (!img) {
-          img = await getImage(item.name, item.artist.name);
+          img = await getImage(
+            item.name,
+            item.artist.name
+          );
         }
+
         outputData.topTracks.push({
-          id: item.mbid || encodeURIComponent(item.name),
+          id:
+            item.mbid ||
+            encodeURIComponent(item.name),
+
           name: item.name,
+
           artist: item.artist.name,
+
           url: item.url,
+
           image: img
         });
       }
     }
 
-    // 2. Fetch Recent Tracks / Current Live Playback Stream Engine Target
-    const recentData = await lastfmRequest("user.getrecenttracks", { user: USERNAME, limit: 1 });
-    if (recentData && recentData.recenttracks && recentData.recenttracks.track) {
-      const tracks = [].concat(recentData.recenttracks.track);
-      
-      // FIXED HERE: Explicitly grab index 0 out of the array wrapper safely
-      const item = tracks[0]; 
-      
-      if (item && item["@attr"] && item["@attr"].nowplaying === "true") {
+    // ============================================================
+    // 2. FETCH RECENT TRACKS / NOW PLAYING
+    // ============================================================
+
+    const recentData = await lastfmRequest(
+      'user.getrecenttracks',
+      {
+        user: USERNAME,
+        limit: '1'
+      }
+    );
+
+    if (
+      recentData &&
+      recentData.recenttracks &&
+      recentData.recenttracks.track
+    ) {
+      const tracks = [].concat(
+        recentData.recenttracks.track
+      );
+
+      const item = tracks[0];
+
+      if (
+        item &&
+        item['@attr'] &&
+        item['@attr'].nowplaying === 'true'
+      ) {
         let img = extractImage(item.image);
+
+        const artistName = item.artist
+          ? (
+              item.artist['#text'] ||
+              item.artist.name ||
+              ''
+            )
+          : '';
+
         if (!img) {
-          const artistName = item.artist ? (item.artist["#text"] || item.artist.name) : "";
-          img = await getImage(item.name, artistName);
+          img = await getImage(
+            item.name,
+            artistName
+          );
         }
-        
+
         outputData.nowPlaying = {
-          id: item.mbid || encodeURIComponent(item.name),
+          id:
+            item.mbid ||
+            encodeURIComponent(item.name),
+
           name: item.name,
-          artist: item.artist ? (item.artist["#text"] || item.artist.name) : "Unknown Artist",
-          url: item.url,
+
+          artist:
+            artistName || 'Unknown Artist',
+
+          url:
+            item.url || '#',
+
           image: img
         };
+
+        console.log(
+          `NOW PLAYING DETECTED: ${artistName} - ${item.name}`
+        );
+      } else {
+        console.log(
+          'Last.fm returned recent tracks, but nothing is currently playing.'
+        );
       }
     }
 
-    // Write file directly into root directory execution target location path
-    fs.writeFileSync('music-data.json', JSON.stringify(outputData, null, 2));
-    console.log("SUCCESS: Created music-data.json asset output file!");
+    // ============================================================
+    // 3. WRITE JSON FILE
+    // ============================================================
+
+    fs.writeFileSync(
+      'music-data.json',
+      JSON.stringify(outputData, null, 2)
+    );
+
+    console.log(
+      'SUCCESS: Created music-data.json asset output file!'
+    );
+
+    console.log(
+      'Now Playing:',
+      outputData.nowPlaying
+    );
+
+    console.log(
+      'Top Tracks:',
+      outputData.topTracks.length
+    );
 
   } catch (error) {
-    console.error("CRITICAL CONSOLE RUNTIME ERROR LOG:", error);
-    // Write a dummy fallback profile structure schema so the layout displays empty slots safely
-    fs.writeFileSync('music-data.json', JSON.stringify({ topTracks: [], nowPlaying: null }, null, 2));
+    console.error(
+      'CRITICAL CONSOLE RUNTIME ERROR:',
+      error
+    );
+
+    // Safe fallback so the website still gets valid JSON.
+    fs.writeFileSync(
+      'music-data.json',
+      JSON.stringify(
+        {
+          topTracks: [],
+          nowPlaying: null
+        },
+        null,
+        2
+      )
+    );
+
+    process.exit(1);
   }
 }
 

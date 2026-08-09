@@ -459,112 +459,347 @@ new graphics.
          
       </div>
       
-      <script src="https://jquery.com">
-         var colour="plum";
-         var sparkles=100;
-         var x=ox=400, y=oy=300, swide=800, shigh=600;
-         var tiny=[], star=[], starv=[], starx=[], stary=[], tinyx=[], tinyy=[], tinyv=[];
-         
-         window.onload=function(){
-           if(document.getElementById){
-             for(var i=0;i<sparkles;i++){
-               var t=createDiv(3,3); t.style.visibility="hidden"; t.style.zIndex="999";
-               document.body.appendChild(tiny[i]=t); starv[i]=tinyv[i]=0;
-               var s=createDiv(5,5); s.style.backgroundColor="transparent"; s.style.visibility="hidden"; s.style.zIndex="999";
-               var r=createDiv(1,5), d=createDiv(5,1); s.appendChild(r); s.appendChild(d);
-               r.style.top="2px"; d.style.left="2px";
-               document.body.appendChild(star[i]=s);
-             }
-             set_width(); sparkle();
-           }
-         };
-         
-         function sparkle(){
-           if(Math.abs(x-ox)>1||Math.abs(y-oy)>1){
-             ox=x; oy=y;
-             for(var c=0;c<sparkles;c++){
-               if(!starv[c]){
-                 star[c].style.left=(starx[c]=x)+"px";
-                 star[c].style.top=(stary[c]=y)+"px";
-                 star[c].childNodes[0].style.backgroundColor=
-                 star[c].childNodes[1].style.backgroundColor=
-                 (colour=="random")?newColour():colour;
-                 star[c].style.visibility="visible";
-                 starv[c]=50;
-                 break;
-               }
-             }
-           }
-           for(var c=0;c<sparkles;c++){
-             if(starv[c])update_star(c);
-             if(tinyv[c])update_tiny(c);
-           }
-           setTimeout(sparkle,40);
+<script>
+   var colour = "plum";
+   var sparkles = 100;
+
+   var x = ox = 400;
+   var y = oy = 300;
+
+   var swide = 800;
+   var shigh = 600;
+
+   var tiny = [];
+   var star = [];
+   var starv = [];
+   var starx = [];
+   var stary = [];
+   var tinyx = [];
+   var tinyy = [];
+   var tinyv = [];
+
+   window.onload = function () {
+      if (document.getElementById) {
+
+         for (var i = 0; i < sparkles; i++) {
+
+            var t = createDiv(3, 3);
+
+            t.style.visibility = "hidden";
+            t.style.zIndex = "999";
+
+            document.body.appendChild(tiny[i] = t);
+
+            starv[i] = tinyv[i] = 0;
+
+            var s = createDiv(5, 5);
+
+            s.style.backgroundColor = "transparent";
+            s.style.visibility = "hidden";
+            s.style.zIndex = "999";
+
+            var r = createDiv(1, 5);
+            var d = createDiv(5, 1);
+
+            s.appendChild(r);
+            s.appendChild(d);
+
+            r.style.top = "2px";
+            d.style.left = "2px";
+
+            document.body.appendChild(star[i] = s);
          }
-         
-         function update_star(i){
-           if(--starv[i]){
-             stary[i]+=1+Math.random()*3;
-             star[i].style.top=stary[i]+"px";
-           } else {
-             tinyv[i]=50;
-             tiny[i].style.top=stary[i]+"px";
-             tiny[i].style.left=starx[i]+"px";
-             tiny[i].style.visibility="visible";
-             star[i].style.visibility="hidden";
-           }
+
+         set_width();
+         sparkle();
+      }
+   };
+
+
+   function sparkle() {
+
+      if (
+         Math.abs(x - ox) > 1 ||
+         Math.abs(y - oy) > 1
+      ) {
+
+         ox = x;
+         oy = y;
+
+         for (var c = 0; c < sparkles; c++) {
+
+            if (!starv[c]) {
+
+               star[c].style.left =
+                  (starx[c] = x) + "px";
+
+               star[c].style.top =
+                  (stary[c] = y) + "px";
+
+               star[c].childNodes[0].style.backgroundColor =
+                  star[c].childNodes[1].style.backgroundColor =
+                  (colour == "random")
+                     ? newColour()
+                     : colour;
+
+               star[c].style.visibility = "visible";
+
+               starv[c] = 50;
+
+               break;
+            }
          }
-         
-         function update_tiny(i){
-           if(--tinyv[i]){
-               tinyy[i]+=1+Math.random()*3;
-               tiny[i].style.top=tinyy[i]+"px";
-           } else tiny[i].style.visibility="hidden";
+      }
+
+      for (var c = 0; c < sparkles; c++) {
+
+         if (starv[c]) {
+            update_star(c);
          }
-         
-         document.onmousemove=function(e){ x=e.pageX; y=e.pageY; };
-         function set_width(){ swide=window.innerWidth; shigh=window.innerHeight; }
-         function createDiv(h,w){ var d=document.createElement("div"); d.style.position="absolute"; d.style.height=h+"px"; d.style.width=w+"px"; return d;}
-         function newColour(){ return "rgb(255,"+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+")"; }
 
-         $(document).ready(function () {
-               function displayMusic() {
-                  $("#music").show();
-               }
+         if (tinyv[c]) {
+            update_tiny(c);
+         }
+      }
 
-               // Fetch the local JSON file created by your GitHub Actions workflow
-               fetch(`/music-data.json?v=${new Date().getTime()}`)
-                  .then(response => response.json())
-                  .then(data => {
+      setTimeout(sparkle, 40);
+   }
 
-                     // 1. Process Top Tracks
-                     if (data.topTracks && data.topTracks.length > 0) {
-                        var topHtml = '<h3 class="colorchanger">Top This Week</h3>';
-                        $.each(data.topTracks, function (i, item) {
-                           topHtml += '<div class="music-row">';
-                           topHtml += '<img id="' + item.id + '" src="' + (item.image || '') + '">';
-                           topHtml += '<div><a href="' + item.url + '" target="_blank">' + item.name + '</a> - ' + item.artist + '</div></div>';
-                        });
-                        $('#listening-to').append(topHtml);
-                        displayMusic();
-                     }
 
-                     // 2. Process Now Playing Track
-                     if (data.nowPlaying) {
-                        var item = data.nowPlaying;
-                        var nowHtml = '<h3 class="colorchanger">Now Playing</h3>';
-                        nowHtml += '<div class="music-row">';
-                        nowHtml += '<img id="' + item.id + '" src="' + (item.image || '') + '">';
-                        nowHtml += '<div><a href="' + item.url + '" target="_blank">' + item.name + '</a> - ' + item.artist + '</div></div>';
+   function update_star(i) {
 
-                        $('#currently-playing').append(nowHtml);
-                        displayMusic();
-                     }
-                  })
-                  .catch(err => console.log("Could not load music metadata file:", err));
-            });
+      if (--starv[i]) {
 
-      </script>
+         stary[i] +=
+            1 + Math.random() * 3;
+
+         star[i].style.top =
+            stary[i] + "px";
+
+      } else {
+
+         tinyv[i] = 50;
+
+         tiny[i].style.top =
+            stary[i] + "px";
+
+         tiny[i].style.left =
+            starx[i] + "px";
+
+         tiny[i].style.visibility =
+            "visible";
+
+         star[i].style.visibility =
+            "hidden";
+      }
+   }
+
+
+   function update_tiny(i) {
+
+      if (--tinyv[i]) {
+
+         tinyy[i] +=
+            1 + Math.random() * 3;
+
+         tiny[i].style.top =
+            tinyy[i] + "px";
+
+      } else {
+
+         tiny[i].style.visibility =
+            "hidden";
+      }
+   }
+
+
+   document.onmousemove = function (e) {
+      x = e.pageX;
+      y = e.pageY;
+   };
+
+
+   function set_width() {
+      swide = window.innerWidth;
+      shigh = window.innerHeight;
+   }
+
+
+   function createDiv(h, w) {
+
+      var d = document.createElement("div");
+
+      d.style.position = "absolute";
+      d.style.height = h + "px";
+      d.style.width = w + "px";
+
+      return d;
+   }
+
+
+   function newColour() {
+
+      return (
+         "rgb(255," +
+         Math.floor(Math.random() * 256) +
+         "," +
+         Math.floor(Math.random() * 256) +
+         ")"
+      );
+   }
+
+
+   // ============================================================
+   // MUSIC WIDGET
+   // ============================================================
+
+   $(document).ready(function () {
+
+      function displayMusic() {
+         $("#music").show();
+      }
+
+
+      fetch(
+         "/music-data.json?v=" +
+         new Date().getTime()
+      )
+
+         .then(function (response) {
+
+            if (!response.ok) {
+               throw new Error(
+                  "Could not load music-data.json: " +
+                  response.status
+               );
+            }
+
+            return response.json();
+         })
+
+         .then(function (data) {
+
+            console.log(
+               "Music data loaded:",
+               data
+            );
+
+
+            // ========================================================
+            // TOP TRACKS
+            // ========================================================
+
+            if (
+               data.topTracks &&
+               data.topTracks.length > 0
+            ) {
+
+               var topHtml =
+                  '<h3 class="colorchanger">' +
+                  'Top This Week' +
+                  '</h3>';
+
+               $.each(
+                  data.topTracks,
+                  function (i, item) {
+
+                     topHtml +=
+                        '<div class="music-row">';
+
+                     topHtml +=
+                        '<img id="' +
+                        item.id +
+                        '" src="' +
+                        (item.image || '') +
+                        '">';
+
+                     topHtml +=
+                        '<div>' +
+                        '<a href="' +
+                        item.url +
+                        '" target="_blank">' +
+                        item.name +
+                        '</a> - ' +
+                        item.artist +
+                        '</div>';
+
+                     topHtml +=
+                        '</div>';
+                  }
+               );
+
+               $("#listening-to").append(
+                  topHtml
+               );
+
+               displayMusic();
+            }
+
+
+            // ========================================================
+            // NOW PLAYING
+            // ========================================================
+
+            if (data.nowPlaying) {
+
+               var item =
+                  data.nowPlaying;
+
+               var nowHtml =
+                  '<h3 class="colorchanger">' +
+                  'Now Playing' +
+                  '</h3>';
+
+               nowHtml +=
+                  '<div class="music-row">';
+
+               nowHtml +=
+                  '<img id="' +
+                  item.id +
+                  '" src="' +
+                  (item.image || '') +
+                  '">';
+
+               nowHtml +=
+                  '<div>' +
+                  '<a href="' +
+                  item.url +
+                  '" target="_blank">' +
+                  item.name +
+                  '</a> - ' +
+                  item.artist +
+                  '</div>';
+
+               nowHtml +=
+                  '</div>';
+
+
+               console.log(
+                  "Adding Now Playing widget:",
+                  item
+               );
+
+
+               $("#currently-playing").append(
+                  nowHtml
+               );
+
+               displayMusic();
+            }
+
+         })
+
+         .catch(function (err) {
+
+            console.error(
+               "Could not load music metadata file:",
+               err
+            );
+
+         });
+
+   });
+</script>
 
 
    </body>
