@@ -267,12 +267,14 @@
          
          <div class="lace-wrapper">
             <div class="box">
-               <div id="mbr" style="margin-top: 70px">
-                  
-                  <link rel="stylesheet" href="https://library-of-cornerstones.neocities.org/WIMSE/style.css">
-                  <script type="text/javascript" src="https://library-of-cornerstones.neocities.org/WIMSE/variables.js"></script>
-                  <script type="text/javascript" src="https://library-of-cornerstones.neocities.org/WIMSE/widget.js"></script>
-               </div>
+            <!-- The widget container starts hidden, then jQuery turns it on -->
+            <div id="music" style="display:none;">
+               <!-- Your script injects the 'Now Playing' layout right here -->
+               <div id="currently-playing"></div>
+            
+               <!-- Your script injects the weekly top track listings right here -->
+               <div id="listening-to"></div>
+            </div>
             </div>
          </div>
          
@@ -455,11 +457,7 @@ new graphics.
             </div>
          </div>
          
-         <div class="music" id="music" style="display:none;">
-            <p>test</p>
-            <div id="currently-playing"></div>
-            <div id="listening-to"></div>
-         </div>
+         
          
       </div>
       

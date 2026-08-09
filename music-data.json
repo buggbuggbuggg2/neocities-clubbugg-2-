@@ -1,0 +1,26 @@
+{
+  "topTracks": [
+    {
+      "id": "fb41299f-22e9-4758-8a0f-eedf52fa1b5b",
+      "name": "ROT FOR CLOUT",
+      "artist": "Jamie Paige",
+      "url": "https://www.last.fm/music/Jamie+Paige/_/ROT+FOR+CLOUT",
+      "image": "https://lastfm-img.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"
+    },
+    {
+      "id": "Abandon%20The%20Hospital",
+      "name": "Abandon The Hospital",
+      "artist": "Everybody's Worried About Owen",
+      "url": "https://www.last.fm/music/Everybody%27s+Worried+About+Owen/_/Abandon+The+Hospital",
+      "image": "https://lastfm-img.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"
+    },
+    {
+      "id": "Dance%2C%20Dance",
+      "name": "Dance, Dance",
+      "artist": "Fall Out Boy",
+      "url": "https://www.last.fm/music/Fall+Out+Boy/_/Dance,+Dance",
+      "image": "https://lastfm-img.freetls.fastly.net/i/u/64s/2a96cbd8b46e442fc41c2b86b821562f.png"
+    }
+  ],
+  "nowPlaying": null
+}
