@@ -5,8 +5,8 @@ on:
     branches:
       - main
   schedule:
-    - cron: '*/15 * * * *' # Automatically updates your music widget every 15 minutes!
-  workflow_dispatch: # Adds a button in GitHub to run this manually anytime
+    - cron: '*/15 * * * *' # update every 15 minutes
+  workflow_dispatch: # adds the button to github to run manually 
 
 concurrency:
   group: deploy-to-neocities
@@ -18,23 +18,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # 1. Install Node.js environment to run your script
+      # install node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      # 2. Run your script to generate the music-data.json file
+      # generate the music-data.json file
       - name: Fetch Last.fm Now Playing
         env:
           LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
-          LASTFM_USER: 'YOUR_LASTFM_USERNAME' # <-- Put your real Last.fm username here
+          LASTFM_USER: 'buggbuggbugg' 
         run: |
           npm init -y
           npm install node-fetch
           node update-widget.js
 
-      # 3. Your original Neocities step (Uploads everything, including the new music-data.json)
+      # neocities stuff. future bugg do not change. do not touch. do not do not do not. 
       - name: Deploy to neocities
         uses: bcomnes/deploy-to-neocities@v3
         with:
