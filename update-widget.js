@@ -15,19 +15,28 @@ async function lastfmRequest(method, params) {
   const url = "https://ws.audioscrobbler.com/2.0/?method=" + method + "&" + urlencode(params) + "&format=json";
   
   const response = await fetch(url);
-  if (!response.ok) throw new Error('Network response was not ok.');
+  if (!response.ok) throw new Error(`Network response was not ok. Status: ${response.status}`);
   return response.json();
+}
+
+// Safely loops through the image array to look for the medium/large image string
+function extractImage(imageArray) {
+  if (!imageArray || !Array.isArray(imageArray) || imageArray.length === 0) return "";
+  
+  // Prefer index 1 (medium) or 2 (large) if they exist
+  const targetImage = imageArray[1] || imageArray[0];
+  return targetImage ? targetImage["#text"] : "";
 }
 
 async function getImage(trackName, artistName) {
   try {
     const data = await lastfmRequest("track.getInfo", { autocorrect: 1, track: trackName, artist: artistName });
     if (data && data.track && data.track.album && data.track.album.image) {
-      return data.track.album.image["#text"] || "";
+      return extractImage(data.track.album.image);
     }
     return "";
   } catch(e) {
-    return ""; 
+    return "";
   }
 }
 
@@ -48,7 +57,7 @@ async function main() {
     if (topData && topData.toptracks && topData.toptracks.track) {
       const tracks = [].concat(topData.toptracks.track);
       for (let item of tracks) {
-        let img = (item.image && item.image[1]) ? item.image[1]["#text"] : "";
+        let img = extractImage(item.image);
         if (!img) {
           img = await getImage(item.name, item.artist.name);
         }
@@ -66,13 +75,10 @@ async function main() {
     const recentData = await lastfmRequest("user.getrecenttracks", { user: USERNAME, limit: 1 });
     if (recentData && recentData.recenttracks && recentData.recenttracks.track) {
       const tracks = [].concat(recentData.recenttracks.track);
-      
-      // FIX: Grab the FIRST object item out of the array layout tree safely!
       const item = tracks[0]; 
       
-      // FIX: Read the nowplaying property directly from that specific single track item object
       if (item && item["@attr"] && item["@attr"].nowplaying === "true") {
-        let img = (item.image && item.image[1]) ? item.image[1]["#text"] : "";
+        let img = extractImage(item.image);
         if (!img) {
           img = await getImage(item.name, item.artist["#text"]);
         }
@@ -86,12 +92,13 @@ async function main() {
       }
     }
 
-    // Write everything to a file that Neocities will upload
+    // Write clean data directly into root directory
     fs.writeFileSync('music-data.json', JSON.stringify(outputData, null, 2));
     console.log("successfully made music-data.json");
 
   } catch (error) {
     console.error("error generating music assets:", error);
+    // Writes safety layout framework file so browser code doesn't explode 404
     fs.writeFileSync('music-data.json', JSON.stringify({ topTracks: [], nowPlaying: null }, null, 2));
   }
 }
