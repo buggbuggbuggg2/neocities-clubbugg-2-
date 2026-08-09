@@ -37,6 +37,11 @@ async function lastfmRequest(method, params = {}) {
   return data;
 }
 
+
+// ============================================================
+// IMAGE HANDLING
+// ============================================================
+
 function extractImage(imageArray) {
   if (
     !imageArray ||
@@ -46,13 +51,29 @@ function extractImage(imageArray) {
     return '';
   }
 
-  const targetImage =
-    imageArray[2] ||
-    imageArray[1] ||
-    imageArray[0];
+  // Last.fm's generic "no artwork" placeholder.
+  const LASTFM_PLACEHOLDER =
+    '2a96cbd8b46e442fc41c2b86b821562f.png';
 
-  return targetImage ? targetImage['#text'] : '';
+  // Look through all returned image sizes.
+  // Ignore Last.fm's generic placeholder.
+  for (const image of imageArray) {
+    if (!image || !image['#text']) {
+      continue;
+    }
+
+    const url = image['#text'];
+
+    if (url.includes(LASTFM_PLACEHOLDER)) {
+      continue;
+    }
+
+    return url;
+  }
+
+  return '';
 }
+
 
 async function getImage(trackName, artistName) {
   try {
@@ -82,40 +103,58 @@ async function getImage(trackName, artistName) {
   }
 }
 
+
+// ============================================================
+// MAIN
+// ============================================================
+
 async function main() {
+
   if (!API_KEY || !USERNAME) {
     console.error(
       'Missing LASTFM_API_KEY or LASTFM_USER environment variables!'
     );
+
     process.exit(1);
   }
 
   try {
+
     const outputData = {
       topTracks: [],
       nowPlaying: null
     };
 
-    // ============================================================
-    // 1. FETCH WEEKLY TOP TRACKS
-    // ============================================================
 
-    const topData = await lastfmRequest('user.gettoptracks', {
-      user: USERNAME,
-      limit: '3',
-      period: '7day'
-    });
+    // ========================================================
+    // 1. FETCH WEEKLY TOP TRACKS
+    // ========================================================
+
+    const topData = await lastfmRequest(
+      'user.gettoptracks',
+      {
+        user: USERNAME,
+        limit: '3',
+        period: '7day'
+      }
+    );
 
     if (
       topData &&
       topData.toptracks &&
       topData.toptracks.track
     ) {
-      const tracks = [].concat(topData.toptracks.track);
+
+      const tracks =
+        [].concat(topData.toptracks.track);
 
       for (const item of tracks) {
-        let img = extractImage(item.image);
 
+        let img =
+          extractImage(item.image);
+
+        // If Last.fm gave us its placeholder
+        // or no image at all, try track.getInfo.
         if (!img) {
           img = await getImage(
             item.name,
@@ -124,109 +163,147 @@ async function main() {
         }
 
         outputData.topTracks.push({
+
           id:
             item.mbid ||
             encodeURIComponent(item.name),
 
-          name: item.name,
+          name:
+            item.name,
 
-          artist: item.artist.name,
+          artist:
+            item.artist.name,
 
-          url: item.url,
+          url:
+            item.url,
 
-          image: img
+          image:
+            img
         });
       }
     }
 
-    // ============================================================
-    // 2. FETCH RECENT TRACKS / NOW PLAYING
-    // ============================================================
 
-    const recentData = await lastfmRequest(
-      'user.getrecenttracks',
-      {
-        user: USERNAME,
-        limit: '1'
-      }
-    );
+    // ========================================================
+    // 2. FETCH RECENT TRACKS / NOW PLAYING
+    // ========================================================
+
+    const recentData =
+      await lastfmRequest(
+        'user.getrecenttracks',
+        {
+          user: USERNAME,
+          limit: '1'
+        }
+      );
 
     if (
       recentData &&
       recentData.recenttracks &&
       recentData.recenttracks.track
     ) {
-      const tracks = [].concat(
-        recentData.recenttracks.track
-      );
 
-      const item = tracks[0];
+      const tracks =
+        [].concat(
+          recentData.recenttracks.track
+        );
 
+      const item =
+        tracks[0];
+
+
+      // Check whether Last.fm says
+      // this track is currently playing.
       if (
         item &&
         item['@attr'] &&
         item['@attr'].nowplaying === 'true'
       ) {
-        let img = extractImage(item.image);
 
-        const artistName = item.artist
-          ? (
-              item.artist['#text'] ||
-              item.artist.name ||
-              ''
-            )
-          : '';
+        let img =
+          extractImage(item.image);
 
+
+        const artistName =
+          item.artist
+            ? (
+                item.artist['#text'] ||
+                item.artist.name ||
+                ''
+              )
+            : '';
+
+
+        // If the recent-track image is
+        // Last.fm's placeholder, ask track.getInfo.
         if (!img) {
+
           img = await getImage(
             item.name,
             artistName
           );
         }
 
+
         outputData.nowPlaying = {
+
           id:
             item.mbid ||
             encodeURIComponent(item.name),
 
-          name: item.name,
+          name:
+            item.name,
 
           artist:
-            artistName || 'Unknown Artist',
+            artistName ||
+            'Unknown Artist',
 
           url:
-            item.url || '#',
+            item.url ||
+            '#',
 
-          image: img
+          image:
+            img
         };
+
 
         console.log(
           `NOW PLAYING DETECTED: ${artistName} - ${item.name}`
         );
+
       } else {
+
         console.log(
           'Last.fm returned recent tracks, but nothing is currently playing.'
         );
       }
     }
 
-    // ============================================================
-    // 3. WRITE JSON FILE
-    // ============================================================
+
+    // ========================================================
+    // 3. WRITE MUSIC-DATA.JSON
+    // ========================================================
 
     fs.writeFileSync(
       'music-data.json',
-      JSON.stringify(outputData, null, 2)
+      JSON.stringify(
+        outputData,
+        null,
+        2
+      )
     );
+
 
     console.log(
       'SUCCESS: Created music-data.json asset output file!'
     );
 
+
     console.log(
       'Now Playing:',
       outputData.nowPlaying
     );
+
 
     console.log(
       'Top Tracks:',
@@ -234,12 +311,15 @@ async function main() {
     );
 
   } catch (error) {
+
     console.error(
       'CRITICAL CONSOLE RUNTIME ERROR:',
       error
     );
 
-    // Safe fallback so the website still gets valid JSON.
+
+    // Safe fallback so the website
+    // always has valid JSON.
     fs.writeFileSync(
       'music-data.json',
       JSON.stringify(
@@ -252,8 +332,10 @@ async function main() {
       )
     );
 
+
     process.exit(1);
   }
 }
+
 
 main();
