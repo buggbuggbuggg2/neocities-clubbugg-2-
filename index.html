@@ -456,6 +456,7 @@ new graphics.
          </div>
          
          <div class="music" id="music" style="display:none;">
+            <p>test</p>
             <div id="currently-playing"></div>
             <div id="listening-to"></div>
          </div>
@@ -536,7 +537,7 @@ new graphics.
                }
 
                // Fetch the local JSON file created by your GitHub Actions workflow
-               fetch('/music-data.json')
+               fetch(`/music-data.json?v=${new Date().getTime()}`)
                   .then(response => response.json())
                   .then(data => {
 
