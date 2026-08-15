@@ -41,8 +41,7 @@ async function lastfmRequest(method, params = {}) {
 // ============================================================
 // IMAGE HANDLING
 // ============================================================
-/*
-note: i nuked the image handling on purpose and may or may not fix it later 
+
 
 function extractImage(imageArray) {
   if (
@@ -104,7 +103,7 @@ async function getImage(trackName, artistName) {
     return '';
   }
 }
-*/
+
 
 // ============================================================
 // MAIN
