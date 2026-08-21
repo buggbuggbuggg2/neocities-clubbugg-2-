@@ -2,95 +2,140 @@ html {
     background-image: url('indexfold/indexbg.jpg');
 }
 
+* {
+    box-sizing: border-box;
+}
+
+
+.bitcount-<uniquifier> {
+  font-family: "Bitcount", system-ui;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "CRSV" 0.5,
+    "ELSH" 0,
+    "ELXP" 0;
+}
+
+
+.handjet-<uniquifier> {
+  font-family: "Handjet", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "ELGR" 1,
+    "ELSH" 2;
+}
+
+.parent > * {
+    border-radius: 42px;
+    overflow: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.parent h1,
+.parent h2,
+.parent h3,
+.parent p,
+.parent ul,
+.parent li,
+.parent a {
+    margin: 0;
+}
+
+.parent * {
+    max-width: 100%;
+}
 .parent {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr);
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: repeat(12, minmax(0, 1fr));
     gap: 8px;
     background: #c62323;
     height: 60vh;
-    width: 60vw;
-    margin: 5vh;
-    margin-left: 6vh;
-    margin-right: 6vh;
-    border-radius: 42px;
+    width: min(60vw, 1200px);
+    margin: 5vh auto;
     padding: 1vw;
-    overflow: none;
-    
-}
-    
-.div1 {
-    grid-column: span 12 / span 12;
-    background: #ffffff;
     border-radius: 42px;
+    box-sizing: border-box;
+}
+
+.parent > * {
+    border-radius: 42px;
+    min-height: 0;
+    box-sizing: border-box;
+    gap: 7vh;
+}
+
+header {
+    grid-column: 1 / -1;
+    grid-row: 1 / span 2;
+    background: #626D29;
     padding: 5%;
-    height: 21vh ;
-    width: inherit;
+    font-family: "Bitcount", auto;
+    
 }
 
 .div2 {
-    grid-column: span 3 / span 3;
-    grid-row: span 7 / span 7;
-    grid-row-start: 2;
-    background: #ffffff;
-    border-radius: 42px;
+    grid-column: 1 / span 3;
+    grid-row: 3 / span 7;
+    background: #c9be5d;
     padding: 5%;
+    font-family: "Handjet", auto;
 }
 
 .div3 {
-    grid-column: span 3 / span 3;
-    grid-row: span 4 / span 4;
-    grid-column-start: 1;
-    grid-row-start: 9;
+    grid-column: 1 / span 3;
+    grid-row: 10 / span 3;
     background: #F25C19;
-    border-radius: 42px;
+    font-family: "Handjet", auto;
 }
 
 .div4 {
-    grid-column: span 9 / span 9;
-    grid-row: span 5 / span 5;
-    grid-column-start: 4;
-    grid-row-start: 3;
+    grid-column: 4 / span 9;
+    grid-row: 3 / span 5;
     background: #F25C19;
-    border-radius: 42px;
+    font-family: "Handjet", auto;
 }
 
 .div5 {
-    grid-column: span 5 / span 5;
-    grid-row: span 5 / span 5;
-    grid-column-start: 4;
-    grid-row-start: 8;
+    grid-column: 4 / span 5;
+    grid-row: 8 / span 5;
     background: #F25C19;
-    border-radius: 42px;
+    font-family: "Handjet", auto;
 }
 
 .div6 {
-    grid-column: span 4 / span 4;
-    grid-row: span 4 / span 4;
-    grid-column-start: 9;
-    grid-row-start: 8;
+    grid-column: 9 / span 4;
+    grid-row: 8 / span 4;
     background: #F25C19;
-    border-radius: 42px;
+    font-family: "Handjet", auto;
 }
 
 .div7 {
-    grid-column: span 4 / span 4;
-    grid-column-start: 9;
-    grid-row-start: 12;
+    grid-column: 9 / span 4;
+    grid-row: 12 / span 1;
     background: #F25C19;
-    border-radius: 42px;
+    font-family: "Handjet", auto;
 }
 
 .buttonlink {
     background: #E4D769;
     border-radius: 42px;
     text-align: center;
-    
+    font-family: "Handjet", auto;
 }
 
 a {
     text-decoration: none;
-    color:black;
+    color: black;
+    font-family: "Handjet", auto;
 }
 
 a:hover {
