@@ -1,0 +1,98 @@
+html {
+    background-image: url('indexfold/indexbg.jpg');
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    gap: 8px;
+    background: #c62323;
+    height: 60vh;
+    width: 60vw;
+    margin: 5vh;
+    margin-left: 6vh;
+    margin-right: 6vh;
+    border-radius: 42px;
+    padding: 1vw;
+    overflow: none;
+    
+}
+    
+.div1 {
+    grid-column: span 12 / span 12;
+    background: #ffffff;
+    border-radius: 42px;
+    padding: 5%;
+    height: 21vh ;
+    width: inherit;
+}
+
+.div2 {
+    grid-column: span 3 / span 3;
+    grid-row: span 7 / span 7;
+    grid-row-start: 2;
+    background: #ffffff;
+    border-radius: 42px;
+    padding: 5%;
+}
+
+.div3 {
+    grid-column: span 3 / span 3;
+    grid-row: span 4 / span 4;
+    grid-column-start: 1;
+    grid-row-start: 9;
+    background: #F25C19;
+    border-radius: 42px;
+}
+
+.div4 {
+    grid-column: span 9 / span 9;
+    grid-row: span 5 / span 5;
+    grid-column-start: 4;
+    grid-row-start: 3;
+    background: #F25C19;
+    border-radius: 42px;
+}
+
+.div5 {
+    grid-column: span 5 / span 5;
+    grid-row: span 5 / span 5;
+    grid-column-start: 4;
+    grid-row-start: 8;
+    background: #F25C19;
+    border-radius: 42px;
+}
+
+.div6 {
+    grid-column: span 4 / span 4;
+    grid-row: span 4 / span 4;
+    grid-column-start: 9;
+    grid-row-start: 8;
+    background: #F25C19;
+    border-radius: 42px;
+}
+
+.div7 {
+    grid-column: span 4 / span 4;
+    grid-column-start: 9;
+    grid-row-start: 12;
+    background: #F25C19;
+    border-radius: 42px;
+}
+
+.buttonlink {
+    background: #E4D769;
+    border-radius: 42px;
+    text-align: center;
+    
+}
+
+a {
+    text-decoration: none;
+    color:black;
+}
+
+a:hover {
+    color: #626D29;
+}
