@@ -4,8 +4,13 @@ html {
 
 * {
     box-sizing: border-box;
+    line-height: 1.25;
 }
 
+p, h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
 
 .bitcount-<uniquifier> {
   font-family: "Bitcount", system-ui;
@@ -36,7 +41,7 @@ html {
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 5vh;
+    
 }
 
 .parent h1,
@@ -47,6 +52,7 @@ html {
 .parent li,
 .parent a {
     margin: 0;
+    line-height:1.2;
 }
 
 .parent * {
@@ -140,4 +146,22 @@ a {
 
 a:hover {
     color: #626D29;
+}
+
+.sticker-container {
+    position: relative
+    
+}
+
+.sticker1 {
+height:
+position: absolute;
+top: 10%;
+left: 10%; 
+}
+
+.sticker2 {
+position: absolute;
+top: ;
+left: ; 
 }
