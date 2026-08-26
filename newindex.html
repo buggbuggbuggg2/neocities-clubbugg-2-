@@ -28,42 +28,86 @@
 
 
     <div class="div2">
+      <!--neocities acc-->
       <div class="buttonlink">
         <a href ="https://neocities.org/site/clubbugg#">neocities acc</a>
       </div>
-
+      <!--link-->
       <div class="buttonlink">
-        <a href="https://neocities.org/site/clubbugg#">neocities acc</a>
+        <a href="https://clubbugg.neocities.org/secondpage">blog/lounge</a>
+      </div>
+      <!--link-->
+      <div class="buttonlink">
+        <a href="https://clubbugg.neocities.org/page3">button wall</a>
+      </div>
+      <!--link-->
+      <div class="buttonlink">
+        <a href="https://clubbugg.neocities.org/aboutme">abt me</a>
+      </div>
+      <!--link-->
+      <div class="buttonlink">
+        <a href="https://clubbugg.neocities.org/dressup">dress up</a>
+      </div>
+      <!--link-->
+      <div class="buttonlink">
+        <a href="https://clubbugg.neocities.org/alien">oc page</a>
       </div>
 
       <div class="buttonlink">
-        <a href="https://neocities.org/site/clubbugg#">neocities acc</a>
+        <a href="https://clubbugg.neocities.org/fish">is it a fish?</a>
       </div>
+
       <div class="buttonlink">
-        <a href="https://neocities.org/site/clubbugg#">neocities acc</a>
+        <a href="https://clubbugg.neocities.org/fortunecookie">fortune cookie</a>
       </div>
+
       <div class="buttonlink">
-        <a href="https://neocities.org/site/clubbugg#">neocities acc</a>
+        <a href="https://clubbugg.neocities.org/fortunecookie">fortune cookie</a>
       </div>
+
       <div class="buttonlink">
-        <a href="https://neocities.org/site/clubbugg#">neocities acc</a>
+        <a href="https://clubbugg.neocities.org/fortunecookie">fortune cookie</a>
       </div>
+
+      <div class="buttonlink">
+        <a href="https://clubbugg.neocities.org/fortunecookie">fortune cookie</a>
+      </div>
+
+      <div class="buttonlink">
+        <a href="https://clubbugg.neocities.org/fortunecookie">fortune cookie</a>
+      </div>
+
+      
     </div>
 
-    <div class="div3">3</div>
+    
+
+    <div class="div3">
+      <img src="button.gif" style="height: 70% width: auto"">
+      <textarea style="width: calc(100% - 8px);"
+        readonly="">&lt;a href="https://clubbugg.neocities.org/"&gt;&lt;img src="https://clubbugg.neocities.org/button.gif"&gt;&lt;/a&gt;</textarea>
+      <p>link to me! lmk if you linked to me and ill link you back unless you're evil...</p>
+    </div>
     <div class="div4">4</div>
     <div class="div5">
       <p>
-        <strong>follow @snugbugg82 on insta</strong>
+        <h2>follow @snugbugg82 on insta</h2>
         <br>
-        <a href="https://www.youtube.com/@Skaterboy_Owen">also, subscribe to my friend's yt channel</a> <br>
+        <a href="https://www.youtube.com/@Skaterboy_Owen">also, subscribe to my friend's yt channel ! </a> <br>
         one of my close friends posts skating videos n stuff here. i help out w the art and occasionally some recording so it
         would mean a lot if you showed some support to the channel :D
         <br>
         also, <a href="https://discord.gg/3SRCg6nRv">join our discord server!</a>
       </p>
     </div>
-    <div class="div6">6</div>
+
+
+    <div class="div6">
+      <div id="music" style="display: block !important; visibility: visible !important; min-height: 100px; width: 100%;">
+        <div id="currently-playing"></div>
+        <div id="listening-to"></div>
+      </div>
+    </div>
     <div class="div7">7</div>
 </div>
 
@@ -77,5 +121,157 @@
 
     </main>
 
+    <script>
+        // ============================================================
+          // MUSIC WIDGET
+          // ============================================================
+
+          $(document).ready(function () {
+
+            function displayMusic() {
+              $("#music").show();
+            }
+
+
+            fetch(
+              "/music-data.json?v=" +
+              new Date().getTime()
+            )
+
+              .then(function (response) {
+
+                if (!response.ok) {
+                  throw new Error(
+                    "Could not load music-data.json: " +
+                    response.status
+                  );
+                }
+
+                return response.json();
+              })
+
+              .then(function (data) {
+
+                console.log(
+                  "Music data loaded:",
+                  data
+                );
+
+
+                // ========================================================
+                // TOP TRACKS
+                // ========================================================
+
+                if (
+                  data.topTracks &&
+                  data.topTracks.length > 0
+                ) {
+
+                  var topHtml =
+                    '<h3 class="colorchanger">' +
+                    'top songs this week' +
+                    '</h3>';
+
+                  $.each(
+                    data.topTracks,
+                    function (i, item) {
+
+                      topHtml +=
+                        '<div class="music-row">';
+
+                      topHtml +=
+                        '<img id="' +
+                        item.id +
+                        '" src="' +
+                        (item.image || '') +
+                        '">';
+
+                      topHtml +=
+                        '<div>' +
+                        '<a href="' +
+                        item.url +
+                        '" target="_blank">' +
+                        item.name +
+                        '</a> - ' +
+                        item.artist +
+                        '</div>';
+
+                      topHtml +=
+                        '</div>';
+                    }
+                  );
+
+                  $("#listening-to").append(
+                    topHtml
+                  );
+
+                  displayMusic();
+                }
+
+
+                // ========================================================
+                // NOW PLAYING
+                // ========================================================
+
+                if (data.nowPlaying) {
+
+                  var item =
+                    data.nowPlaying;
+
+                  var nowHtml =
+                    '<h3 class="colorchanger">' +
+                    'last played :3' +
+                    '</h3>';
+
+                  nowHtml +=
+                    '<div class="music-row">';
+
+                  nowHtml +=
+                    '<img id="' +
+                    item.id +
+                    '" src="' +
+                    (item.image || '') +
+                    '">';
+
+                  nowHtml +=
+                    '<div>' +
+                    '<a href="' +
+                    item.url +
+                    '" target="_blank">' +
+                    item.name +
+                    '</a> - ' +
+                    item.artist +
+                    '</div>';
+
+                  nowHtml +=
+                    '</div>';
+
+
+                  console.log(
+                    "Adding Now Playing widget:",
+                    item
+                  );
+
+
+                  $("#currently-playing").append(
+                    nowHtml
+                  );
+
+                  displayMusic();
+                }
+
+              })
+
+              .catch(function (err) {
+
+                console.error(
+                  "Could not load music metadata file:",
+                  err
+                );
+
+              });
+
+          });
+    </script>
 </body>
 </html>

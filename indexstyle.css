@@ -13,6 +13,9 @@ p, h1, h2, h3 {
   padding: 0;
 }
 
+h1 {
+    color: #E4D769;
+}
 .bitcount-<uniquifier> {
   font-family: "Bitcount", system-ui;
   font-optical-sizing: auto;
@@ -63,11 +66,12 @@ p, h1, h2, h3 {
 .parent {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
-    grid-template-rows: repeat(12, minmax(0, 1fr));
+    grid-template-rows: auto;
+    grid-auto-rows: minmax(80px, auto);
     gap: 8px;
     background: #c62323;
-    height: 60vh;
     width: min(60vw, 1200px);
+    height: auto;
     margin: 5vh auto;
     padding: 1vw;
     border-radius: 42px;
@@ -78,7 +82,8 @@ p, h1, h2, h3 {
     border-radius: 42px;
     min-height: 0;
     box-sizing: border-box;
-    gap: 7vh;
+    gap: 0.75rem;
+    overflow: visible;
 }
 
 header {
@@ -94,15 +99,24 @@ header {
     grid-column: 1 / span 3;
     grid-row: 3 / span 7;
     background: #c9be5d;
-    padding: 5%;
+    padding: 7%;
     font-family: "Handjet", auto;
+    gap: 3%;
+    
 }
 
 .div3 {
     grid-column: 1 / span 3;
     grid-row: 10 / span 3;
+    min-height: 20vh;
     background: #F25C19;
     font-family: "Handjet", auto;
+    font-size: 0.2em;
+}
+
+.div3 img {
+    height: 33px;
+    width: 82px;
 }
 
 .div4 {
@@ -117,6 +131,14 @@ header {
     grid-row: 8 / span 5;
     background: #F25C19;
     font-family: "Handjet", auto;
+}
+
+.div5 a{
+ font-size: x-large;
+}
+
+.div5 {
+    font-size: larger;
 }
 
 .div6 {
@@ -135,7 +157,7 @@ header {
 
 .buttonlink {
     background: #E4D769;
-    border-radius: 42px;
+    border-radius: 40px;
     text-align: center;
     font-family: "Handjet", auto;
     gap: 0vh;
