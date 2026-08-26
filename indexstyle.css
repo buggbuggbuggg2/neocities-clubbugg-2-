@@ -1,5 +1,6 @@
 html {
     background-image: url('indexfold/indexbg.jpg');
+    margin-top: 10vh
 }
 
 * {
@@ -47,12 +48,13 @@ p, h1, h2, h3 {
 .parent h1,
 .parent h2,
 .parent h3,
+.parent h4,
 .parent p,
 .parent ul,
 .parent li,
 .parent a {
     margin: 0;
-    line-height:1.2;
+    line-height:1.2; !important
 }
 
 .parent * {
@@ -136,32 +138,36 @@ header {
     border-radius: 42px;
     text-align: center;
     font-family: "Handjet", auto;
+    gap: 0vh;
+    margin:0%;
 }
 
 a {
-    text-decoration: none;
-    color: black;
+    text-decoration: underline wavy #626D29 1px;
+    color: #48501e;
     font-family: "Handjet", auto;
 }
 
 a:hover {
     color: #626D29;
 }
-
+/*
 .sticker-container {
     position: relative
-    
 }
+    */
 
 .sticker1 {
-height:
+height: 25vh;
 position: absolute;
-top: 10%;
-left: 10%; 
+top: 9%;
+left: 58%; 
 }
 
 .sticker2 {
 position: absolute;
-top: ;
-left: ; 
+height: 40vh;
+top: 50%;
+left: 12%; 
+rotate: -15deg;
 }
