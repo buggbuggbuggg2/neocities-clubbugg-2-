@@ -1,0 +1,124 @@
+        update log: 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+8/18/26- 1.5.11 widgets, 
+widgets, widgets! added a now playing, a 
+status bar, a reaction option for the blog.
+maybe more stuff later! idk. might also link 
+ my github but i always forget!!!
+
+6/4/26- 1.4.11 beta version
+of 'is it a fish' is up and linked! it
+determines if the inputted animal can
+be considered a fish or not and how many
+nodes from euteleostomi it is. the database
+is hand written by me in json. the script isnt
+too complicated but im pretty proud of 
+it! the node counting isnt accurate but thats bc
+of the limited amount of animals in the database ):
+its ok bc i will work to expand it in the next 
+few years probs.
+
+5/29/26- 1.3.11 and 
+dress up has more assets! blog is cute!
+joining my first webring! the europeans 
+r loving my site! new idea coming up...
+stay tuned beautiful babies mwah.... 
+
+5/8/26- 1.3.10 dress up
+posted with very few assests... yeah about that..
+im lazy srry! anyways ive also relinked the poem
+library and the alien page, added a flag counter to 
+log the countries of my site viewers_visitors, 
+more blinkies, and finished my one project, 
+so as soon as its graded i'll fix links!
+also im now using github and vs code to now 
+things should move cleaner and faster, and my
+workspace is cute and pink!!! yayy!
+(≽^•˕•^≼)
+
+
+4/28/261.2.10 blog page 
+redesigned. crt filter scrapped. 
+it made the page too dark and started
+to hurt my head. still drawing the 
+assets for dress up.
+   
+   
+4/20/26-1.2.9 dress up 
+mockup version complete, not posted.
+im in the process of illustrating 
+the assets. aquarium project still 
+nuked because the html canvas api 
+hates me. tic tac toe completed. 
+links will maybe hopefully fixed 
+by next week??? suffering through 
+the horrors of javascript. thank you
+for your attention to this matter. 
+   
+   
+3/27/26-1.2.8 tic tac toe
+added! blog icons updated, old entries 
+archived. aquarium nuked for now. 
+poem page reformatted, links broken for
+now, will be fixed in the next update. 
+learned the hard way neocities hates 
+backend. therefore i cannot execute my 
+idea of weekly polls. views are up,
+will to live is down. thank you for
+your attention to this matter. 
+   
+3/3/26-1.1.8 aquarium script in
+progress. poems are now collapsible.
+   
+3/2/26-1.1.7poem library has
+been linked. shrine as well. 
+   
+2/27/26-1.1.6 crt brightness changed on
+blog page, blog entries archived.
+logo updated, reformatted 
+all the source code for
+my sanity. next update will
+include new fortunes, maybe 
+implement some javascript 
+in the near future. poems
+library still WIP. css errors
+are being fixed, but they often
+break my site, so expect 
+some ugliness from time to time.
+   
+2/22/26- 1.1.5 i forgot to post update
+log for a while, sorry. 
+blog page redesigned, 
+bugg's corner has minor
+graphics updates. current
+poem library in the works. 
+text size increased 
+on blog page for 
+accessibility.
+   
+2/10/26- 1.0.5~ decorated about
+me page, fixed links, 
+updated favicons, added
+book marquee, added 
+text content, added graphics, 
+changed link hover state,
+on the hunt for more
+custom cursors.
+   
+ 2/9/26- 1.0.2~ added
+and updated the favicon.
+tweaking being done
+to unlinked bio.
+
+2/7/26- 1.0.1~ reformatted
+the update log. replaced center 
+box on homepage with
+new graphics. 
+ 
+ 2/6/25- 1.0.0~ decorated fortune
+ cookie page with dangles, 
+ reduced box liner
+ around cookie as well. 
+ preformatted the ascii cat.
+ styled the mark tag, made an 
+ update log. 
