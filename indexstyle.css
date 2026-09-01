@@ -1,11 +1,12 @@
 html {
     background-image: url('indexfold/indexbg.jpg');
-    margin-top: 10vh
+    margin-top: 10vh;
 }
 
 * {
     box-sizing: border-box;
     line-height: 1.25;
+    cursor: url("indexfold/indcurs.png"), auto;
 }
 
 p, h1, h2, h3 {
@@ -111,7 +112,7 @@ header {
     min-height: 20vh;
     background: #F25C19;
     font-family: "Handjet", auto;
-    font-size: 0.2em;
+    
 }
 
 .div3 img {
@@ -184,6 +185,17 @@ height: 25vh;
 position: absolute;
 top: 13%;
 left: 58%; 
+transition: transform .7s ease-in-out;
+}
+
+.sticker1:hover {
+    transform: rotate(3deg);
+    filter: drop-shadow(5px 5px 10px #fff6bd);
+}
+
+.sticker2:hover {
+    transform: rotate(3deg);
+    filter: drop-shadow(5px 5px 10px #fff6bd);
 }
 
 .sticker2 {
@@ -192,6 +204,7 @@ height: 40vh;
 top: 50%;
 left: 12%; 
 rotate: -15deg;
+transition: transform .7s ease-in-out;
 }
 
 /*
@@ -218,4 +231,29 @@ rotate: -15deg;
   border-color: transparent;
   image-rendering: pixelated;
   border-image-source: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAABoCAMAAABvw+gRAAAALVBMVEUAAADu7u6qqqqZmZmIiIh3d3e7u7vMzMz////d3d1mZmZVVVX+/v7v7+/w8PCGxkBUAAAAAXRSTlMAQObYZgAAA+lJREFUeNqNWAmC2zAINKeM4u3/n9tYK2yTcdzSY3UwGhAINlkuQiyibzE1MxbTfcbMsq/zAmLmjda30HqVoKAIFzWVqq9TowAo50TRxPQK8PVB6JfN9YT0+KJaOZtqYQAXQMjzArRq01coif1SXJZAtW6RciLy5EqFh/ySyPosiTwQ1nLtmxN0DmIgwCS6mJIbubUHnv/LqASdiHLoQ2j6noGw+yTTj3koM2fiIQsiVjJ+i9Izx8gsN7N4o0c4Wf9l1RSLHTDwbRhU4k3HSuiCorfBe0A8Jw1JvnF1nwD3p3dC+qtvlOOS+/gGaGhxXOGvuCsOlOPGuxmHV8YqVFyGSEZBpM5TbpFC7n59IoTZTnAyJvVAmJSTKgBhmlcF5xXi6oecm43biiyfVvWW88ZhIQ6xq9y6+GG/Wx8t4VAgoBgczq4iKpwFUqAjlPvF3DXHayB8UdaXpc/G0KoSlUlyWHPhNq3iewfynwyCNobTKH+qqUPNKCij+VgYqFSfMWUT8+IrkBHtCIYw05xuP7f1yhyOTNn+lMeViO6g/pCP80XNtTQuviETIQ/PCEOSHA9JXnED0dNMINmgWtCMR3I24ZbocVVo5ERMCDfrTaFElVnIbpVTRKwrL8NEPVQ2uOGs1Natt2h9pmIrRmHnBOHTig0K3PTDupkdWB70J0ktPiOvwj1iGIUtKmnoEvPe5jzc8p0frg8a+shdaxkC526unIdu23Qd8or5mDX104afP9tHRIhmtjdaUQhvl2o3oMsrqBGkGnmdl0PQyE4OrHD81MaAZlpFX5Q2RPF8g8X+vF3wPa16HYRdXz5hebvFtUTQK46sZLG1eF6Js7bzi47GwOyQVal/7R+NTTJ15fJsf2oVzW5QxbnWROiDz4ihXSMryyLcTbuqTYSu9UVVGuKzIgY7eA427Rx89nNpHsqoRReK0aPOnTem1tMNKIiXQYL0xRGqiEVLJa4UKJmJqV9GQEHDj9o/qOps0KUGggnduO2cNN+5ciqTd/7wfINy/UZ4m83Yhd27zJ2E/FTmgciayCNJMuYglAiPufDaEdDkAKULv4K5RfMJWASqCtSShaf2RBR9EDs12fGzAXKQ5jOSFlK/PrgH0tBqHDQyFykQxTsgScO1e5RESlvq5ygG5hsfKBECjQ9Ldpk3KRyghGvB+XsJnI7jk6Ond9ipsOa77xztyaRKHeJLeYQAADfU74IWqUD0eUgbiOkI3Z9dQOQzrfReAx0Jc/gu6vkLE1b4NgqOLUuhgp9s8NGdnE1tOaXrqRr3WFZdipixRwRFEBGtFOuYrWPWWNh0ARFRURFR3Uc2f8r47yD4C5YqfMcto41mAAAAAElFTkSuQmCC");
+}
+
+.apple {
+    height: 25vh;
+    width: auto;
+}
+
+
+
+h3 {
+    font-size: 2em;
+}
+.bunny {
+    height: 25vh;
+    width: auto;
+}
+
+.bunny:hover {
+    filter: drop-shadow(5px 5px 10px #fff6bd);
+}
+
+.ico {
+    display: inline;
+    height: 4vh;
+    width: 4vh;
 }
