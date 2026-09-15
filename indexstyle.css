@@ -257,3 +257,10 @@ h3 {
     height: 4vh;
     width: 4vh;
 }
+#myDIV {
+  height:auto;
+  background-color:transparent;
+  border: 15px solid transparent;
+  padding: 15px;
+  border-image: url(indexfold/lace.png) 30% stretch;
+}
